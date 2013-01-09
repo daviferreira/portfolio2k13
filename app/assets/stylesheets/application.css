@@ -9,10 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require base
- *= require 720_grid
- *= require 986_grid
- *= require 1236_grid
  *= require portfolio
  *= require pages
  */
