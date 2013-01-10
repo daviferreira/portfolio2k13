@@ -1,4 +1,5 @@
 @import "variables";
+@import "compass/css3";
 
 .slides {
   height: 300px;
@@ -6,10 +7,43 @@
 }
 
 .highlights {
-  margin: 50px 0 0;
+  margin: 30px 0 50px 0;
   article {
     padding: 30px;
     background-color: #fafafa;
     border-top: 3px solid $bg_color;
+  }
+  h4 {
+    margin: 0 0 15px 0;
+    color: $link_color;
+    font-size: 24px;
+    line-height: 26px;
+    letter-spacing: -1px;
+  }
+  a:hover {
+    h4 {
+      color: $hover_color;
+    }
+  }
+}
+
+.secondary-content {
+  padding: 30px 0;
+  background-color: #fbfbfb;
+  nav {
+    float: right;
+  }
+  h1 {
+    padding: 0 0 15px 0;
+    font-size: 28px;
+    line-height: 26px;
+    border-bottom: 1px solid #ccc;
+    span {
+      display: block;
+      float: left;
+      margin: 2px 6px 0 0;
+      font-size: 36px;
+      color: $link_color;
+    }
   }
 }

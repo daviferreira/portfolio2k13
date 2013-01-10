@@ -24,8 +24,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	color: #444;
-	font-family: Georgia, serif;
 	line-height: 1.5em;
 }
 ol, ul {
@@ -56,12 +54,6 @@ p {
 	margin: 0 0 0.5em;
 	max-width: 634px;
 }
-h1, h2, h3, h4, h5, h6 {
-	font-family: sommet-slab-1, sommet-slab-2, Georgia, serif;
-	font-weight: normal;
-	line-height: 1.2em;
-	padding: 0.5em 0 0.25em;
-}
 
 h1 {
 	font-size: 3em;
@@ -84,54 +76,11 @@ h5, h6 {
 }
 
 a, a:link, a:visited {
-	color: #11bad3;
 	text-decoration: none;
-	border-bottom: 1px solid #11bad3;
-}
-
-a:hover, a:active {
-	background: #00a9c2;
-	border-color: #00a9c2;
-	color: #fff;
 }
 
 img {
 	max-width: 100%;
-}
-
-hr {
-	border: none;
-	background: url(../images/bg_hr.png) center center no-repeat;
-	height: 10px;
-}
-
-#logo {
-	padding-bottom: 0;
-}
-
-.logo {
-	color: #11bad3;
-	font-family: sommet-slab-1, sommet-slab-2, Georgia, serif;
-	font-weight: normal;
-	font-size: 1.2em;
-}
-.logo b {
-	font-weight: bold;
-}
-
-.banner-wrap {
-	text-align: center;
-	background: #ffc;
-	border-bottom: 1px solid #ccc;
-	padding: 0 10px 1em;
-	margin-bottom: 1em;
-}
-
-.intro {
-	font-size: 1.75em;
-	font-family: sommet-slab-1, sommet-slab-2, Georgia, serif;
-	line-height: 1.1em;
-	max-width: none;
 }
 
 .grid {
@@ -140,67 +89,4 @@ hr {
 
 .row {
 	margin-bottom: 1em;
-}
-
-.feature h2 {
-	font-weight: bold;
-	text-align: center;
-}
-
-.feature p {
-	font-size: 1.125em;
-}
-
-.mod-download {
-	background: url(../images/bg_download.png) 0 0.75em no-repeat;
-	background-size: 100%;
-}
-
-.mod-download h2 {
-	color: #11bad3;
-	font-weight: bold;
-}
-
-.mod-download .logo {
-	color: #fff;
-	font-size: 1em;
-}
-
-a.bttn {
-	border-right: 1px solid #0087a0;
-	border-bottom: 1px solid #0087a0;
-	background: #11bad3;
-	color: #fff;
-	display: inline-block;
-	font-family: sommet-slab-1, sommet-slab-2, Georgia, serif;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 0.5em 0;
-	padding: 0.5em 0.75em;
-}
-
-.mod-download .bttn:hover {
-	background: #0087a0;
-	cursor: pointer;
-}
-
-.example-grids {
-	margin-bottom: 4em;
-}
-
-.example-grids .row { margin-bottom: 0; }
-
-.example-grids .row p {
-	background: #ffc;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	font-family: Menlo, 'Panic Sans', monospace;
-	padding: 1em;
-	margin: 0 0 1em;
-}
-
-.footer p {
-	color: #666;
-	text-align: center;
-	max-width: none;
 }

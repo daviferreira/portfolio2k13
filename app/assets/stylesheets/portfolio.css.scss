@@ -37,20 +37,30 @@
 
 body {
   font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: $link_color;
+}
+
+a:hover {
+  color: $hover_color;
+}
+
+h1, h2, h3, h4 {
+    font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+    font-weight: normal;
 }
 
 h1 {
-    font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
     font-size: 58px;
-    font-weight: normal;
     line-height: 56px;
     letter-spacing: -2px;
 }
 
 h2 {
-    font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
     font-size: 28px;
-    font-weight: normal;
     line-height: 26px;
     letter-spacing: -1px;
 }
@@ -66,11 +76,13 @@ h2 {
   @include background-image(linear-gradient(top, rgba(255,255,255,0) 64%,rgba(237,237,237,1) 100%));
   background-position: 0 -1px;
   h1 {
-    margin: 50px 0 0;
+    margin: 74px 0 0;
     text-transform: lowercase;
   }
   h2 {
-    margin: 89px 0 0;
+    margin: 99px 0 0;
+    font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+    color: #666;
     text-transform: lowercase;
   }
 }
