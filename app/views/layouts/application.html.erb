@@ -2,28 +2,27 @@
 <html>
 <head>
   <title>Portfolio2k13</title>
-	<%= stylesheet_link_tag		 "base", :media => "all" %>
-	<%= stylesheet_link_tag		 "720_grid", :media => "screen and (min-width: 720px)" %>
-	<%= stylesheet_link_tag		 "986_grid", :media => "screen and (min-width: 986px)" %>
-	<%= stylesheet_link_tag		 "1236_grid", :media => "screen and (min-width: 1236px)" %>
+  <%= stylesheet_link_tag     "base", :media => "all" %>
+  <%= stylesheet_link_tag     "720_grid", :media => "screen and (min-width: 720px)" %>
+  <%= stylesheet_link_tag     "986_grid", :media => "screen and (min-width: 986px)" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="top-bar"></div>
-	<header class="masthead">
-		<div class="grid">
-			<div class="row">
-				<div class="slot-0-1-2-3">
-					<h1>Davi Ferreira</h1>
-				</div>
-				<div class="slot-4-5">
-					<h2>Web crafter</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<%= yield %>
+  <div class="top-bar"></div>
+  <header class="masthead">
+    <div class="grid">
+      <div class="row">
+        <div class="slot-0-1-2-3">
+          <h1>Davi Ferreira</h1>
+        </div>
+        <div class="slot-4-5">
+          <h2>Web crafter</h2>
+        </div>
+      </div>
+    </div>
+  </header>
+  <%= yield %>
 </body>
 </html>

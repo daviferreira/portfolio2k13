@@ -62,6 +62,9 @@ module Portfolio2k13
     # Enable the asset pipeline
     config.assets.enabled = true
 
+		# Adds the font directory to the assets path
+		config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
