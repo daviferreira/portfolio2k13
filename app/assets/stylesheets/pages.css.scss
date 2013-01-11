@@ -1,9 +1,10 @@
 @import "variables";
 @import "compass/css3";
 
-.slides {
+.m-slides {
   height: 300px;
-  background-color: #ccc;
+  background-color: $bg_color;
+  color: #fff;
 }
 
 .highlights {
@@ -30,6 +31,9 @@
 .secondary-content {
   padding: 30px 0;
   background-color: #fbfbfb;
+}
+
+.m-works {
   nav {
     margin: 6px 0 0;
     float: right;
@@ -41,15 +45,15 @@
         margin: 0 0;
       }
       &:hover {
-        color: $hover_color;
+        color: #000;
       }
     }
   }
   h1 {
     padding: 0 0 15px 0;
+    border-bottom: 1px solid #ccc;
     font-size: 28px;
     line-height: 26px;
-    border-bottom: 1px solid #ccc;
     span {
       display: block;
       float: left;
@@ -58,7 +62,7 @@
       color: $link_color;
     }
   }
-  .m-works {
+  .row-works {
     padding: 40px 0;
     border-bottom: 6px solid #000;
   }
@@ -70,6 +74,22 @@
     margin: 0 0 12px 0;
     &:last-child {
       margin: 0 0;
+    }
+  }
+}
+
+.m-more-info {
+  margin-top: 50px;
+  h1 {
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 28px;
+    line-height: 24px;
+    text-transform: lowercase;
+    span {
+      color: red;
+      font-family: Times, TimesNewRoman, serif;
+      font-size: 20px;
     }
   }
 }
