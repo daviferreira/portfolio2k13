@@ -7,7 +7,7 @@
 }
 
 .highlights {
-  margin: 30px 0 50px 0;
+  margin: 30px 0;
   article {
     padding: 30px;
     background-color: #fafafa;
@@ -31,7 +31,19 @@
   padding: 30px 0;
   background-color: #fbfbfb;
   nav {
+    margin: 6px 0 0;
     float: right;
+    a {
+      display: inline-block;
+      margin: 0 12px 0 0;
+      color: #999;
+      &:last-child {
+        margin: 0 0;
+      }
+      &:hover {
+        color: $hover_color;
+      }
+    }
   }
   h1 {
     padding: 0 0 15px 0;
@@ -41,9 +53,23 @@
     span {
       display: block;
       float: left;
-      margin: 2px 6px 0 0;
+      margin: 1px 6px 0 0;
       font-size: 36px;
       color: $link_color;
+    }
+  }
+  .m-works {
+    padding: 40px 0;
+    border-bottom: 6px solid #000;
+  }
+  ul {
+    margin: 0 0;
+    list-style: none;
+  }
+  li {
+    margin: 0 0 12px 0;
+    &:last-child {
+      margin: 0 0;
     }
   }
 }
