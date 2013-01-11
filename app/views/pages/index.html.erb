@@ -10,7 +10,7 @@
             <h1>TVG</h1>
           </header>
           <p>O mais novo portal da globo.com agrega os principais produtos de entretenimento da casa</p>
-          <a href="#">more details</a>
+          <%= link_to "more details", "#" %>
         </section>
       </div>
     </div>
@@ -51,11 +51,11 @@
 <div class="secondary-content">
   <section class="grid m-works">
     <nav>
-      <a href="#">websites</a>
-      <a href="#">sistemas</a>
-      <a href="#">e-commerce</a>
-      <a href="#">hotsites</a>
-      <a href="#">outros</a>
+      <%= link_to "websites", "#" %>
+      <%= link_to "sistemas", "#" %>
+      <%= link_to "e-commerce", "#" %>
+      <%= link_to "hotsites", "#" %>
+      <%= link_to "outros", "#" %>
     </nav>
     <header>
       <h1><span>+</span> works</h1>
@@ -63,27 +63,27 @@
     <div class="row row-works">
       <div class="slot-6">
         <ul>
-          <li><a href="#">Big Brother Brasil</a></li>
-          <li><a href="#">The Voice Brasil</a></li>
-          <li><a href="#">TVG</a></li>
-          <li><a href="#">Domingão do Faustão</a></li>
-          <li><a href="#">Caldeirão do Huck</a></li>
-          <li><a href="#">Vídeo Show</a></li>
+          <li><%= link_to "Big Brother Brasil", "#" %></li>
+          <li><%= link_to "The Voice Brasil", "#" %></li>
+          <li><%= link_to "TVG", "#" %></li>
+          <li><%= link_to "Domingão do Faustão", "#" %></li>
+          <li><%= link_to "Caldeirão do Huck", "#" %></li>
+          <li><%= link_to "Vídeo Show", "#" %></li>
         </ul>
       </div>
       <div class="slot-7">
         <ul>
-          <li><a href="#">Big Brother Brasil</a></li>
+          <li><%= link_to "Big Brother Brasil", "#" %></li>
         </ul>
       </div>
       <div class="slot-8">
         <ul>
-          <li><a href="#">Big Brother Brasil</a></li>
+          <li><%= link_to "Big Brother Brasil", "#" %></li>
         </ul>
       </div>
       <div class="slot-9">
         <ul>
-          <li><a href="#">Big Brother Brasil</a></li>
+          <li><%= link_to "Big Brother Brasil", "#" %></li>
         </ul>
       </div>
     </div>
@@ -95,19 +95,37 @@
           <h1>I <span>&hearts;</span> open source</h1>
         </header>
         <ul>
-          <li><a href="#">Simple Code Review</a></li>
-          <li><a href="#">Canvas PHP Class</a></li>
+          <li><%= link_to "Simple Code Review", "#" %></li>
+          <li><%= link_to "Canvas PHP Class", "#" %></li>
+          <li><%= link_to "jQuery Sticky Sidebar", "#" %></li>
+          <li><%= link_to "Tissues", "#" %></li>
+          <li><%= link_to "Blank words generator", "#" %></li>
         </ul>
       </section>
       <section class="slot-2-3">
         <header>
           <h1>talks & writings</h1>
         </header>
+        <ul>
+          <li><%= link_to "HTML5 Presentations How-to", "#" %></li>
+          <li><%= link_to "HTML5/CSS3 workshop", "#" %></li>
+          <li><%= link_to "Sass/Compass workshop", "#" %></li>
+          <li><%= link_to "JavaScript overview", "#" %></li>
+          <li><%= link_to "Tableless articles", "#" %></li>
+        </ul>
       </section>
       <section class="slot-4-5">
         <header>
           <h1>social</h1>
         </header>
+        <ul>
+          <li><%= link_to "github", "http://github.com/daviferreira" %></li>
+          <li><%= link_to "twitter", "http://twitter.com/davitferreira" %></li>
+          <li><%= link_to "delicious", "http://delicious.com/daviferreira" %></li>
+          <li><%= link_to "linkedin", "http://linkedin.com/daviferreira" %></li>
+          <li><%= link_to "deviantart", "http://daviferreira.deviantart.com" %></li>
+          <li><%= link_to "last.fm", "http://last.fm/davitf" %></li>
+        </ul>
       </section>
     </div>
   </div>
