@@ -86,3 +86,39 @@ h2 {
     text-transform: lowercase;
   }
 }
+
+footer {
+  padding: 50px 0;
+  background-color: #666;
+  text-transform: lowercase;
+  h5 {
+    margin: 0 0 16px 0;
+    color: rgba(#fff, .3);
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .m-contact {
+    a {
+      color: #fff;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+  }
+  .m-credits {
+    text-align: right;
+    li {
+      list-style: none;
+      color: #999;
+    }
+    a {
+      color: #ccc;
+    }
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+      color: lighten($hover_color, 10);
+    }
+  }
+}
