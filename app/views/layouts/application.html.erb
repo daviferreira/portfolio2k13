@@ -10,24 +10,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <div class="top-bar"></div>
-  <header class="masthead">
-    <div class="grid">
-      <div class="row">
-        <div class="slot-0-1-2-3">
-          <h1>Davi Ferreira</h1>
-        </div>
-        <div class="slot-4-5">
-          <h2>Web crafter</h2>
+  <div class="l-content">
+    <% if notice %>
+    <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="alert"><%= alert %></p>
+    <% end %>
+    <div class="top-bar"></div>
+    <header class="masthead">
+      <div class="grid">
+        <div class="row">
+          <div class="slot-0-1-2-3">
+            <h1>Davi Ferreira</h1>
+          </div>
+          <div class="slot-4-5">
+            <h2>Web crafter</h2>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <%= yield %>
+    </header>
+    <%= yield %>
+  </div>
   <footer>
     <div class="grid">
       <div class="row">

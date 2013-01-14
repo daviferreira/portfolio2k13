@@ -35,6 +35,25 @@
     background-color: #fafafa;
     border-top: 3px solid $bg_color;
   }
+  figure {
+    display: block;
+    position: relative;
+    margin: 0 0 20px 0;
+    &, img, .inset, .inner-border {
+      @include border-radius(3px);
+    }
+    &, .inset {
+      width: 242px;
+      height: 140px;
+    }
+    .inner-border {
+      width: 236px;
+      height: 134px;
+    }
+    img {
+      z-index: 1;
+    }
+  }
   h4 {
     margin: 0 0 15px 0;
     color: $link_color;
@@ -47,11 +66,16 @@
       color: $hover_color;
     }
   }
+  p {
+    margin: 0 0;
+    line-height: 20px;
+  }
 }
 
 .secondary-content {
   padding: 30px 0;
   background-color: #fbfbfb;
+  background-repeat: repeat-x;
 }
 
 .m-works {
