@@ -51,7 +51,7 @@
   z-index: 800;
   width: inherit;
   height: inherit;
-  background: $link_color;
+  background: $bg_color;
   
   -webkit-transform: rotateY(-180deg);
   -webkit-transform-style: preserve-3d;
@@ -71,7 +71,7 @@
 
 .panel:hover .back {
   z-index: 1000;
-  background: $link_color;
+  background: $bg_color;
 
   -webkit-transform: rotateX(0deg) rotateY(0deg);
   -moz-transform: rotateX(0deg) rotateY(0deg);
