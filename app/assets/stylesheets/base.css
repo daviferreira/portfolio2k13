@@ -30,14 +30,6 @@ ol, ul {
 	list-style: square;
 	margin: 0 0 0.5em;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
 code {
 	background-color: #f4f4f4;
 	font-family: Menlo, 'Panic Sans', monospace;
@@ -85,8 +77,4 @@ img {
 
 .grid {
 	padding: 0 20px;
-}
-
-.row {
-	margin-bottom: 1em;
 }

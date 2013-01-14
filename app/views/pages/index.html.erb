@@ -22,12 +22,17 @@
     <div class="row">
       <div class="slot-0-1">
         <article>
+          <figure class="panel">
+            <div class="front">
+              <a href="#">
+                <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
+              </a>
+            </div>
+            <div class="back">
+              opa
+            </div>
+          </figure>
           <a href="#">
-            <figure>
-              <div class="inner-border"></div>
-              <div class="inset"></div>
-              <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
-            </figure>
             <h4>Big Brother Brasil</h4>
             <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
           </a>
@@ -36,6 +41,9 @@
       <div class="slot-2-3">
         <article>
           <a href="#">
+            <figure>
+              <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
+            </figure>
             <h4>Big Brother Brasil</h4>
             <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
           </a>
@@ -44,6 +52,9 @@
       <div class="slot-4-5">
         <article>
           <a href="#">
+            <figure>
+              <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
+            </figure>
             <h4>Big Brother Brasil</h4>
             <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
           </a>
@@ -56,11 +67,11 @@
 <div class="secondary-content sprite-portfolio">
   <section class="grid m-works">
     <nav>
-      <%= link_to "websites", "#" %>
-      <%= link_to "sistemas", "#" %>
-      <%= link_to "e-commerce", "#" %>
-      <%= link_to "hotsites", "#" %>
-      <%= link_to "outros", "#" %>
+      <%= link_to "websites", "#", :title => "websites" %>
+      <%= link_to "sistemas", "#", :title => "sistemas" %>
+      <%= link_to "e-commerce", "#", :title => "e-commerce" %>
+      <%= link_to "hotsites", "#", :title => "hotsites" %>
+      <%= link_to "outros", "#", :title => "outros" %>
     </nav>
     <header>
       <h1><span>+</span> works</h1>
@@ -68,22 +79,23 @@
     <div class="row row-works">
       <div class="slot-6">
         <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
-          <li><%= link_to "The Voice Brasil", "#" %></li>
-          <li><%= link_to "TVG", "#" %></li>
-          <li><%= link_to "Domingão do Faustão", "#" %></li>
-          <li><%= link_to "Caldeirão do Huck", "#" %></li>
-          <li><%= link_to "Vídeo Show", "#" %></li>
+          <li><a href="#" class="roll"><span data-title="Johan van Tongeren">Johan van Tongeren</span></a></li>
+          <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "The Voice Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "TVG", "#", :class => "roll" %></li>
+          <li><%= link_to "Domingão do Faustão", "#", :class => "roll" %></li>
+          <li><%= link_to "Caldeirão do Huck", "#", :class => "roll" %></li>
+          <li><%= link_to "Vídeo Show", "#", :class => "roll" %></li>
         </ul>
       </div>
       <div class="slot-7">
         <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
+          <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
         </ul>
       </div>
       <div class="slot-8">
         <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
+          <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
         </ul>
       </div>
       <div class="slot-9">

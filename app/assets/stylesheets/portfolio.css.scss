@@ -76,29 +76,6 @@ h2 {
   background-repeat: none;
 }
 
-.inset, .inner-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.inset {
-  z-index: 2;
-  @include box-shadow(inset 0 0 10px rgba(#000, .6));
-}
-
-.inner-border {
-  z-index: 3;
-  border-color: transparent;
-  border-width: 3px;
-  border-style: solid;
-  @include transition(border .3s linear);
-}
-
-a:hover .inner-border {
-  border-color: $hover_color;
-}
-
 .l-content {
   position: relative;
   z-index: 2;
