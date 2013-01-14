@@ -40,10 +40,17 @@
       </div>
       <div class="slot-2-3">
         <article>
+          <figure class="panel">
+            <div class="front">
+              <a href="#">
+                <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
+              </a>
+            </div>
+            <div class="back">
+              opa
+            </div>
+          </figure>
           <a href="#">
-            <figure>
-              <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
-            </figure>
             <h4>Big Brother Brasil</h4>
             <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
           </a>
@@ -51,10 +58,17 @@
       </div>
       <div class="slot-4-5">
         <article>
+          <figure class="panel">
+            <div class="front">
+              <a href="#">
+                <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
+              </a>
+            </div>
+            <div class="back">
+              opa
+            </div>
+          </figure>
           <a href="#">
-            <figure>
-              <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
-            </figure>
             <h4>Big Brother Brasil</h4>
             <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
           </a>
@@ -74,12 +88,11 @@
       <%= link_to "outros", "#", :title => "outros" %>
     </nav>
     <header>
-      <h1><span>+</span> works</h1>
+      <h1>other <span>works</span></h1>
     </header>
     <div class="row row-works">
       <div class="slot-6">
         <ul>
-          <li><a href="#" class="roll"><span data-title="Johan van Tongeren">Johan van Tongeren</span></a></li>
           <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
           <li><%= link_to "The Voice Brasil", "#", :class => "roll" %></li>
           <li><%= link_to "TVG", "#", :class => "roll" %></li>
@@ -91,16 +104,31 @@
       <div class="slot-7">
         <ul>
           <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "The Voice Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "TVG", "#", :class => "roll" %></li>
+          <li><%= link_to "Domingão do Faustão", "#", :class => "roll" %></li>
+          <li><%= link_to "Caldeirão do Huck", "#", :class => "roll" %></li>
+          <li><%= link_to "Vídeo Show", "#", :class => "roll" %></li>
         </ul>
       </div>
       <div class="slot-8">
         <ul>
           <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "The Voice Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "TVG", "#", :class => "roll" %></li>
+          <li><%= link_to "Domingão do Faustão", "#", :class => "roll" %></li>
+          <li><%= link_to "Caldeirão do Huck", "#", :class => "roll" %></li>
+          <li><%= link_to "Vídeo Show", "#", :class => "roll" %></li>
         </ul>
       </div>
       <div class="slot-9">
         <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
+          <li><%= link_to "Big Brother Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "The Voice Brasil", "#", :class => "roll" %></li>
+          <li><%= link_to "TVG", "#", :class => "roll" %></li>
+          <li><%= link_to "Domingão do Faustão", "#", :class => "roll" %></li>
+          <li><%= link_to "Caldeirão do Huck", "#", :class => "roll" %></li>
+          <li><%= link_to "Vídeo Show", "#", :class => "roll" %></li>
         </ul>
       </div>
     </div>
@@ -109,7 +137,7 @@
     <div class="row">
       <section class="slot-0-1">
         <header>
-          <h1>I <span>&hearts;</span> open source</h1>
+          <h1>I <span class="heart">&hearts;</span> open source</h1>
         </header>
         <ul>
           <li><%= link_to "Simple Code Review", "#" %></li>
@@ -121,7 +149,7 @@
       </section>
       <section class="slot-2-3">
         <header>
-          <h1>talks & writings</h1>
+          <h1>talks <span>&</span> writings</h1>
         </header>
         <ul>
           <li><%= link_to "HTML5 Presentations How-to", "#" %></li>
@@ -133,7 +161,7 @@
       </section>
       <section class="slot-4-5">
         <header>
-          <h1>social</h1>
+          <h1><span>social</span> profiles</h1>
         </header>
         <ul>
           <li><%= link_to "github", "http://github.com/daviferreira" %></li>

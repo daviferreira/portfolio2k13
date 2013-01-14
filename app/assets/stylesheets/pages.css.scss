@@ -81,7 +81,7 @@
 }
 
 .secondary-content {
-  padding: 35px 0;
+  padding: 45px 0;
   background-color: #fbfbfb;
   background-repeat: repeat-x;
 }
@@ -118,15 +118,11 @@
     font-size: 28px;
     line-height: 26px;
     span {
-      display: block;
-      float: left;
-      margin: 1px 6px 0 0;
-      font-size: 36px;
-      color: $link_color;
+      color: $bg_color;
     }
   }
   .row-works {
-    padding: 30px 0;
+    padding: 20px 0 40px 0;
     border-bottom: 6px solid #000;
   }
   ul {
@@ -161,10 +157,12 @@
     line-height: 24px;
     text-transform: lowercase;
     span {
-      color: red;
-      font-family: Times, TimesNewRoman, serif;
-      font-size: 20px;
-      line-height: 20px;
+      color: $bg_color;
+      &.heart {
+        font-family: Times, TimesNewRoman, serif;
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
   }
   header {

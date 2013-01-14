@@ -81,6 +81,7 @@ h2 {
   z-index: 2;
   margin-bottom: 255px;
   background-color: #fff;
+  @include box-shadow(0 0 10px #000);
 }
 
 .masthead {
@@ -113,7 +114,6 @@ footer {
   text-transform: lowercase;
   h5 {
     margin: 0 0 16px 0;
-    color: rgba(#fff, .3);
     font-size: 14px;
     line-height: 16px;
   }
@@ -129,7 +129,6 @@ footer {
     text-align: right;
     li {
       list-style: none;
-      color: #999;
     }
     a {
       color: #ccc;
@@ -138,7 +137,10 @@ footer {
   a {
     text-decoration: underline;
     &:hover {
-      color: lighten($hover_color, 10);
+      color: lighten($hover_color, 15);
     }
+  }
+  h5, .m-credits li {
+    color: lighten($bg_color, 15);
   }
 }
