@@ -144,6 +144,9 @@
       &:active {
         background-color: $hover_color;
       }
+      &.hover {
+        background-color: lighten($hover_color, 20);
+      }
     }
   }
 }
