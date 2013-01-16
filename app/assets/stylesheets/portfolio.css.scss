@@ -91,7 +91,7 @@ h2 {
 .masthead {
   height: 226px;
   @include filter-gradient(#ffffff, #ededed, vertical); // IE6-9
-  @include background-image(linear-gradient(top, rgba(255,255,255,0) 80%,rgba(237,237,237,1) 100%));
+  @include background-image(linear-gradient(top, rgba(255,255,255,0) 85%,rgba(237,237,237,1) 100%));
   background-position: 0 -1px;
   border-top: 6px solid $bg_color;
   h1 {
