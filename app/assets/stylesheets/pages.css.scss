@@ -175,6 +175,47 @@
     list-style: none;
   }
   li {
-    margin: 12px 0;
+    margin: 6px 0;
+  }
+  .open-source-list {
+    li {
+      &.highlight {
+        padding: 6px 0;
+        border-bottom: 1px dotted #dbdbdb;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &.highlight-last {
+        margin-bottom: 20px;
+      }
+    }
+    .thumb, .meta-data {
+      float: left;
+    }
+    .thumb {
+      position: relative;
+      margin: 0 10px 0 0;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        width: 60px;
+        height: 60px;
+        @include box-shadow(inset 0 0 6px rgba(#000, .6));
+      }
+      &, img, &:before {
+        @include border-radius(60px);
+      }
+    }
+    .meta-data {
+      display: table;
+      height: 60px;
+      div {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
   }
 }
