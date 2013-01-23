@@ -19,12 +19,18 @@ $(window).bind 'scroll.works', ->
     , 300
 
 title = $('#page-title')
-titleOffset = title.offset().top
+titleOffset = title.offset().top + 88
+content = $('#l-content')
+isFixed = false
 
 $(window).bind 'scroll.title', ->
   if $(this).scrollTop() > titleOffset
-    title.css {
-      position: 'fixed',
-      top: 0,
-      margin: 0
-    }
+    if isFixed == false
+      title.addClass 'fixed'
+      slides.addClass 'pos-fixed'
+      isFixed = true
+  else
+    if isFixed == true
+      title.removeClass 'fixed'
+      slides.removeClass 'pos-fixed'
+      isFixed = false

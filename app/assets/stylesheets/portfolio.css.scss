@@ -86,14 +86,33 @@ h2 {
   margin-bottom: 255px;
   background-color: #fff;
   @include box-shadow(0 0 10px #000);
+  &.pos-fixed {
+    padding: 226px 0 0;
+  }
 }
 
 .masthead {
+  position: relative;
   height: 226px;
+  background-color: #fff;
   @include filter-gradient(#ffffff, #ededed, vertical); // IE6-9
   @include background-image(linear-gradient(top, rgba(255,255,255,0) 85%,rgba(237,237,237,1) 100%));
   background-position: 0 -1px;
   border-top: 6px solid $bg_color;
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: auto;
+    width: 100%;
+    background-image: none;
+    background-color: #ccc;
+    border-top: none;
+    h1, h2 {
+      margin: 0;
+    }
+  }
   h1 {
     margin: 88px 0 0;
     text-transform: lowercase;
