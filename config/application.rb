@@ -62,8 +62,8 @@ module Portfolio2k13
     # Enable the asset pipeline
     config.assets.enabled = true
 
-		# Adds the font directory to the assets path
-		config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    # Adds the font directory to the assets path
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
@@ -72,5 +72,14 @@ module Portfolio2k13
     config.generators do |g|
       g.fixture_replacement :factory_girl
     end
+
+    config.to_prepare do
+      Devise::SessionsController.layout "devise"
+      Devise::RegistrationsController.layout "devise"
+      Devise::ConfirmationsController.layout "devise"
+      Devise::UnlocksController.layout "devise"
+      Devise::PasswordsController.layout "devise"
+    end
+
   end
 end
