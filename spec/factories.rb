@@ -13,3 +13,13 @@ FactoryGirl.define do
     "Person #{n}"
   end
 end
+
+FactoryGirl.define do
+  factory :project do
+    name "MyString"
+    description "MyText"
+    url "MyString"
+    due_date "2013-02-06"
+    published false
+  end
+end
