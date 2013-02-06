@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails'
 gem 'sqlite3'
-
-group :development, :test do
-	gem 'rspec-rails'
-end
+gem 'jquery-rails'
+gem 'devise'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -14,5 +12,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'devise'
+group :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'faker'
+  gem 'capybara'
+  gem 'rb-fsevent'
+  gem 'growl'
+  gem 'guard-spork'
+  gem 'spork'
+  gem 'factory_girl_rails'
+  gem 'simplecov'
+end
