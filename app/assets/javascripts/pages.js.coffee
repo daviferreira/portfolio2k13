@@ -17,7 +17,7 @@ $(window).bind 'scroll.works', ->
         showHover(el, time * (i + 1))
       $(this).unbind 'scroll.works'
     , 300
-
+###
 title = $('#page-title')
 titleOffset = title.offset().top + 88
 content = $('#l-content')
@@ -34,3 +34,4 @@ $(window).bind 'scroll.title', ->
       title.removeClass 'fixed'
       slides.removeClass 'pos-fixed'
       isFixed = false
+###
