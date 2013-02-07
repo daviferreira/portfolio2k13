@@ -7,6 +7,11 @@ describe ProjectsController do
   let(:project) { FactoryGirl.create(:project, :name => "Sample Project") }
 
   describe "access control" do
+    it "should deny access to 'index'" do
+      get :index
+      response.should redirect_to new_user_session_path
+    end
+
     it "should deny access to 'new'" do
       get :new
       response.should redirect_to new_user_session_path
