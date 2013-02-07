@@ -3,7 +3,8 @@
         <%= link_to t("logout"), destroy_user_session_path, :method => "delete", :class => "logout" %>
         <ul>
             <li class="user-name">&rarr; <%= current_user.name %></li>
-            <li><%= link_to t("projects.add"), "#" %></li>
+            <li><%= link_to t("home"), root_path %></li>
+            <li><%= link_to t("projects.add"), new_project_path %></li>
         </ul>
     </div>
 <% end %>

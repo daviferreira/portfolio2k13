@@ -15,7 +15,8 @@ describe 'Home Page' do
 
     it { should have_selector('li.user-name', :text => 'Davi Ferreira') }
     it { should have_selector('a.logout', :text => "#{I18n.t('logout')}") }
-    it { should have_selector('ul > li > a', :text => "#{I18n.t('projects.add')}") }
+    it { should have_selector('ul > li > a[href="' + root_path + '"]', :text => "#{I18n.t('home')}") }
+    it { should have_selector('ul > li > a[href="' + new_project_path + '"]', :text => "#{I18n.t('projects.add')}") }
   end
 
 end
