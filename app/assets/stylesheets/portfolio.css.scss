@@ -40,20 +40,20 @@
 }
 
 body {
-  font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+    font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 a {
-  color: $link_color;
+    color: $link_color;
 }
 
 a, .highlights h4 {
-  @include transition(color .3s ease-in-out, border .3s ease-in-out);
+    @include transition(color .3s ease-in-out, border .3s ease-in-out);
 }
 
 a:hover {
-  color: $hover_color;
+    color: $hover_color;
 }
 
 h1, h2, h3, h4 {
@@ -94,108 +94,108 @@ h2 {
 }
 
 .sprite-portfolio {
-  background-color: transparent;
-  background-image: url(sprite-portfolio.png);
-  background-position: 0 0;
-  background-repeat: none;
+    background-color: transparent;
+    background-image: url(sprite-portfolio.png);
+    background-position: 0 0;
+    background-repeat: none;
 }
 
 .l-content {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 255px;
-  background-color: #fff;
-  @include box-shadow(0 0 10px #000);
-  &.pos-fixed {
-    padding: 226px 0 0;
-  }
+    position: relative;
+    z-index: 2;
+    margin-bottom: 255px;
+    background-color: #fff;
+    @include box-shadow(0 0 10px #000);
+    &.pos-fixed {
+        padding: 226px 0 0;
+    }
 }
 
 .masthead {
-  position: relative;
-  height: 226px;
-  background-color: #fff;
-  @include filter-gradient(#ffffff, #ededed, vertical); // IE6-9
-  @include background-image(linear-gradient(top, rgba(255,255,255,0) 85%,rgba(237,237,237,1) 100%));
-  background-position: 0 -1px;
-  border-top: 6px solid $bg_color;
-  &.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    height: auto;
-    width: 100%;
-    background-image: none;
-    background-color: #ccc;
-    border-top: none;
-    h1, h2 {
-      margin: 0;
+    position: relative;
+    height: 226px;
+    background-color: #fff;
+    @include filter-gradient(#ffffff, #ededed, vertical); // IE6-9
+    @include background-image(linear-gradient(top, rgba(255,255,255,0) 85%,rgba(237,237,237,1) 100%));
+    background-position: 0 -1px;
+    border-top: 6px solid $bg_color;
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        height: auto;
+        width: 100%;
+        background-image: none;
+        background-color: #ccc;
+        border-top: none;
+        h1, h2 {
+            margin: 0;
+        }
     }
-  }
-  h1 {
-    margin: 88px 0 0;
-    text-transform: lowercase;
-  }
-  h2 {
-    margin: 112px 0 0;
-    font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
-    color: #666;
-    text-transform: lowercase;
-  }
+    h1 {
+        margin: 88px 0 0;
+        text-transform: lowercase;
+    }
+    h2 {
+        margin: 112px 0 0;
+        font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+        color: #666;
+        text-transform: lowercase;
+    }
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-  width: 100%;
-  height: 155px;
-  padding: 50px 0;
-  background-color: #666;
-  text-transform: lowercase;
-  h5 {
-    margin: 0 0 16px 0;
-    font-size: 14px;
-    line-height: 16px;
-  }
-  .m-contact {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 155px;
+    padding: 50px 0;
+    background-color: #666;
+    text-transform: lowercase;
+    h5 {
+        margin: 0 0 16px 0;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .m-contact {
+        a {
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+        .source-code {
+            display: block;
+            margin: 25px 0 0;
+            padding: 25px 0 0;
+            border-top: 1px dotted rgba(#fff, .2);
+            font-weight: normal;
+            font-size: 14px;
+            color: #ccc;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .m-credits {
+        text-align: right;
+        li {
+            list-style: none;
+        }
+        a {
+            color: #ccc;
+        }
+    }
     a {
-      color: #fff;
-      font-size: 36px;
-      font-weight: bold;
-      letter-spacing: -1px;
+        text-decoration: underline;
+        &:hover {
+            color: lighten($hover_color, 15);
+        }
     }
-    .source-code {
-      display: block;
-      margin: 25px 0 0;
-      padding: 25px 0 0;
-      border-top: 1px dotted rgba(#fff, .2);
-      font-weight: normal;
-      font-size: 14px;
-      color: #ccc;
-      &:hover {
-        color: #fff;
-      }
+    h5, .m-credits li {
+        color: lighten($bg_color, 15);
     }
-  }
-  .m-credits {
-    text-align: right;
-    li {
-      list-style: none;
-    }
-    a {
-      color: #ccc;
-    }
-  }
-  a {
-    text-decoration: underline;
-    &:hover {
-      color: lighten($hover_color, 15);
-    }
-  }
-  h5, .m-credits li {
-    color: lighten($bg_color, 15);
-  }
 }
