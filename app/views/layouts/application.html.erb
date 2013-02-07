@@ -10,12 +10,7 @@
 </head>
 <body>
     <%= render "shared/notifications" %>
-    <% if user_signed_in? %>
-        <div class="user-info">
-            <%= link_to "logout", destroy_user_session_path, :method => "delete", :class => "logout" %>
-            &rarr; <%= current_user.name %>
-        </div>
-    <% end %>
+    <%= render "shared/user_info" %>
     <div class="l-content">
         <header class="masthead" id="page-title">
             <div class="grid">

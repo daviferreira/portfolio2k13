@@ -6,6 +6,8 @@ SimpleCov.start 'rails'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
+AbstractController::Helpers::ClassMethods.module_eval do def helper(*args, &block); modules_for_helpers(args).each {|mod| add_template_helper(mod)}; _helpers.module_eval(&block) if block_given?; end end if Spork.using_spork?
+
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll

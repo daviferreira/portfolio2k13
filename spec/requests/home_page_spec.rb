@@ -13,8 +13,9 @@ describe 'Home Page' do
       visit root_path 
     end
 
-    it { should have_selector('div.user-info', :text => 'Davi Ferreira') }
-    it { should have_selector('a.logout') }
+    it { should have_selector('li.user-name', :text => 'Davi Ferreira') }
+    it { should have_selector('a.logout', :text => "#{I18n.t('logout')}") }
+    it { should have_selector('ul > li > a', :text => "#{I18n.t('projects.add')}") }
   end
 
 end
