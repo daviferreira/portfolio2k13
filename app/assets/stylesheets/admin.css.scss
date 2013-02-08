@@ -1,0 +1,72 @@
+@import "compass/css3";
+@import "variables";
+
+body {
+    background-color: #373c3f;
+}
+
+.admin-container {
+    margin: 12px 0 0;
+    @include box-shadow(0 0 10px #000);
+}
+
+.admin-header {
+    padding: 20px;
+    background-color: #e9eaec;
+    @include border-top-radius(6px);
+    h1 {
+        color: #7b7b7d;
+        font-size: 26px;
+        line-height: 24px;
+        @include text-shadow(0 2px 3px #fff);
+    }
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    @include filter-gradient(#dbdbdb, #d8e5d3, vertical); // IE6-9
+    @include background-image(linear-gradient(top, rgba(219,219,219,1) 0%,rgba(216,229,211,1) 100%));
+}
+
+th, td {
+    padding: 20px;
+}
+
+th {
+    color: #333;
+    text-align: left;
+    @include text-shadow(0 2px 3px #ccd5c0);
+    font-weight: bold;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #ccd5c0;
+    border-bottom: 1px solid #d5dadd;
+    &:first-child {
+        border-left: none;
+    }
+    &:last-child {
+        border-right: none;
+    }
+}
+
+td {
+    background-color: #f7f8fc;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #dae0d5;
+    border-bottom: 1px solid #dae0d5;
+    &:first-child {
+        border-left: none;
+    }
+    &:last-child {
+        border-right: none;
+    }
+}
+
+.actions {
+    width: 120px;
+    text-align: center;
+}
