@@ -7,8 +7,14 @@ en:
   save: "save"
   projects:
     add: "Add project"
-    list: "List projects"
+    list: "Projects"
     name: "Name"
     description: "Description"
     url: "URL"
     due_date: "Due date"
+  categories:
+    list: "Categories"
+  tags:
+    list: "Tags"
+  photos:
+    list: "Photos"
