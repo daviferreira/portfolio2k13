@@ -1,3 +1,8 @@
 <% flash.each do |key, value| %>
-  <div class="notification <%= key %>"><%= value %></div>
+    <div class="notification notification-<%= key %> clearfix">
+        <div class="icon sprite-portfolio"></div>
+        <div class="message">
+            <p><%= value %></p>
+        </div>
+    </div>
 <% end %>
