@@ -23,12 +23,12 @@ describe ProjectsController do
     end
 
     it "should deny access to 'edit'" do
-      get :edit, :id => project 
+      get :edit, :id => project
       response.should redirect_to new_user_session_path
     end
 
     it "should deny access to 'update'" do
-      post :update, :id => project, :project => project 
+      post :update, :id => project, :project => project
       response.should redirect_to new_user_session_path
     end
 
@@ -36,6 +36,68 @@ describe ProjectsController do
       delete :destroy, :id => 1
       response.should redirect_to new_user_session_path
     end
+  end
+
+  describe "as a signed-in user" do
+
+    before { sign_in user }
+
+    describe "GET 'index'" do
+       
+      it "returns http success" do
+        get 'index'
+        response.should be_success
+      end
+      
+      it "should list all the projects" do
+        p1 = FactoryGirl.create(:project, :name => "Foo bar")
+        p2 = FactoryGirl.create(:project, :name => "Baz quux")
+        get 'index'
+        response.body.should have_selector('td', :text => p1.name)
+        response.body.should have_selector('td', :text => p2.name)
+      end
+
+      it "should paginate the projects" do
+        pending "implement will paginate"
+      end
+
+    end
+
+    describe "create project" do
+
+      describe "GET 'new'" do
+        it "returns http success" do
+          get 'new'
+          response.should be_success
+        end
+      end
+
+      describe "POST 'create'" do
+        it "returns http success" do
+          post 'create'
+          response.should be_success
+        end
+      end
+
+      describe "with invalid project data" do
+        it "should render new project template" do
+          post 'create', :project => Project.new(name: "")
+          response.should render_template("projects/new")
+        end
+      end
+
+      describe "with valid project data" do
+        it "should redirect to projects list" do
+          post 'create', :project => {:name => "Test project",
+                                      :description => "Description",
+                                      :url => "http://www.daviferreira.com",
+                                      :due_date => Time.now}
+          response.should redirect_to projects_path
+        end
+      end
+
+    end
+
   end
 
 end

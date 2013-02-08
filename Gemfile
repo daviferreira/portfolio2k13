@@ -17,13 +17,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'guard-rspec'
+  gem 'guard-spork'
   gem 'growl'
-end
-
-group :test do
   gem 'capybara'
   gem 'rb-fsevent'
-  gem 'guard-spork'
   gem 'spork'
   gem 'simplecov'
 end

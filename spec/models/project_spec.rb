@@ -15,4 +15,31 @@ describe Project do
   it { should respond_to(:due_date) }
   it { should respond_to(:published) }
 
+  it { should be_valid }
+
+  describe "when name is not present" do
+    before { @project.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when name is too long" do
+    before { @project.name = "a" * 141 }
+    it { should_not be_valid }
+  end
+
+  describe "when description is not present" do
+    before { @project.description = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when url is not present" do
+    before { @project.url = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when due_date is not present" do
+    before { @project.due_date = "" }
+    it { should_not be_valid }
+  end
+
 end

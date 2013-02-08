@@ -1,2 +1,16 @@
 <h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.name %></td>
+      <td>edit or delete</td>
+    </tr>
+    <% end %>

@@ -4,5 +4,11 @@
 en:
   home: "home"
   logout: "logout"
+  save: "save"
   projects:
     add: "Add project"
+    list: "List projects"
+    name: "Name"
+    description: "Description"
+    url: "URL"
+    due_date: "Due date"
