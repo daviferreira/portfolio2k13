@@ -1,9 +1,3 @@
-<% if notice %>
-    <div class="notification notice"><%= notice %></div>
-<% end %>
-<% if alert %>
-    <div class="notification alert"><%= alert %></div>
-<% end %>
 <% flash.each do |key, value| %>
   <div class="notification <%= key %>"><%= value %></div>
 <% end %>
