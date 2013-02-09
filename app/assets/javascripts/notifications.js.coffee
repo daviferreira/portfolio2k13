@@ -2,7 +2,7 @@ notification = $('.notification')
 
 # TODO: CSS transitions
 if notification.length > 0
-    notification.show()
+    notification.slideDown(300)
     setTimeout ->
-        notification.hide()
+        notification.slideUp(300)
     , 5000
