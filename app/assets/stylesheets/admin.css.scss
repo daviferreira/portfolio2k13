@@ -54,7 +54,7 @@ td {
   float: left;
   @include opacity(.6);
   &:first-child {
-    margin: 0 12px 0 26px;
+    margin: 1px 12px 0 26px;
   }
   &:hover {
     @include opacity(1);
