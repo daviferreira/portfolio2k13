@@ -10,10 +10,13 @@ en:
   projects:
     add: "Add project"
     list: "Projects"
-    name: "Name"
+    deleted: "Project deleted"
     description: "Description"
-    url: "URL"
     due_date: "Due date"
+    invalid: "Invalid project"
+    name: "Name"
+    updated: "Project updated"
+    url: "URL"
   categories:
     list: "Categories"
   tags:
