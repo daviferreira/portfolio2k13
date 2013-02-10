@@ -1,25 +1,28 @@
-<%= form_for(@project) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <fieldset>
-    <div>
-      <%= f.label t("projects.name") %>
-      <%= f.text_field :name %>
-    </div>
+<%= form_for(@project, :html => { :class => "object-form" }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <fieldset>
+        <div>
+            <%= f.label t("projects.name") %>
+            <%= f.text_field :name %>
+        </div>
 
-    <div>
-      <%= f.label t("projects.description") %>
-      <%= f.text_field :description %>
-    </div>
+        <div>
+            <%= f.label t("projects.description") %>
+            <%= f.text_field :description %>
+        </div>
 
-    <div>
-      <%= f.label t("projects.url") %>
-      <%= f.text_field :url %>
-    </div>
+        <div>
+            <%= f.label t("projects.url") %>
+            <%= f.text_field :url %>
+        </div>
 
-    <div>
-      <%= f.label t("projects.due_date") %>
-      <%= f.datetime_select :due_date %>
-    </div>
+        <div>
+            <%= f.label t("projects.due_date") %>
+            <%= f.datetime_select :due_date %>
+        </div>
 
-    <div><%= f.submit t("save") %></div>
+        <div class="form-action">
+            <%= link_to t("cancel"), projects_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
+        </div>
+    </fieldset>
 <% end %>

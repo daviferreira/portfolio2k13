@@ -2,10 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  cancel: "Cancel"
   delete: "Delete"
   edit: "Edit"
   home: "home"
   logout: "logout"
+  or: "or"
   save: "save"
   projects:
     add: "Add project"
@@ -13,6 +15,7 @@ en:
     deleted: "Project deleted"
     description: "Description"
     due_date: "Due date"
+    edit: "Edit project"
     invalid: "Invalid project"
     name: "Name"
     updated: "Project updated"
