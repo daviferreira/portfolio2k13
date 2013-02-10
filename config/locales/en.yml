@@ -18,6 +18,7 @@ en:
     edit: "Edit project"
     invalid: "Invalid project"
     name: "Name"
+    new: "New project"
     updated: "Project updated"
     url: "URL"
   categories:

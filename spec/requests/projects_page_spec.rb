@@ -26,6 +26,8 @@ describe "project pages" do
       it { should have_selector('a.admin-list-delete[href="' + project_path(p1) + '"]') }
       it { should have_selector('a.admin-list-delete[href="' + project_path(p1) + '"]') }
 
+      it { should have_selector('a.admin-button[href="' + new_project_path + '"]', :text => I18n.t("projects.add")) }
+
     end
 
   end

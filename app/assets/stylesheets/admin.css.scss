@@ -75,7 +75,7 @@ td {
 
 .object-form {
     padding: 20px;
-    background-color: #fff;
+    background-color: #f7f8fc;
     label {
         display: block;
         margin: 12px 0 2px 0;
@@ -83,11 +83,17 @@ td {
         font-size: 16px;
         font-weight: bold;
     }
-    input[type="text"], select {
+    input[type="text"], select, textarea {
         padding: 6px;
         border: 1px solid #ccc;
         @include border-radius(3px);
         color: #333;
+    }
+    input[type="text"], textarea {
+        width: 300px;
+    }
+    textarea {
+        height: 80px;
     }
 }
 
