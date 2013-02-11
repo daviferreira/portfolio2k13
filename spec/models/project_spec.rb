@@ -42,4 +42,53 @@ describe Project do
     it { should_not be_valid }
   end
 
+  describe "default scope" do
+    it "should order projects by due date" do
+      p1 = Project.create(name: "Project 1",
+                          description: "Project 1 description",
+                          due_date: "2013-01-31",
+                          published: true,
+                          url: "http://project1.com")
+      p2 = Project.create(name: "Project 2",
+                          description: "Project 2 description",
+                          due_date: "2013-02-03",
+                          published: true,
+                          url: "http://project2.com")
+      p3 = Project.create(name: "Project 3",
+                          description: "Project 3 description",
+                          due_date: "2011-11-11",
+                          published: true,
+                          url: "http://project3.com")
+      projects = Project.all
+      projects[0].should == p2
+      projects[1].should == p1
+      projects[2].should == p3
+    end
+  end
+
+  describe "published scope" do
+    it "should only list published projects and order by due date" do
+      p1 = Project.create(name: "Project 1",
+                          description: "Project 1 description",
+                          due_date: "2013-01-31",
+                          published: true,
+                          url: "http://project1.com")
+      p2 = Project.create(name: "Project 2",
+                          description: "Project 2 description",
+                          due_date: "2013-02-03",
+                          published: false,
+                          url: "http://project2.com")
+      p3 = Project.create(name: "Project 3",
+                          description: "Project 3 description",
+                          due_date: "2011-11-11",
+                          published: true,
+                          url: "http://project3.com")
+      projects = Project.published
+      projects.count.should == 2
+      projects[0].should == p1
+      projects[1].should == p3
+
+    end
+  end
+
 end
