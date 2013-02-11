@@ -9,6 +9,11 @@ en:
   logout: "logout"
   or: "or"
   save: "save"
+  categories:
+    list: "Categories"
+    add: "New category"
+  photos:
+    list: "Photos"
   projects:
     add: "Add project"
     list: "Projects"
@@ -22,9 +27,3 @@ en:
     published: "Published"
     updated: "Project updated"
     url: "URL"
-  categories:
-    list: "Categories"
-  tags:
-    list: "Tags"
-  photos:
-    list: "Photos"

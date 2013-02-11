@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
   before_filter :get_project_or_redirect, :only => [:show, :edit, :update, :destroy]
-  layout "admin"
+  layout "admin", :except => [:show]
 
   def index
-    @projects = Project.find(:all, :order => "name")
+    @projects = Project.find(:all)
   end
 
   def show

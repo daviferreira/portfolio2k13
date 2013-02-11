@@ -1,0 +1,30 @@
+<div class="grid">
+    <div class="admin-container">
+        <section class="row admin-header">
+            <div class="slot-0-1-2-3">
+              <header>
+                  <h1><%= t "categories.list" %></h1>
+              </header>
+            </div>
+            <div class="slot-4-5">
+                <%= link_to t("categories.add"), new_category_path, :class => "admin-button" %>
+            </div>
+        </section>
+
+        <section class="row">
+            <table>
+                <tbody>
+                    <% @categories.each do |category| %>
+                        <tr>
+                            <td><%= link_to category.name, edit_category_path(category) %></td>
+                            <td class="actions">
+                              <%= link_to "", edit_category_path(category), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
+                              <%= link_to "", category_path(category), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
