@@ -19,6 +19,7 @@ en:
     invalid: "Invalid project"
     name: "Name"
     new: "New project"
+    published: "Published"
     updated: "Project updated"
     url: "URL"
   categories:

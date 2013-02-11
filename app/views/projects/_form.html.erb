@@ -21,6 +21,10 @@
             <%= f.datetime_select :due_date %>
         </div>
 
+        <div>
+            <label><%= f.check_box :published %> <%= t("projects.published") %></label>
+        </div>
+
         <div class="form-action">
             <%= link_to t("cancel"), projects_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
         </div>
