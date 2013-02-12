@@ -10,8 +10,14 @@ en:
   or: "or"
   save: "save"
   categories:
-    list: "Categories"
     add: "New category"
+    deleted: "Category deleted"
+    edit: "Edit category"
+    invalid: "Invalid category"
+    list: "Categories"
+    name: "Name"
+    new: "New category"
+    updated: "Category updated"
   photos:
     list: "Photos"
   projects:

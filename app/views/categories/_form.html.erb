@@ -1,0 +1,13 @@
+<%= form_for(@category, :html => { :class => "object-form" }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <fieldset>
+        <div>
+            <%= f.label t("categories.name") %>
+            <%= f.text_field :name %>
+        </div>
+
+        <div class="form-action">
+            <%= link_to t("cancel"), categories_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
+        </div>
+    </fieldset>
+<% end %>

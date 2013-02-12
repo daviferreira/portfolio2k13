@@ -73,9 +73,14 @@ describe ProjectsController do
       end
 
       describe "POST 'create'" do
-        it "returns http success" do
-          post 'create'
-          response.should be_success
+        it "should changes project count by 1" do
+          lambda do
+            post 'create', :project => {:name => "Test project",
+                                        :description => "Project description",
+                                        :url => "http://www.daviferreira.com",
+                                        :due_date => Time.now,
+                                        :published => true}
+          end.should change(Project, :count).by(1)
         end
       end
 
@@ -143,12 +148,12 @@ describe ProjectsController do
 
       describe "DELETE 'destroy'" do
 
-        it "redirects to the project listing path when project is invalid" do
+        it "should redirect to the project listing path when project is invalid" do
           delete 'destroy', :id => "invalid"
           response.should redirect_to projects_path
         end
 
-        it "redirects to the project listing path" do
+        it "should redirect to the project listing path" do
           delete 'destroy', :id => project
           response.should redirect_to projects_path
         end
@@ -158,6 +163,19 @@ describe ProjectsController do
           lambda do
             delete :destroy, :id => p1
           end.should change(Project, :count).by(-1)
+        end
+
+      end
+
+    end
+
+    describe "show project" do
+
+      describe "GET 'show'" do
+
+        it "should redirect to the root path when project is invalid" do
+          get 'show', :id => "invalid"
+          response.should redirect_to root_path
         end
 
       end

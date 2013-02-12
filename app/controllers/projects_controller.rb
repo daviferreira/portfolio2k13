@@ -1,13 +1,16 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
-  before_filter :get_project_or_redirect, :only => [:show, :edit, :update, :destroy]
+  before_filter :get_project_or_redirect, :only => [:edit, :update, :destroy]
   layout "admin", :except => [:show]
 
   def index
     @projects = Project.find(:all)
   end
 
+  # TODO: use 404 instead of redirect
   def show
+    @project = Project.find_by_id(params[:id])
+    redirect_to root_path if not @project
   end
 
   def new
