@@ -17,11 +17,12 @@ en:
     list: "Categories"
     name: "Name"
     new: "New category"
-    updated: "Category updated"
   photos:
+    updated: "Category updated"
     list: "Photos"
   projects:
     add: "Add project"
+    category: "Category"
     list: "Projects"
     deleted: "Project deleted"
     description: "Description"

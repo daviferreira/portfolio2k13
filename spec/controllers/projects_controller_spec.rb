@@ -74,12 +74,14 @@ describe ProjectsController do
 
       describe "POST 'create'" do
         it "should changes project count by 1" do
+          # TODO: validates category existance
           lambda do
             post 'create', :project => {:name => "Test project",
                                         :description => "Project description",
                                         :url => "http://www.daviferreira.com",
                                         :due_date => Time.now,
-                                        :published => true}
+                                        :published => true,
+                                        :category_id => 1}
           end.should change(Project, :count).by(1)
         end
       end
@@ -96,7 +98,8 @@ describe ProjectsController do
           post 'create', :project => {:name => "Test project",
                                       :description => "Description",
                                       :url => "http://www.daviferreira.com",
-                                      :due_date => Time.now}
+                                      :due_date => Time.now,
+                                      :category_id => 1}
           response.should redirect_to projects_path
         end
       end

@@ -15,17 +15,18 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
+  factory :category do
+    name "Test Category"
+  end
+end
+
+FactoryGirl.define do
   factory :project do
     name "Test Project"
     description "This is a test project"
     url "http://www.daviferreira.com"
     due_date "2013-02-06"
     published false
-  end
-end
-
-FactoryGirl.define do
-  factory :category do
-    name "Test Category"
+    category FactoryGirl.create(:category)
   end
 end
