@@ -14,7 +14,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'faker'
   gem 'guard-rspec'
   gem 'guard-spork'
@@ -23,4 +22,8 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'spork'
   gem 'simplecov'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
