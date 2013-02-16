@@ -53,6 +53,12 @@ describe Project do
     it { should_not be_valid }
   end
 
+  describe "when category is not present" do
+    before { @project.category_id = 9999 }
+    it { should_not be_valid }
+  end
+
+
   describe "default scope" do
     it "should order projects by due date" do
       category = Category.create(name: "Category")
@@ -75,7 +81,6 @@ describe Project do
                           url: "http://project3.com",
                           category_id: category.id)
       projects = Project.all
-      debugger
       projects[0].should == p2
       projects[1].should == p1
       projects[2].should == p3

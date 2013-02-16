@@ -4,7 +4,8 @@ describe ProjectsController do
   render_views
 
   let(:user) { FactoryGirl.create(:user) }
-  let(:project) { FactoryGirl.create(:project, :name => "Sample Project") }
+  let(:category) { category = FactoryGirl.create(:category) }
+  let(:project) { FactoryGirl.create(:project, :name => "Sample Project", :category => category) }
 
   describe "access control" do
     it "should deny access to 'index'" do
@@ -74,14 +75,13 @@ describe ProjectsController do
 
       describe "POST 'create'" do
         it "should changes project count by 1" do
-          # TODO: validates category existance
           lambda do
             post 'create', :project => {:name => "Test project",
                                         :description => "Project description",
                                         :url => "http://www.daviferreira.com",
                                         :due_date => Time.now,
                                         :published => true,
-                                        :category_id => 1}
+                                        :category_id => category.id}
           end.should change(Project, :count).by(1)
         end
       end
@@ -99,7 +99,7 @@ describe ProjectsController do
                                       :description => "Description",
                                       :url => "http://www.daviferreira.com",
                                       :due_date => Time.now,
-                                      :category_id => 1}
+                                      :category_id => category.id}
           response.should redirect_to projects_path
         end
       end
