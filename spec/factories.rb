@@ -30,3 +30,11 @@ FactoryGirl.define do
     category FactoryGirl.create(:category)
   end
 end
+
+FactoryGirl.define do
+  factory :photo do
+    title "Photo"
+    order 1
+    project FactoryGirl.create(:project)
+  end
+end

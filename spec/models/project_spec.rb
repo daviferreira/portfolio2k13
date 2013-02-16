@@ -19,6 +19,7 @@ describe Project do
   it { should respond_to(:due_date) }
   it { should respond_to(:published) }
   it { should respond_to(:category_id) }
+  it { should respond_to(:photos) }
 
   it { should be_valid }
 
@@ -57,7 +58,7 @@ describe Project do
       category = Category.create(name: "Category")
       p1 = Project.create(name: "Project 1",
                           description: "Project 1 description",
-                          due_date: "2013-01-31",
+                          due_date: "2013-01-27",
                           published: true,
                           url: "http://project1.com",
                           category_id: category.id)
@@ -74,6 +75,7 @@ describe Project do
                           url: "http://project3.com",
                           category_id: category.id)
       projects = Project.all
+      debugger
       projects[0].should == p2
       projects[1].should == p1
       projects[2].should == p3
