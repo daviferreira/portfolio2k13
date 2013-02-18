@@ -6,7 +6,7 @@ describe CategoriesController do
   let(:user) { FactoryGirl.create(:user) }
   let(:category) { FactoryGirl.create(:category, :name => "Sample Category") }
 
-  describe "access control" do
+  context "when logged out" do
     it "should deny access to 'index'" do
       get :index
       response.should redirect_to new_user_session_path
@@ -36,24 +36,22 @@ describe CategoriesController do
       delete :destroy, :id => 1
       response.should redirect_to new_user_session_path
     end
-
   end
 
-  describe "as a signed-in user" do
-
+  context "when logged in" do
     before { sign_in user }
 
     describe "GET 'index'" do
 
       it "returns http success" do
-        get 'index'
+        get :index
         response.should be_success
       end
 
       it "should list all the categories" do
         c1 = FactoryGirl.create(:category, :name => "Foo bar")
         c2 = FactoryGirl.create(:category, :name => "Baz quux")
-        get 'index'
+        get :index
         response.body.should have_selector('td', :text => c1.name)
         response.body.should have_selector('td', :text => c2.name)
       end
@@ -69,7 +67,7 @@ describe CategoriesController do
 
       describe "GET 'new'" do
         it "returns http success" do
-          get 'new'
+          get :new
           response.should be_success
         end
       end
@@ -77,21 +75,21 @@ describe CategoriesController do
       describe "POST 'create'" do
         it "should changes category count by 1" do
           lambda do
-            post 'create', :category => {:name => "Test category"}
+            post :create, :category => {:name => "Test category"}
           end.should change(Category, :count).by(1)
         end
       end
 
       describe "with invalid category data" do
         it "should render new category template" do
-          post 'create', :category => Category.new(name: "")
+          post :create, :category => Category.new(name: "")
           response.should render_template("categories/new")
         end
       end
 
       describe "with valid category data" do
         it "should redirect to categories list" do
-          post 'create', :category => {:name => "Test category"}
+          post :create, :category => {:name => "Test category"}
           response.should redirect_to categories_path
         end
       end
@@ -102,7 +100,7 @@ describe CategoriesController do
 
       describe "GET 'edit'" do
         it "returns http success" do
-          get 'edit', :id => category
+          get :edit, :id => category
           response.should be_success
         end
       end
@@ -110,25 +108,25 @@ describe CategoriesController do
       describe "PUT 'update'" do
 
         describe "with invalid category data" do
-          it "should redirects to the category listing path when id is invalid" do
-            post 'update', :id => "invalid"
-            response.should redirect_to categories_path
+          it "should return 404 when id is invalid" do
+            post :update, :id => "invalid"
+            response.response_code.should == 404
           end
 
           it "should render edit category template" do
-            post 'update', :id => category, :category => {:name => ""}
+            post :update, :id => category, :category => {:name => ""}
             response.should render_template("categories/edit")
           end
         end
 
         describe "with valid category data" do
           it "redirects to category path" do
-            put 'update', :id => category, :category => {:name => "Editing category"}
+            put :update, :id => category, :category => {:name => "Editing category"}
             response.should redirect_to edit_category_path(category)
           end
 
           it "changes the category name" do
-            put 'update', :id => category, :category => {:name => "Editing category"}
+            put :update, :id => category, :category => {:name => "Editing category"}
             category.reload
             category.name.should == "Editing category"
           end
@@ -142,14 +140,13 @@ describe CategoriesController do
     describe "destroy category" do
 
       describe "DELETE 'destroy'" do
-
-        it "should redirect to the category listing path when category is invalid" do
-          delete 'destroy', :id => "invalid"
-          response.should redirect_to categories_path
+        it "should return 404 when id is invalid" do
+          delete :destroy, :id => "invalid"
+          response.response_code.should == 404
         end
 
         it "should redirect to the category listing path" do
-          delete 'destroy', :id => category
+          delete :destroy, :id => category
           response.should redirect_to categories_path
         end
 
@@ -167,10 +164,9 @@ describe CategoriesController do
     describe "show category" do
 
       describe "GET 'show'" do
-
-        it "should redirect to the root path when category is invalid" do
-          get 'show', :id => "invalid"
-          response.should redirect_to root_path
+        it "should return 404 when id is invalid" do
+          get :show, :id => "invalid"
+          response.response_code.should == 404
         end
 
       end

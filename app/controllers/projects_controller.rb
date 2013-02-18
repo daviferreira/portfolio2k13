@@ -1,16 +1,13 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
-  before_filter :get_project_or_redirect, :only => [:edit, :update, :destroy]
   layout "admin", :except => [:show]
 
   def index
     @projects = Project.find(:all)
   end
 
-  # TODO: use 404 instead of redirect
   def show
-    @project = Project.find_by_id(params[:id])
-    redirect_to root_path if not @project
+    @project = Project.find(params[:id])
   end
 
   def new
@@ -28,9 +25,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
   end
 
   def update
+    @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
       redirect_to edit_project_path(@project), :flash => { :success => t("projects.updated") }
     else
@@ -39,15 +38,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path, :flash => { :notice => t("projects.deleted") }
   end
-
-  private
-
-    def get_project_or_redirect
-      @project = Project.find_by_id(params[:id])
-      redirect_to projects_path, :flash => { :error => t("projects.invalid") } if not @project
-    end
 
 end

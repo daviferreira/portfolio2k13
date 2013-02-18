@@ -7,7 +7,7 @@ describe ProjectsController do
   let(:category) { category = FactoryGirl.create(:category) }
   let(:project) { FactoryGirl.create(:project, :name => "Sample Project", :category => category) }
 
-  describe "access control" do
+  context "when logged out" do
     it "should deny access to 'index'" do
       get :index
       response.should redirect_to new_user_session_path
@@ -39,21 +39,21 @@ describe ProjectsController do
     end
   end
 
-  describe "as a signed-in user" do
+  context "when logged in" do
 
     before { sign_in user }
 
     describe "GET 'index'" do
 
       it "returns http success" do
-        get 'index'
+        get :index
         response.should be_success
       end
 
       it "should list all the projects" do
         p1 = FactoryGirl.create(:project, :name => "Foo bar")
         p2 = FactoryGirl.create(:project, :name => "Baz quux")
-        get 'index'
+        get :index
         response.body.should have_selector('td', :text => p1.name)
         response.body.should have_selector('td', :text => p2.name)
       end
@@ -68,7 +68,7 @@ describe ProjectsController do
 
       describe "GET 'new'" do
         it "returns http success" do
-          get 'new'
+          get :new
           response.should be_success
         end
       end
@@ -76,7 +76,7 @@ describe ProjectsController do
       describe "POST 'create'" do
         it "should changes project count by 1" do
           lambda do
-            post 'create', :project => {:name => "Test project",
+            post :create, :project => {:name => "Test project",
                                         :description => "Project description",
                                         :url => "http://www.daviferreira.com",
                                         :due_date => Time.now,
@@ -88,14 +88,14 @@ describe ProjectsController do
 
       describe "with invalid project data" do
         it "should render new project template" do
-          post 'create', :project => Project.new(name: "")
+          post :create, :project => Project.new(name: "")
           response.should render_template("projects/new")
         end
       end
 
       describe "with valid project data" do
         it "should redirect to projects list" do
-          post 'create', :project => {:name => "Test project",
+          post :create, :project => {:name => "Test project",
                                       :description => "Description",
                                       :url => "http://www.daviferreira.com",
                                       :due_date => Time.now,
@@ -109,8 +109,13 @@ describe ProjectsController do
     describe "edit project" do
 
       describe "GET 'edit'" do
+        it "should return 404 when id is invalid" do
+          get :edit, :id => "invalid"
+          response.response_code.should == 404
+        end
+
         it "returns http success" do
-          get 'edit', :id => project
+          get :edit, :id => project
           response.should be_success
         end
       end
@@ -118,25 +123,25 @@ describe ProjectsController do
       describe "PUT 'update'" do
 
         describe "with invalid project data" do
-          it "should redirects to the project listing path when id is invalid" do
-            post 'update', :id => "invalid"
-            response.should redirect_to projects_path
+          it "should return 404 when id is invalid" do
+            post :update, :id => "invalid"
+            response.response_code.should == 404
           end
 
           it "should render edit project template" do
-            post 'update', :id => project, :project => {:name => ""}
+            post :update, :id => project, :project => {:name => ""}
             response.should render_template("projects/edit")
           end
         end
 
         describe "with valid project data" do
           it "redirects to project path" do
-            put 'update', :id => project, :project => {:name => "Editing project"}
+            put :update, :id => project, :project => {:name => "Editing project"}
             response.should redirect_to edit_project_path(project)
           end
 
           it "changes the project name" do
-            put 'update', :id => project, :project => {:name => "Editing project"}
+            put :update, :id => project, :project => {:name => "Editing project"}
             project.reload
             project.name.should == "Editing project"
           end
@@ -151,13 +156,13 @@ describe ProjectsController do
 
       describe "DELETE 'destroy'" do
 
-        it "should redirect to the project listing path when project is invalid" do
-          delete 'destroy', :id => "invalid"
-          response.should redirect_to projects_path
+        it "should return 404 when id is invalid" do
+          delete :destroy, :id => "invalid"
+          response.response_code.should == 404
         end
 
         it "should redirect to the project listing path" do
-          delete 'destroy', :id => project
+          delete :destroy, :id => project
           response.should redirect_to projects_path
         end
 
@@ -176,9 +181,9 @@ describe ProjectsController do
 
       describe "GET 'show'" do
 
-        it "should redirect to the root path when project is invalid" do
-          get 'show', :id => "invalid"
-          response.should redirect_to root_path
+        it "should return 404 when project is invalid" do
+          get :show, :id => "invalid"
+          response.response_code.should == 404
         end
 
       end
