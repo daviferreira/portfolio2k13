@@ -3,6 +3,7 @@ Portfolio2k13::Application.routes.draw do
 
   resources :projects
   resources :categories
+  resources :photos
 
   devise_scope :user do
       get "/login" => "devise/sessions#new"
