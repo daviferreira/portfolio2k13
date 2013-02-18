@@ -5,7 +5,8 @@ describe Photo do
     project = FactoryGirl.create(:project)
     @photo = Photo.new(title: "Test Photo",
                        order: 1,
-                       project_id: project.id)
+                       project_id: project.id,
+                       file: File.new(Rails.root + 'spec/fixtures/images/rails.png'))
   }
 
   subject { @photo }
@@ -42,6 +43,10 @@ describe Photo do
     end
   end
 
+  describe "file" do
+    it { should have_attached_file(:file) }
+    it { should validate_attachment_presence(:file) }
+  end
 
   # TODO: validate project existance
   describe "when project is invalid" do

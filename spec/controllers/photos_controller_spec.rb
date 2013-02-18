@@ -79,7 +79,8 @@ describe PhotosController do
           lambda do
             post :create, :photo => {:title => "Test photo",
                                         :order => 2,
-                                        :project_id => project.id}
+                                        :project_id => project.id,
+                                        :file => fixture_file_upload('/images/rails.png', 'image/png')}
           end.should change(Photo, :count).by(1)
         end
       end
@@ -95,7 +96,8 @@ describe PhotosController do
         it "should redirect to photos list" do
           post :create, :photo => {:title => "Test photo",
                                       :order => 2,
-                                      :project_id => project.id}
+                                      :project_id => project.id,
+                                      :file => fixture_file_upload('/images/rails.png', 'image/png')}
           response.should redirect_to photos_path
         end
       end

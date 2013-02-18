@@ -34,6 +34,7 @@ end
 FactoryGirl.define do
   factory :photo do
     title "Photo"
+    file File.new(Rails.root + 'spec/fixtures/images/rails.png')
     order 1
     project FactoryGirl.create(:project)
   end

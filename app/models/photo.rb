@@ -8,4 +8,5 @@ class Photo < ActiveRecord::Base
   validates_presence_of :order
   validates_numericality_of :order, only_integer: true
   validates :project, presence: true
+  validates :file, :attachment_presence => true
 end

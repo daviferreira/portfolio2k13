@@ -6,7 +6,9 @@
             <%= f.text_field :title %>
         </div>
 
+        <% if @photo.file? %>
         <div class="thumb"><%= image_tag @photo.file.url(:medium) %></div>
+        <% end %>
 
         <div>
             <%= f.label t("photos.file") %>

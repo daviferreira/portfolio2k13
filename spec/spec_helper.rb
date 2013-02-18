@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'spork'
 require 'simplecov'
+require "paperclip/matchers"
 SimpleCov.start 'rails'
 
 #uncomment the following line to use spork with the debugger
@@ -66,6 +67,9 @@ Spork.prefork do
 
     # Capybara
     config.include Capybara::DSL
+
+    # Paperclip
+    config.include Paperclip::Shoulda::Matchers
   end
 
 end
