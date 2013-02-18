@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'spork'
   gem 'simplecov'
+  gem 'rb-inotify'
 end
 
 group :test do
