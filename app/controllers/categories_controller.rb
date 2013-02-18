@@ -15,12 +15,11 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new params[:category]
+    @category = Category.new(params[:category])
     if @category.save
-      flash[:success] = "Category successfully created, yay!"
-      redirect_to categories_path
+      redirect_to categories_path, :flash => { :success => t("categories.created") }
     else
-      render 'categories/new'
+      render "categories/new"
     end
   end
 
@@ -33,7 +32,7 @@ class CategoriesController < ApplicationController
     if @category.update_attributes(params[:category])
       redirect_to edit_category_path(@category), :flash => { :success => t("categories.updated") }
     else
-      render 'edit'
+      render "edit"
     end
   end
 

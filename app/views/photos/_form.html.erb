@@ -1,0 +1,22 @@
+<%= form_for(@photo, :html => { :class => "object-form" }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <fieldset>
+        <div>
+            <%= f.label t("photos.title") %>
+            <%= f.text_field :title %>
+        </div>
+        <div>
+            <%= f.label t("photos.order") %>
+            <%= f.text_field :order %>
+        </div>
+
+        <div>
+            <%= f.label t("photos.project") %>
+            <%= f.select(:project_id, Project.all.map { |project| [project.name, project.id] }, {:include_blank => ''}) %>
+        </div>
+
+        <div class="form-action">
+            <%= link_to t("cancel"), photos_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
+        </div>
+    </fieldset>
+<% end %>

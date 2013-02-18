@@ -18,11 +18,7 @@
 
         <div>
             <%= f.label t("projects.category") %>
-            <% categories_array = Category.all.map { |category| [category.name, category.id] } %>
-            <select name="project[category_id]">
-              <option value=""></option>
-              <%= options_for_select(categories_array, @project.category_id) %>
-            </select>
+            <%= f.select(:category_id, Category.all.map { |category| [category.name, category.id] }, {:include_blank => ''}) %>
         </div>
 
         <div>

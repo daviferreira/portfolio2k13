@@ -1,2 +1,16 @@
-<h1>Photos#new</h1>
-<p>Find me in app/views/photos/new.html.erb</p>
+<div class="grid">
+    <div class="admin-container">
+        <section class="row admin-header">
+            <div class="slot-0-1-2-3">
+              <header>
+              <h1><%= t "photos.new" %></h1>
+              </header>
+            </div>
+            <div class="slot-4-5">
+            </div>
+        </section>
+        <section class="row admin-form">
+            <%= render "form" %>
+        </section>
+    </div>
+</div>

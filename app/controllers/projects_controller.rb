@@ -15,12 +15,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new params[:project]
+    @project = Project.new(params[:project])
     if @project.save
-      flash[:success] = "Project successfully created, yay!"
-      redirect_to projects_path
+      redirect_to projects_path, :flash => { :success => t("projects.created") }
     else
-      render 'projects/new'
+      render "projects/new"
     end
   end
 
@@ -33,7 +32,7 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(params[:project])
       redirect_to edit_project_path(@project), :flash => { :success => t("projects.updated") }
     else
-      render 'edit'
+      render "edit"
     end
   end
 

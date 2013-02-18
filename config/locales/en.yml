@@ -11,6 +11,7 @@ en:
   save: "save"
   categories:
     add: "New category"
+    created: "Category successfully created, yay!"
     deleted: "Category deleted"
     edit: "Edit category"
     invalid: "Invalid category"
@@ -20,15 +21,20 @@ en:
     updated: "Category updated"
   photos:
     add: "New photo"
+    created: "Photo successfully created, yay!"
     deleted: "Photo deleted"
     edit: "Edit photo"
     invalid: "Invalid photo"
     list: "Photos"
     new: "New photo"
+    order: "Order"
+    project: "Project"
+    title: "Title"
     updated: "Photo updated"
   projects:
     add: "Add project"
     category: "Category"
+    created: "Project successfully created, yay!"
     list: "Projects"
     deleted: "Project deleted"
     description: "Description"

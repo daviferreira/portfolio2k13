@@ -65,6 +65,127 @@ describe PhotosController do
 
     end
 
+    describe "create photo" do
+
+      describe "GET 'new'" do
+        it "returns http success" do
+          get :new
+          response.should be_success
+        end
+      end
+
+      describe "POST 'create'" do
+        it "should changes photo count by 1" do
+          lambda do
+            post :create, :photo => {:title => "Test photo",
+                                        :order => 2,
+                                        :project_id => project.id}
+          end.should change(Photo, :count).by(1)
+        end
+      end
+
+      describe "with invalid photo data" do
+        it "should render new photo template" do
+          post :create, :photo => Photo.new(title: "")
+          response.should render_template("photos/new")
+        end
+      end
+
+      describe "with valid photo data" do
+        it "should redirect to photos list" do
+          post :create, :photo => {:title => "Test photo",
+                                      :order => 2,
+                                      :project_id => project.id}
+          response.should redirect_to photos_path
+        end
+      end
+
+    end
+
+    describe "edit photo" do
+
+      describe "GET 'edit'" do
+        it "should return 404 when id is invalid" do
+          get :edit, :id => "invalid"
+          response.response_code.should == 404
+        end
+
+        it "returns http success" do
+          get :edit, :id => photo
+          response.should be_success
+        end
+      end
+
+      describe "PUT 'update'" do
+
+        describe "with invalid photo data" do
+          it "should return 404 when id is invalid" do
+            post :update, :id => "invalid"
+            response.response_code.should == 404
+          end
+
+          it "should render edit photo template" do
+            post :update, :id => photo, :photo => {:title => ""}
+            response.should render_template("photos/edit")
+          end
+        end
+
+        describe "with valid photo data" do
+          it "redirects to photo path" do
+            put :update, :id => photo, :photo => {:title => "Editing photo"}
+            response.should redirect_to edit_photo_path(photo)
+          end
+
+          it "changes the photo title" do
+            put :update, :id => photo, :photo => {:title => "Editing photo"}
+            photo.reload
+            photo.title.should == "Editing photo"
+          end
+
+        end
+
+      end
+
+    end
+
+    describe "destroy photo" do
+
+      describe "DELETE 'destroy'" do
+
+        it "should return 404 when id is invalid" do
+          delete :destroy, :id => "invalid"
+          response.response_code.should == 404
+        end
+
+        it "should redirect to the photo listing path" do
+          delete :destroy, :id => photo
+          response.should redirect_to photos_path
+        end
+
+        it "should delete a photo" do
+          p1 = FactoryGirl.create(:photo)
+          lambda do
+            delete :destroy, :id => p1
+          end.should change(Photo, :count).by(-1)
+        end
+
+      end
+
+    end
+
+    describe "show photo" do
+
+      describe "GET 'show'" do
+
+        it "should return 404 when photo is invalid" do
+          get :show, :id => "invalid"
+          response.response_code.should == 404
+        end
+
+      end
+
+    end
+
   end
 
 end
