@@ -17,6 +17,7 @@ end
 FactoryGirl.define do
   factory :category do
     name "Test Category"
+    scope "site"
   end
 end
 

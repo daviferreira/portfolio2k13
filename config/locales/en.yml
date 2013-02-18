@@ -2,6 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  blog: "Blog"
   cancel: "Cancel"
   delete: "Delete"
   edit: "Edit"
@@ -9,6 +10,7 @@ en:
   logout: "logout"
   or: "or"
   save: "save"
+  site: "Site"
   categories:
     add: "New category"
     created: "Category successfully created, yay!"
@@ -18,6 +20,7 @@ en:
     list: "Categories"
     name: "Name"
     new: "New category"
+    scope: "Scope"
     updated: "Category updated"
   photos:
     add: "New photo"
