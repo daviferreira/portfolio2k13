@@ -21,7 +21,7 @@ describe 'Home Page' do
     it { should have_selector('ul > li > a[href="' + new_project_path + '"]', :text => "#{I18n.t('projects.add')}") }
 
     it { should have_selector('ul > li > a[href="' + categories_path + '"]', :text => "#{I18n.t('categories.list')}") }
-    it { should have_selector('ul > li > a[href="#"]', :text => "#{I18n.t('photos.list')}") }
+    it { should have_selector('ul > li > a[href="' + photos_path + '"]', :text => "#{I18n.t('photos.list')}") }
 
   end
 
