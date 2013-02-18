@@ -11,6 +11,7 @@ en:
   or: "or"
   save: "save"
   site: "Site"
+  tags: "Tags"
   categories:
     add: "New category"
     created: "Category successfully created, yay!"

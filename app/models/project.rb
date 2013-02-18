@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
-  attr_accessible :description, :due_date, :name, :published, :url, :category_id
+  attr_accessible :description, :due_date, :name, :published, :url, :category_id, :tag_list
+
+  acts_as_taggable
 
   belongs_to :category
   has_many :photos
