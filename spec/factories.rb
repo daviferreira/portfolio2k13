@@ -39,3 +39,17 @@ FactoryGirl.define do
     project
   end
 end
+
+FactoryGirl.define do
+  factory :post do
+    title "Post"
+    abstract "Post abstract"
+    body "Post body"
+    published true
+    published_date Time.now
+    meta_title "Post Meta Title"
+    meta_description "Post Meta Description"
+    external_url nil
+    block_comments false
+  end
+end
