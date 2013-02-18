@@ -1,2 +1,30 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<div class="grid">
+    <div class="admin-container">
+        <section class="row admin-header">
+            <div class="slot-0-1-2-3">
+              <header>
+                  <h1><%= t "photos.list" %></h1>
+              </header>
+            </div>
+            <div class="slot-4-5">
+                <%= link_to t("photos.add"), new_photo_path, :class => "admin-button" %>
+            </div>
+        </section>
+
+        <section class="row">
+            <table>
+                <tbody>
+                    <% @photos.each do |photo| %>
+                        <tr>
+                            <td><%= link_to photo.title, edit_photo_path(photo) %></td>
+                            <td class="actions">
+                              <%= link_to "", edit_photo_path(photo), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
+                              <%= link_to "", photo_path(photo), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>

@@ -17,9 +17,15 @@ en:
     list: "Categories"
     name: "Name"
     new: "New category"
-  photos:
     updated: "Category updated"
+  photos:
+    add: "New photo"
+    deleted: "Photo deleted"
+    edit: "Edit photo"
+    invalid: "Invalid photo"
     list: "Photos"
+    new: "New photo"
+    updated: "Photo updated"
   projects:
     add: "Add project"
     category: "Category"

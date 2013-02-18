@@ -4,7 +4,7 @@ describe ProjectsController do
   render_views
 
   let(:user) { FactoryGirl.create(:user) }
-  let(:category) { category = FactoryGirl.create(:category) }
+  let(:category) { FactoryGirl.create(:category) }
   let(:project) { FactoryGirl.create(:project, :name => "Sample Project", :category => category) }
 
   context "when logged out" do

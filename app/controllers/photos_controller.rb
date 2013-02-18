@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   layout "admin", :except => [:show]
 
   def index
+    @photos = Photo.all
   end
 
   def show
