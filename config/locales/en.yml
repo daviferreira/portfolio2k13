@@ -24,6 +24,7 @@ en:
     created: "Photo successfully created, yay!"
     deleted: "Photo deleted"
     edit: "Edit photo"
+    file: "Photo file"
     invalid: "Invalid photo"
     list: "Photos"
     new: "New photo"

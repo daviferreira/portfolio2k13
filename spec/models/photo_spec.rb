@@ -13,6 +13,7 @@ describe Photo do
   it { should respond_to(:title) }
   it { should respond_to(:order) }
   it { should respond_to(:project) }
+  it { should respond_to(:file) }
 
   it { should be_valid }
 
