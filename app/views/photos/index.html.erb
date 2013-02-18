@@ -16,6 +16,7 @@
                 <tbody>
                     <% @photos.each do |photo| %>
                         <tr>
+                            <td class="photo"><%= image_tag photo.file.url(:thumb) %></td>
                             <td><%= link_to photo.title, edit_photo_path(photo) %></td>
                             <td class="actions">
                               <%= link_to "", edit_photo_path(photo), :class => "sprite-portfolio admin-list-edit admin-list-action" %>

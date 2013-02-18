@@ -6,9 +6,12 @@
             <%= f.text_field :title %>
         </div>
 
+        <div class="thumb"><%= image_tag @photo.file.url(:medium) %></div>
+
         <div>
             <%= f.label t("photos.file") %>
             <%= f.file_field :file %>
+        </div>
 
         <div>
             <%= f.label t("photos.order") %>
