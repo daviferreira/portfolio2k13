@@ -27,7 +27,7 @@ FactoryGirl.define do
     url "http://www.daviferreira.com"
     due_date "2013-02-06"
     published false
-    category FactoryGirl.create(:category)
+    category
   end
 end
 
@@ -36,6 +36,6 @@ FactoryGirl.define do
     title "Photo"
     file File.new(Rails.root + 'spec/fixtures/images/rails.png')
     order 1
-    project FactoryGirl.create(:project)
+    project
   end
 end

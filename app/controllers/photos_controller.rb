@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   layout "admin", :except => [:show]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.joins(:project).order('projects.name ASC, photos.`order` ASC')
   end
 
   def show

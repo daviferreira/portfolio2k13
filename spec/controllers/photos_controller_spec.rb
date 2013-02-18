@@ -51,12 +51,14 @@ describe PhotosController do
         response.should be_success
       end
 
-      it "should list all the photos" do
+      it "should list all the photos with their thumbs" do
         p1 = FactoryGirl.create(:photo, :title => "Foo bar")
         p2 = FactoryGirl.create(:photo, :title => "Baz quux")
         get :index
         response.body.should have_selector('td', :text => p1.title)
+        response.body.should have_selector('img[src="' + p1.file.url(:thumb) + '"]')
         response.body.should have_selector('td', :text => p2.title)
+        response.body.should have_selector('img[src="' + p2.file.url(:thumb) + '"]')
       end
 
       it "should paginate the photos" do
