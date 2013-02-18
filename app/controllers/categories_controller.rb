@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new(:scope => "site")
+    @category = Category.new
   end
 
   def create

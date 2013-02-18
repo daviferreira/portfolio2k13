@@ -75,7 +75,7 @@ describe CategoriesController do
       describe "POST 'create'" do
         it "should changes category count by 1" do
           lambda do
-            post :create, :category => {:name => "Test category", :scope => "site"}
+            post :create, :category => {:name => "Test category"}
           end.should change(Category, :count).by(1)
         end
       end
@@ -89,7 +89,7 @@ describe CategoriesController do
 
       describe "with valid category data" do
         it "should redirect to categories list" do
-          post :create, :category => {:name => "Test category", :scope => "site"}
+          post :create, :category => {:name => "Test category"}
           response.should redirect_to categories_path
         end
       end

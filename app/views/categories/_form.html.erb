@@ -6,14 +6,6 @@
             <%= f.text_field :name %>
         </div>
 
-        <div>
-            <%= f.label t("categories.scope") %>
-            <% ["site", "blog"].each do |scope| %>
-                <%= f.radio_button :scope, scope %>
-                <%= f.label :scope, t(scope), :class => "inline", :for => "category_scope_#{scope}" %>
-            <% end %>
-        </div>
-
         <div class="form-action">
             <%= link_to t("cancel"), categories_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
         </div>

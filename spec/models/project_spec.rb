@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Project do
   before { 
-    category = Category.create(name: "Example Category", scope: "site")
+    category = Category.create(name: "Example Category")
     @project = Project.new(name: "Example Project",
                            description: "Description",
                            due_date: Time.now,
@@ -62,7 +62,7 @@ describe Project do
 
   describe "default scope" do
     it "should order projects by due date" do
-      category = Category.create(name: "Category", scope: "site")
+      category = Category.create(name: "Category")
       p1 = Project.create(name: "Project 1",
                           description: "Project 1 description",
                           due_date: "2013-01-27",
@@ -90,7 +90,7 @@ describe Project do
 
   describe "published scope" do
     it "should only list published projects and order by due date" do
-      category = Category.create(name: "Category", scope: "site")
+      category = Category.create(name: "Category")
       p1 = Project.create(name: "Project 1",
                           description: "Project 1 description",
                           due_date: "2013-01-31",
