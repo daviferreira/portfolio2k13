@@ -74,9 +74,7 @@ describe CategoriesController do
 
       describe "POST 'create'" do
         it "should changes category count by 1" do
-          lambda do
-            post :create, :category => {:name => "Test category"}
-          end.should change(Category, :count).by(1)
+          expect { post :create, :category => {:name => "Test category"} }.to change(Category, :count).by(1)
         end
       end
 
@@ -152,9 +150,7 @@ describe CategoriesController do
 
         it "should delete a category" do
           p1 = FactoryGirl.create(:category, :name => "Sample Category")
-          lambda do
-            delete :destroy, :id => p1
-          end.should change(Category, :count).by(-1)
+          expect { delete :destroy, :id => p1 }.to change(Category, :count).by(-1)
         end
 
       end

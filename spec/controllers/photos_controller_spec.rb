@@ -78,12 +78,12 @@ describe PhotosController do
 
       describe "POST 'create'" do
         it "should changes photo count by 1" do
-          lambda do
+          expect {
             post :create, :photo => {:title => "Test photo",
                                         :order => 2,
                                         :project_id => project.id,
                                         :file => fixture_file_upload('/images/rails.png', 'image/png')}
-          end.should change(Photo, :count).by(1)
+          }.to change(Photo, :count).by(1)
         end
       end
 
@@ -168,9 +168,7 @@ describe PhotosController do
 
         it "should delete a photo" do
           p1 = FactoryGirl.create(:photo)
-          lambda do
-            delete :destroy, :id => p1
-          end.should change(Photo, :count).by(-1)
+          expect { delete :destroy, :id => p1 }.to change(Photo, :count).by(-1)
         end
 
       end

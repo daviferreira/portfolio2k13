@@ -75,14 +75,14 @@ describe ProjectsController do
 
       describe "POST 'create'" do
         it "should changes project count by 1" do
-          lambda do
+          expect {
             post :create, :project => {:name => "Test project",
                                         :description => "Project description",
                                         :url => "http://www.daviferreira.com",
                                         :due_date => Time.now,
                                         :published => true,
                                         :category_id => category.id}
-          end.should change(Project, :count).by(1)
+          }.to change(Project, :count).by(1)
         end
       end
 
@@ -168,9 +168,7 @@ describe ProjectsController do
 
         it "should delete a project" do
           p1 = FactoryGirl.create(:project, :name => "Sample Project")
-          lambda do
-            delete :destroy, :id => p1
-          end.should change(Project, :count).by(-1)
+          expect { delete :destroy, :id => p1 }.to change(Project, :count).by(-1)
         end
 
       end
