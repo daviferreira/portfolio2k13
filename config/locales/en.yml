@@ -36,6 +36,15 @@ en:
     project: "Project"
     title: "Title"
     updated: "Photo updated"
+  posts:
+    add: "Add post"
+    created: "Post successfully created, yay!"
+    list: "Posts"
+    deleted: "Post deleted"
+    edit: "Edit post"
+    invalid: "Invalid post"
+    new: "New post"
+    updated: "Post updated"
   projects:
     add: "Add project"
     category: "Category"

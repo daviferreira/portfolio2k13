@@ -18,6 +18,7 @@ describe Post do
   it { should respond_to(:meta_description) }
   it { should respond_to(:block_comments) }
   it { should respond_to(:external_url) }
+  it { should respond_to(:tag_list) }
 
   it { should be_valid }
 
