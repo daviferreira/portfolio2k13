@@ -16,7 +16,7 @@
                 <tbody>
                     <% @posts.each do |post| %>
                         <tr>
-                            <td><%= link_to post.name, edit_post_path(post) %></td>
+			    <td><%= link_to post.title, edit_post_path(post) %></td>
                             <td class="actions">
                               <%= link_to "", edit_post_path(post), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
                               <%= link_to "", post_path(post), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>

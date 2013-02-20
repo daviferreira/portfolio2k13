@@ -61,6 +61,26 @@ describe PhotosController do
         response.body.should have_selector('img[src="' + p2.file.url(:thumb) + '"]')
       end
 
+      it "should list ordering by project name and photo order" do
+	project1 = FactoryGirl.create(:project, :name => "D Project")
+	project2 = FactoryGirl.create(:project, :name => "B Project")
+	project3 = FactoryGirl.create(:project, :name => "C Project")
+
+	p1 = FactoryGirl.create(:photo, :title => "Photo 1", :project => project1, :order => 2)
+	p2 = FactoryGirl.create(:photo, :title => "Photo 2", :project => project1, :order => 1)
+	p3 = FactoryGirl.create(:photo, :title => "Photo 3", :project => project1, :order => 3)
+
+	p4 = FactoryGirl.create(:photo, :title => "Photo 4", :project => project2, :order => 1)
+	p5 = FactoryGirl.create(:photo, :title => "Photo 5", :project => project2, :order => 2)
+
+	p6 = FactoryGirl.create(:photo, :title => "Photo 6", :project => project3, :order => 3)
+	p7 = FactoryGirl.create(:photo, :title => "Photo 7", :project => project3, :order => 4)
+
+	get :index
+
+	assigns(:photos).should eq([p4, p5, p6, p7, p2, p1, p3])
+      end
+
       it "should paginate the photos" do
         pending "implement will paginate"
       end

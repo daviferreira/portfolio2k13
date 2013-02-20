@@ -38,4 +38,27 @@ describe PostsController do
     end
   end
 
+  context "when logged in" do
+
+    before { sign_in user }
+
+    describe "GET 'index'" do
+
+      it "returns http success" do
+	get :index
+	response.should be_success
+      end
+
+      it "should list all the posts" do
+	p1 = FactoryGirl.create(:post, :title => "Foo bar")
+	p2 = FactoryGirl.create(:post, :title => "Baz quux")
+	get :index
+	response.body.should have_selector('td', :text => p1.title)
+	response.body.should have_selector('td', :text => p2.title)
+      end
+
+    end
+
+  end
+
 end
