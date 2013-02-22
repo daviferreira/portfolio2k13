@@ -28,5 +28,4 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
 end
