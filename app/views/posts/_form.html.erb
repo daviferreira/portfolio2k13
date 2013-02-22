@@ -1,0 +1,57 @@
+<%= form_for(@post, :html => { :class => "object-form" }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <fieldset>
+        <div>
+            <%= f.label t("posts.title") %>
+            <%= f.text_field :title%>
+        </div>
+
+        <div>
+            <%= f.label t("posts.abstract") %>
+            <%= f.text_area :abstract %>
+        </div>
+
+        <div>
+            <%= f.label t("posts.body") %>
+            <%= f.text_area :body %>
+        </div>
+
+        <div>
+            <%= f.label t("posts.external_url") %>
+            <%= f.text_field :external_url %>
+        </div>
+
+        <div>
+            <%= f.label t("posts.published_date") %>
+            <%= f.datetime_select :published_date %>
+        </div>
+
+        <div>
+            <%= f.label t("tags") %>
+            <%= f.text_field :tag_list %>
+        </div>
+
+        <div>
+            <label><%= f.check_box :published %> <%= t("posts.published") %></label>
+        </div>
+
+        <div>
+            <label><%= f.check_box :block_comments %> <%= t("posts.block_comments") %></label>
+        </div>
+
+        <div>
+            <%= f.label t("posts.meta_title") %>
+            <%= f.text_field :meta_title%>
+        </div>
+
+        <div>
+            <%= f.label t("posts.meta_description") %>
+            <%= f.text_area :meta_description %>
+        </div>
+
+
+        <div class="form-action">
+            <%= link_to t("cancel"), posts_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
+        </div>
+    </fieldset>
+<% end %>
