@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe PhotosController do
-  render_views
 
   let(:user) { FactoryGirl.create(:user) }
   let(:category) { FactoryGirl.create(:category) }
@@ -51,34 +50,31 @@ describe PhotosController do
         response.should be_success
       end
 
-      it "should list all the photos with their thumbs" do
+      it "should list all the photos" do
         p1 = FactoryGirl.create(:photo, :title => "Foo bar")
         p2 = FactoryGirl.create(:photo, :title => "Baz quux")
         get :index
-        response.body.should have_selector('td', :text => p1.title)
-        response.body.should have_selector('img[src="' + p1.file.url(:thumb) + '"]')
-        response.body.should have_selector('td', :text => p2.title)
-        response.body.should have_selector('img[src="' + p2.file.url(:thumb) + '"]')
+        assigns(:photos).should eq([p1, p2])
       end
 
       it "should list ordering by project name and photo order" do
-	project1 = FactoryGirl.create(:project, :name => "D Project")
-	project2 = FactoryGirl.create(:project, :name => "B Project")
-	project3 = FactoryGirl.create(:project, :name => "C Project")
+        project1 = FactoryGirl.create(:project, :name => "D Project")
+        project2 = FactoryGirl.create(:project, :name => "B Project")
+        project3 = FactoryGirl.create(:project, :name => "C Project")
 
-	p1 = FactoryGirl.create(:photo, :title => "Photo 1", :project => project1, :order => 2)
-	p2 = FactoryGirl.create(:photo, :title => "Photo 2", :project => project1, :order => 1)
-	p3 = FactoryGirl.create(:photo, :title => "Photo 3", :project => project1, :order => 3)
+        p1 = FactoryGirl.create(:photo, :title => "Photo 1", :project => project1, :order => 2)
+        p2 = FactoryGirl.create(:photo, :title => "Photo 2", :project => project1, :order => 1)
+        p3 = FactoryGirl.create(:photo, :title => "Photo 3", :project => project1, :order => 3)
 
-	p4 = FactoryGirl.create(:photo, :title => "Photo 4", :project => project2, :order => 1)
-	p5 = FactoryGirl.create(:photo, :title => "Photo 5", :project => project2, :order => 2)
+        p4 = FactoryGirl.create(:photo, :title => "Photo 4", :project => project2, :order => 1)
+        p5 = FactoryGirl.create(:photo, :title => "Photo 5", :project => project2, :order => 2)
 
-	p6 = FactoryGirl.create(:photo, :title => "Photo 6", :project => project3, :order => 3)
-	p7 = FactoryGirl.create(:photo, :title => "Photo 7", :project => project3, :order => 4)
+        p6 = FactoryGirl.create(:photo, :title => "Photo 6", :project => project3, :order => 3)
+        p7 = FactoryGirl.create(:photo, :title => "Photo 7", :project => project3, :order => 4)
 
-	get :index
+        get :index
 
-	assigns(:photos).should eq([p4, p5, p6, p7, p2, p1, p3])
+        assigns(:photos).should eq([p4, p5, p6, p7, p2, p1, p3])
       end
 
       it "should paginate the photos" do

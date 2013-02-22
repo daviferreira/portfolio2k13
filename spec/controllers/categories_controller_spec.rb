@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe CategoriesController do
-  render_views
 
   let(:user) { FactoryGirl.create(:user) }
   let(:category) { FactoryGirl.create(:category, :name => "Sample Category") }
@@ -52,8 +51,7 @@ describe CategoriesController do
         c1 = FactoryGirl.create(:category, :name => "Foo bar")
         c2 = FactoryGirl.create(:category, :name => "Baz quux")
         get :index
-        response.body.should have_selector('td', :text => c1.name)
-        response.body.should have_selector('td', :text => c2.name)
+        assigns(:categories).should eq([c2, c1])
       end
 
       it "should paginate the categories" do

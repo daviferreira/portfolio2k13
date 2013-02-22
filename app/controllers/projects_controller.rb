@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   layout "admin", :except => [:show]
 
   def index
-    @projects = Project.find(:all)
+    @projects = Project.all
   end
 
   def show

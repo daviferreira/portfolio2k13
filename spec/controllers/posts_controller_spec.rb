@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe PostsController do
-  render_views
 
   let(:user) { FactoryGirl.create(:user) }
   let(:blog_post) { FactoryGirl.create(:post) }
@@ -53,8 +52,7 @@ describe PostsController do
         p1 = FactoryGirl.create(:post, :title => "Foo bar")
         p2 = FactoryGirl.create(:post, :title => "Baz quux")
         get :index
-        response.body.should have_selector('td', :text => p1.title)
-        response.body.should have_selector('td', :text => p2.title)
+        assigns(:posts).should eq([p1, p2])
       end
 
       it "should paginate the posts" do

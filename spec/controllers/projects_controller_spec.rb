@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe ProjectsController do
-  render_views
-
   let(:user) { FactoryGirl.create(:user) }
   let(:category) { FactoryGirl.create(:category) }
   let(:project) { FactoryGirl.create(:project, :name => "Sample Project", :category => category) }
@@ -50,12 +48,11 @@ describe ProjectsController do
         response.should be_success
       end
 
-      it "should list all the projects" do
-        p1 = FactoryGirl.create(:project, :name => "Foo bar")
-        p2 = FactoryGirl.create(:project, :name => "Baz quux")
+      it "should list all the projects ordering by due date" do
+        p1 = FactoryGirl.create(:project, :name => "Foo bar", :due_date => "2013-02-01")
+        p2 = FactoryGirl.create(:project, :name => "Baz quux", :due_date => "2013-03-01")
         get :index
-        response.body.should have_selector('td', :text => p1.name)
-        response.body.should have_selector('td', :text => p2.name)
+        assigns(:projects).should eq([p2, p1])
       end
 
       it "should paginate the projects" do
