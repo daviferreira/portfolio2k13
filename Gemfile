@@ -26,6 +26,10 @@ group :development, :test do
   gem 'simplecov'
 end
 
+group :development do
+  gem 'guard-livereload'
+end
+
 group :test do
   gem 'factory_girl_rails'
 end

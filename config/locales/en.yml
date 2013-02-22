@@ -6,6 +6,7 @@ en:
   cancel: "Cancel"
   delete: "Delete"
   edit: "Edit"
+  go_back_listing: "go back to index"
   home: "home"
   logout: "logout"
   or: "or"
@@ -13,7 +14,7 @@ en:
   site: "Site"
   tags: "Tags"
   categories:
-    add: "New category"
+    add: "Add category"
     created: "Category successfully created, yay!"
     deleted: "Category deleted"
     edit: "Edit category"
@@ -24,7 +25,7 @@ en:
     scope: "Scope"
     updated: "Category updated"
   photos:
-    add: "New photo"
+    add: "Add photo"
     created: "Photo successfully created, yay!"
     deleted: "Photo deleted"
     edit: "Edit photo"

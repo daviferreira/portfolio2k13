@@ -20,6 +20,16 @@ body {
         font-size: 26px;
         line-height: 24px;
         @include text-shadow(0 2px 3px #fff);
+        small {
+            font-family: ProximaNova, Helvetica, Arial, sans-serif;
+            display: inline-block;
+            margin-left: 12px;
+            font-size: 10px;
+            font-weight: normal;
+            letter-spacing: normal;
+            text-transform: uppercase;
+            @include text-shadow(-1px -1px 1px #fff);
+        }
     }
 }
 
