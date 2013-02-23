@@ -20,7 +20,7 @@ describe Project do
   it { should respond_to(:published) }
   it { should respond_to(:category_id) }
   it { should respond_to(:photos) }
-  it { should respond_to(:tag_list) }
+  it { should respond_to(:tags) }
 
   it { should be_valid }
 
