@@ -32,6 +32,14 @@
         </div>
 
         <div>
+            <%= f.label t("locale") %>
+            <%= f.radio_button(:locale, "pt-BR") %>
+            <%= f.label("locale_pt-br", "Portugês", :class => "inline") %>
+            <%= f.radio_button(:locale, "en") %>
+            <%= f.label(:locale_en, "English", :class => "inline") %>
+        </div>
+
+        <div>
             <label><%= f.check_box :published %> <%= t("posts.published") %></label>
         </div>
 
@@ -47,32 +55,6 @@
         <div>
             <%= f.label t("posts.meta_description") %>
             <%= f.text_area :meta_description %>
-        </div>
-
-        <div class="translations">
-            <% I18n.available_locales.each do |locale| %>
-                <%= f.globalize_fields_for locale do |ff| %>
-                    <% if locale != I18n.default_locale %>
-                        <p>Translations for <strong><%= locale %></strong></p>
-                        <div>
-                            <%= ff.label t("posts.title") %>
-                            <%= ff.text_field :title %>
-                        </div>
-                        <div>
-                            <%= ff.label t("posts.abstract") %>
-                            <%= ff.text_area :abstract %>
-                        </div>
-                        <div>
-                            <%= ff.label t("posts.body") %>
-                            <%= ff.text_area :body %>
-                        </div>
-                        <div>
-                            <%= ff.label t("tags") %>
-                            <%= ff.text_field :tags %>
-                        </div>
-                    <% end %>
-                <% end %>
-            <% end %>
         </div>
 
         <div class="form-action">

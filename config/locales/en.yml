@@ -5,6 +5,7 @@ en:
   edit: "Edit"
   go_back_listing: "go back to index"
   home: "home"
+  locale: "locale"
   logout: "logout"
   or: "or"
   save: "save"

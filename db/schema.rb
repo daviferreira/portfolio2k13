@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223000723) do
+ActiveRecord::Schema.define(:version => 20130223145013) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -53,20 +53,6 @@ ActiveRecord::Schema.define(:version => 20130223000723) do
     t.datetime "file_updated_at"
   end
 
-  create_table "post_translations", :force => true do |t|
-    t.integer  "post_id"
-    t.string   "locale"
-    t.string   "title"
-    t.text     "abstract"
-    t.text     "body"
-    t.string   "tags"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "post_translations", ["locale"], :name => "index_post_translations_on_locale"
-  add_index "post_translations", ["post_id"], :name => "index_post_translations_on_post_id"
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "abstract"
@@ -80,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130223000723) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "tags"
+    t.string   "locale"
   end
 
   create_table "project_translations", :force => true do |t|

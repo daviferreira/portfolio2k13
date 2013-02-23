@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(:locale => I18n.default_locale)
   end
 
   def create

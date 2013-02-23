@@ -19,6 +19,7 @@ describe Post do
   it { should respond_to(:block_comments) }
   it { should respond_to(:external_url) }
   it { should respond_to(:tags) }
+  it { should respond_to(:locale) }
 
   it { should be_valid }
 
