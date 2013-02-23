@@ -20,11 +20,18 @@ group :development, :test do
   gem 'faker'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'growl'
   gem 'capybara'
-  gem 'rb-fsevent'
   gem 'spork'
   gem 'simplecov'
+  group :linux do
+    gem 'rb-inotify'
+    gem 'libnotify'
+  end
+
+  group :darwin do
+    gem 'rb-fsevent'
+    gem 'growl'
+  end
 end
 
 group :development do

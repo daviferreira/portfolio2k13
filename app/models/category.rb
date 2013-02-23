@@ -2,6 +2,8 @@ class Category < ActiveRecord::Base
   attr_accessible :name
 
   translates :name
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes
 
   has_many :projects
 

@@ -49,6 +49,31 @@
             <%= f.text_area :meta_description %>
         </div>
 
+        <div class="translations">
+            <% I18n.available_locales.each do |locale| %>
+                <%= f.globalize_fields_for locale do |ff| %>
+                    <% if locale != I18n.default_locale %>
+                        <p>Translations for <strong><%= locale %></strong></p>
+                        <div>
+                            <%= ff.label t("posts.title") %>
+                            <%= ff.text_field :title %>
+                        </div>
+                        <div>
+                            <%= ff.label t("posts.abstract") %>
+                            <%= ff.text_area :abstract %>
+                        </div>
+                        <div>
+                            <%= ff.label t("posts.body") %>
+                            <%= ff.text_area :body %>
+                        </div>
+                        <div>
+                            <%= ff.label t("tags") %>
+                            <%= ff.text_field :tags %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
 
         <div class="form-action">
             <%= link_to t("cancel"), posts_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>

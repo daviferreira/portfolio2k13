@@ -6,6 +6,20 @@
             <%= f.text_field :name %>
         </div>
 
+        <div class="translations">
+            <% I18n.available_locales.each do |locale| %>
+                <%= f.globalize_fields_for locale do |ff| %>
+                    <% if locale != I18n.default_locale %>
+                        <p>Translations for <strong><%= locale %></strong></p>
+                        <div>
+                            <%= ff.label t("categories.name") %>
+                            <%= ff.text_field :name %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+
         <div class="form-action">
             <%= link_to t("cancel"), categories_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
         </div>

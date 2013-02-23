@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
                   :title, :tags
 
   translates :title, :abstract, :body, :tags
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes
 
   validates_presence_of :title, :abstract, :body
 end

@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
   belongs_to :project
 
   translates :title
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes
 
   has_attached_file :file, :styles => { :medium => "400x400#", :thumb => "80x80#" }
 
