@@ -3,17 +3,17 @@
     <fieldset>
         <div>
             <%= f.label t("posts.title") %>
-            <%= f.text_field :title%>
+            <%= f.text_field :title, :class => "x-large" %>
         </div>
 
         <div>
             <%= f.label t("posts.abstract") %>
-            <%= f.text_area :abstract %>
+            <%= f.text_area :abstract, :class => "x-large" %>
         </div>
 
         <div>
             <%= f.label t("posts.body") %>
-            <%= f.text_area :body %>
+            <%= f.text_area :body, :class => "x-large post-body" %>
         </div>
 
         <div>
@@ -34,7 +34,7 @@
         <div>
             <%= f.label t("locale") %>
             <%= f.radio_button(:locale, "pt-BR") %>
-            <%= f.label("locale_pt-br", "Portugês", :class => "inline") %>
+            <%= f.label("locale_pt-br", "Português", :class => "inline") %>
             <%= f.radio_button(:locale, "en") %>
             <%= f.label(:locale_en, "English", :class => "inline") %>
         </div>

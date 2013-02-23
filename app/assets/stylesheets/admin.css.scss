@@ -2,7 +2,7 @@
 @import "variables";
 
 body {
-    background-color: #373c3f;
+    background-color: #ccc;
 }
 
 .admin-container {
@@ -112,7 +112,13 @@ td {
         color: #333;
     }
     input[type="text"], textarea {
-        width: 300px;
+        width: 400px;
+        &.x-large {
+            width: 600px;
+        }
+        &.post-body {
+            height: 500px;
+        }
     }
     textarea {
         height: 80px;
