@@ -11,13 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223000523) do
+ActiveRecord::Schema.define(:version => 20130223000723) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "category_translations", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
+  add_index "category_translations", ["locale"], :name => "index_category_translations_on_locale"
+
+  create_table "photo_translations", :force => true do |t|
+    t.integer  "photo_id"
+    t.string   "locale"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "photo_translations", ["locale"], :name => "index_photo_translations_on_locale"
+  add_index "photo_translations", ["photo_id"], :name => "index_photo_translations_on_photo_id"
 
   create_table "photos", :force => true do |t|
     t.string   "title"
@@ -30,6 +52,19 @@ ActiveRecord::Schema.define(:version => 20130223000523) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
   end
+
+  create_table "post_translations", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "abstract"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "post_translations", ["locale"], :name => "index_post_translations_on_locale"
+  add_index "post_translations", ["post_id"], :name => "index_post_translations_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -45,6 +80,18 @@ ActiveRecord::Schema.define(:version => 20130223000523) do
     t.datetime "updated_at",       :null => false
     t.string   "tags"
   end
+
+  create_table "project_translations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "locale"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"
+  add_index "project_translations", ["project_id"], :name => "index_project_translations_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"
