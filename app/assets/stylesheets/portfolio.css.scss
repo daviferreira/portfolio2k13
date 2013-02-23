@@ -90,8 +90,10 @@ h2 {
     a {
         color: #fff;
         text-transform: capitalize;
+        border-bottom: 3px solid #2d2d2d;
         &:hover {
             color: #ccc;
+            border-bottom-color: #fff;
         }
         &.logout {
             float: right;

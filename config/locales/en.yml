@@ -19,7 +19,6 @@ en:
     list: "Categories"
     name: "Name"
     new: "New category"
-    scope: "Scope"
     updated: "Category updated"
   photos:
     add: "Add photo"
