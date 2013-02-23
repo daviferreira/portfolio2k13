@@ -35,6 +35,28 @@
             <label><%= f.check_box :published %> <%= t("projects.published") %></label>
         </div>
 
+        <div class="translations">
+            <% I18n.available_locales.each do |locale| %>
+                <%= f.globalize_fields_for locale do |ff| %>
+                    <% if locale != I18n.default_locale %>
+                        <p>Translations for <strong><%= locale %></strong></p>
+                        <div>
+                            <%= ff.label t("projects.name") %>
+                            <%= ff.text_field :name %>
+                        </div>
+                        <div>
+                            <%= ff.label t("projects.description") %>
+                            <%= ff.text_area :description %>
+                        </div>
+                        <div>
+                            <%= ff.label t("tags") %>
+                            <%= ff.text_field :tags %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+
         <div class="form-action">
             <%= link_to t("cancel"), projects_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
         </div>

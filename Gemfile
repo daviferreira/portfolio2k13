@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails'
+gem 'rails-i18n'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem 'devise'

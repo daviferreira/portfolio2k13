@@ -168,3 +168,16 @@ td {
         @include border-radius(6px);
     }
 }
+
+.translations {
+    margin: 24px 0 0;
+    padding: 24px 0 0;
+    border-top: 6px solid #ccc;
+    p {
+        color: #666;
+        font-size: 16px;
+        strong {
+            text-decoration: underline;
+        }
+    }
+}
