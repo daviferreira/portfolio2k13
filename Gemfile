@@ -23,15 +23,13 @@ group :development, :test do
   gem 'capybara'
   gem 'spork'
   gem 'simplecov'
-  group :linux do
-    gem 'rb-inotify'
-    gem 'libnotify'
-  end
+  gem 'rb-fsevent'
+  gem 'growl'
+end
 
-  group :darwin do
-    gem 'rb-fsevent'
-    gem 'growl'
-  end
+group :linux do
+  gem 'rb-inotify'
+  gem 'libnotify'
 end
 
 group :development do
