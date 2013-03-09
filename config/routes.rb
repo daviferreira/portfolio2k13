@@ -16,6 +16,13 @@ Portfolio2k13::Application.routes.draw do
   scope "(:locale)", :locale => /en/, :via => :get do
     match '/projects/:id' => "projects#show", :as => :localized_project
     match '/categories/:id' => "categories#show", :as => :localized_category
+    # TODO
+    # projects archive
+    # tags
+    # blog
+    # post
+    # blog archive
+    # blog tags/categories
   end
 
   root :to => 'pages#index'
