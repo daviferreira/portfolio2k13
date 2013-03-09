@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find_using_slug(params[:id]) || render_404
   end
 
   def new
@@ -24,12 +24,14 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @project = Project.find_using_slug(params[:id]) || render_404
   end
 
   def update
-    @project = Project.find(params[:id])
-    if @project.update_attributes(params[:project])
+    @project = Project.find_using_slug(params[:id])
+    if @project.nil?
+      render_404
+    elsif @project.update_attributes(params[:project])
       redirect_to edit_project_path(@project), :flash => { :success => t("projects.updated") }
     else
       render "edit"
@@ -37,9 +39,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to projects_path, :flash => { :notice => t("projects.deleted") }
+    @project = Project.find_using_slug(params[:id])
+    if @project.nil?
+      render_404
+    else
+      @project.destroy
+      redirect_to projects_path, :flash => { :notice => t("projects.deleted") }
+    end
   end
 
 end

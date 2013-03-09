@@ -129,6 +129,7 @@ describe PostsController do
         describe "with valid post data" do
           it "redirects to post path" do
             put :update, :id => blog_post, :post => {:title => "Editing post"}
+            blog_post.reload
             response.should redirect_to edit_post_path(blog_post)
           end
 

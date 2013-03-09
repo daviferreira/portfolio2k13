@@ -3,5 +3,7 @@ class Post < ActiveRecord::Base
                   :meta_description, :meta_title, :published, :published_date, 
                   :title, :tags, :locale
 
+  is_sluggable :title
+
   validates_presence_of :title, :abstract, :body
 end

@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'paperclip'
 gem 'globalize3'
+gem 'slugged'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

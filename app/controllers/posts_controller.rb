@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_using_slug(params[:id]) || render_404
   end
 
   def new
@@ -24,12 +24,14 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_using_slug(params[:id]) || render_404
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update_attributes(params[:post])
+    @post = Post.find_using_slug(params[:id])
+    if @post.nil?
+      render_404
+    elsif @post.update_attributes(params[:post])
       redirect_to edit_post_path(@post), :flash => { :success => t("posts.updated") }
     else
       render "edit"
@@ -37,8 +39,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path, :flash => { :notice => t("posts.deleted") }
+    @post = Post.find_using_slug(params[:id])
+    if @post.nil?
+      render_404
+    else
+      @post.destroy
+      redirect_to posts_path, :flash => { :notice => t("posts.deleted") }
+    end
   end
 end

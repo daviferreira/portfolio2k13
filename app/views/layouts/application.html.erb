@@ -12,6 +12,10 @@
 <body>
     <%= render "shared/notifications" %>
     <%= render "shared/user_info" %>
+    <h1><%= I18n.locale %></h1>
+    <% I18n.available_locales.each do |locale| %>
+        <a href="#"><%= locale %></a>
+    <% end %>
     <div class="l-content">
         <header class="masthead" id="page-title">
             <div class="grid">

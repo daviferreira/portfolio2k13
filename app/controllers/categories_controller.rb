@@ -3,11 +3,11 @@ class CategoriesController < ApplicationController
   layout "admin", :except => [:show]
 
   def index
-    @categories = Category.find(:all)
+    @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find_using_slug(params[:id]) || render_404
   end
 
   def new
@@ -24,12 +24,14 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = Category.find_using_slug(params[:id]) || render_404
   end
 
   def update
-    @category = Category.find(params[:id])
-    if @category.update_attributes(params[:category])
+    @category = Category.find_using_slug(params[:id])
+    if @category.nil?
+      render_404
+    elsif @category.update_attributes(params[:category])
       redirect_to edit_category_path(@category), :flash => { :success => t("categories.updated") }
     else
       render "edit"
@@ -37,9 +39,13 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to categories_path, :flash => { :notice => t("categories.deleted") }
+    @category = Category.find_using_slug(params[:id])
+    if @category.nil?
+      render_404
+    else
+      @category.destroy
+      redirect_to categories_path, :flash => { :notice => t("categories.deleted") }
+    end
   end
 
 end

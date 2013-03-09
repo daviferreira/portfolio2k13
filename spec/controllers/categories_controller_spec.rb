@@ -118,6 +118,7 @@ describe CategoriesController do
         describe "with valid category data" do
           it "redirects to category path" do
             put :update, :id => category, :category => {:name => "Editing category"}
+            category.reload
             response.should redirect_to edit_category_path(category)
           end
 

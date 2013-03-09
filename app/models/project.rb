@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes
 
+  is_sluggable :name
+
   belongs_to :category
   has_many :photos
 

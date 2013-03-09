@@ -134,6 +134,7 @@ describe ProjectsController do
         describe "with valid project data" do
           it "redirects to project path" do
             put :update, :id => project, :project => {:name => "Editing project"}
+            project.reload
             response.should redirect_to edit_project_path(project)
           end
 

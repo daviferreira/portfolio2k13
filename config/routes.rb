@@ -10,5 +10,6 @@ Portfolio2k13::Application.routes.draw do
       get "/login" => "devise/sessions#new"
   end
 
+  match '/:locale' => 'pages#index'
   root :to => 'pages#index'
 end
