@@ -7,7 +7,8 @@ namespace :import do
     categories = Legacy::Category.where(:area => 1)
     categories.each do |category|
       Category.create!(:id => category.id,
-                       :name => category.name)
+                       :name => category.name,
+                       :cached_slug => category.cached_slug)
       puts "#{category.name} imported"
     end
     puts "---------------------------"
@@ -29,7 +30,8 @@ namespace :import do
                       :due_date => project.due_date,
                       :published => project.published,
                       :category_id => category ? category.id : website.id,
-                      :tags => project.tags)
+                      :tags => project.tags,
+                      :cached_slug => project.cached_slug)
       puts "#{project.name} imported"
     end
     puts "-------------------------"
@@ -82,7 +84,8 @@ namespace :import do
                    :meta_description => post.meta_description,
                    :block_comments => post.block_comments,
                    :locale => post.locale,
-                   :tags => post.categories.map { |c| c.name.downcase }.join(', '))
+                   :tags => post.categories.map { |c| c.name.downcase }.join(', '),
+                   :cached_slug => post.cached_slug)
       puts "#{post.title} imported"
     end
     puts "-------------------------"

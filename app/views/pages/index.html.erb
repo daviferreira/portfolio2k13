@@ -1,3 +1,16 @@
+<h1>Projects</h1>
+<ul>
+    <% @projects.each do |project| %>
+        <li><%= link_to project.name, localized_project_path(:id => project, :locale => (I18n.locale == I18n.default_locale ? nil : I18n.locale)) %></li>
+    <% end %>
+</ul>
+<h1>Posts</h1>
+<ul>
+    <% @posts.each do |post| %>
+        <li><%= link_to post.title, post %></li>
+    <% end %>
+</ul>
+
 <div class="m-slides" id="slides">
   <div class="grid">
     <div class="row">

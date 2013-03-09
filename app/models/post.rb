@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
                   :title, :tags, :locale
 
   is_sluggable :title
+  attr_accessible :cached_slug # for import only
 
   validates_presence_of :title, :abstract, :body
 end

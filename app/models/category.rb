@@ -6,6 +6,7 @@ class Category < ActiveRecord::Base
   attr_accessible :translations_attributes
 
   is_sluggable :name
+  attr_accessible :cached_slug # for import only
 
   has_many :projects
 
