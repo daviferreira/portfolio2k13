@@ -1,12 +1,11 @@
 class Project < ActiveRecord::Base
-  attr_accessible :description, :due_date, :name, :published, :url, :category_id, :tags
-
-  translates :name, :description, :tags
-  accepts_nested_attributes_for :translations
-  attr_accessible :translations_attributes
+  attr_accessible :description, :due_date, :name, :published, :url,
+                  :category_id, :tags, :cached_slug, :translations_attributes
 
   is_sluggable :name
-  attr_accessible :cached_slug # for import only
+
+  translates :name, :description, :tags, :cached_slug
+  accepts_nested_attributes_for :translations
 
   belongs_to :category
   has_many :photos

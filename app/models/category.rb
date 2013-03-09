@@ -1,12 +1,10 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :cached_slug, :translations_attributes
 
-  translates :name
+  translates :name, :cached_slug
   accepts_nested_attributes_for :translations
-  attr_accessible :translations_attributes
 
   is_sluggable :name
-  attr_accessible :cached_slug # for import only
 
   has_many :projects
 

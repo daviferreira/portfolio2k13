@@ -4,6 +4,11 @@
         <li><%= link_to project.name, localized_project_path(:id => project, :locale => (I18n.locale == I18n.default_locale ? nil : I18n.locale)) %></li>
     <% end %>
 </ul>
+<ul>
+    <% @categories.each do |category| %>
+        <li><%= link_to category.name, localized_category_path(:id => category, :locale => (I18n.locale == I18n.default_locale ? nil : I18n.locale)) %></li>
+    <% end %>
+</ul>
 <h1>Posts</h1>
 <ul>
     <% @posts.each do |post| %>

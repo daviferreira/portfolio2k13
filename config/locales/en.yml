@@ -10,6 +10,7 @@ en:
   or: "or"
   save: "save"
   site: "Site"
+  slug: "Slug"
   tags: "Tags"
   categories:
     add: "Add category"

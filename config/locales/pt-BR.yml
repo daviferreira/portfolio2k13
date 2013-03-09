@@ -10,6 +10,7 @@ pt-BR:
   or: "ou"
   save: "salvar"
   site: "Site"
+  slug: "Slug"
   tags: "Tags"
   categories:
     add: "Adicionar categoria"

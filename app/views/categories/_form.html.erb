@@ -15,6 +15,10 @@
                             <%= ff.label t("categories.name") %>
                             <%= ff.text_field :name %>
                         </div>
+                        <div>
+                            <%= ff.label t("slug") %>
+                            <%= ff.text_field :cached_slug %>
+                        </div>
                     <% end %>
                 <% end %>
             <% end %>

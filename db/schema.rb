@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309122018) do
+ActiveRecord::Schema.define(:version => 20130309203649) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130309122018) do
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "cached_slug"
   end
 
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20130309122018) do
     t.string   "tags"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "cached_slug"
   end
 
   add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"

@@ -35,6 +35,24 @@ describe ProjectsController do
       delete :destroy, :id => 1
       response.should redirect_to new_user_session_path
     end
+
+    describe "show project" do
+
+      describe "GET 'show'" do
+
+        it "should return 404 when project is invalid" do
+          get :show, :id => "invalid"
+          response.response_code.should == 404
+        end
+
+        it "shoould find localized project" do
+          pending
+        end
+
+      end
+
+    end
+
   end
 
   context "when logged in" do
@@ -167,19 +185,6 @@ describe ProjectsController do
         it "should delete a project" do
           p1 = FactoryGirl.create(:project, :name => "Sample Project")
           expect { delete :destroy, :id => p1 }.to change(Project, :count).by(-1)
-        end
-
-      end
-
-    end
-
-    describe "show project" do
-
-      describe "GET 'show'" do
-
-        it "should return 404 when project is invalid" do
-          get :show, :id => "invalid"
-          response.response_code.should == 404
         end
 
       end
