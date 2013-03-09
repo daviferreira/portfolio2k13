@@ -10,13 +10,13 @@ Portfolio2k13::Application.routes.draw do
     get "/login" => "devise/sessions#new"
   end
 
-  match '/:locale' => 'pages#index'
-  # TODO: use scope
-  match '(/:locale)/projects/:id' => "projects#show", :as => :localized_project,
-                                                      :via => :get,
-                                                      :constraints => {:locale => /en/}
-  match '(/:locale)/categories/:id' => "categories#show", :as => :localized_category,
-                                                      :via => :get,
-                                                      :constraints => {:locale => /en/}
+  match '/:locale' => 'pages#index',
+                      :constraints => {:locale => /en/}
+
+  scope "(:locale)", :locale => /en/, :via => :get do
+    match '/projects/:id' => "projects#show", :as => :localized_project
+    match '/categories/:id' => "categories#show", :as => :localized_category
+  end
+
   root :to => 'pages#index'
 end
