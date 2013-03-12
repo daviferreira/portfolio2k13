@@ -39,174 +39,64 @@
 
 }
 
+.masthead {
+    margin-bottom: 30px;
+    height: 40px;
+    background-color: $link_color;
+    border-bottom: 1px solid #000;
+    @include filter-gradient(#000000, #000000, vertical); // IE6-9
+    @include background-image(linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%));
+    @include box-shadow(0 0 10px #000);
+}
+
 body {
     font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
     font-size: 14px;
+    background-color: rgb(96,108,136); // Old browsers
+    @include filter-gradient(#606c88, #3f4c6b, horizontal); // IE6-9 fallback on horizontal gradient
+    @include background-image(linear-gradient(left top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%));
 }
 
 a {
     color: $link_color;
 }
 
-a, .highlights h4 {
-    @include transition(color .3s ease-in-out, border .3s ease-in-out);
-}
-
 a:hover {
     color: $hover_color;
 }
 
-h1, h2, h3, h4 {
-    font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 58px;
-    line-height: 56px;
-    letter-spacing: -2px;
-}
-
-h2 {
-    font-size: 28px;
-    line-height: 26px;
-    letter-spacing: -1px;
-}
-
-.user-info {
-    position: fixed;
-    bottom: 0;
-    z-index: 10;
-    width: 100%;
-    padding: 8px;
-    color: #bbb;
-    background-color: #2d2d2d;
-    border-top: 1px solid #000;
-    li {
-        float: left;
-        list-style: none;
-        margin: 0 12px;
+.projects {
+    article {
+        margin: 0 0 30px 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        @include border-radius(1px);
+        @include box-shadow(0 0 4px rgba(#000, .5));
     }
-    a {
-        color: #fff;
-        text-transform: capitalize;
-        border-bottom: 3px solid #2d2d2d;
-        &:hover {
-            color: #ccc;
-            border-bottom-color: #fff;
-        }
-        &.logout {
-            float: right;
-            margin: 0 20px 0 0;
-        }
-
-
-    }
-}
-
-.sprite-portfolio {
-    background-color: transparent;
-    background-image: url(sprite-portfolio.png);
-    background-position: 0 0;
-    background-repeat: none;
-}
-
-.l-content {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 255px;
-    background-color: #fff;
-    @include box-shadow(0 0 10px #000);
-    &.pos-fixed {
-        padding: 226px 0 0;
-    }
-}
-
-.masthead {
-    position: relative;
-    height: 226px;
-    background-color: #fff;
-    @include filter-gradient(#ffffff, #ededed, vertical); // IE6-9
-    @include background-image(linear-gradient(top, rgba(255,255,255,0) 85%,rgba(237,237,237,1) 100%));
-    background-position: 0 -1px;
-    border-top: 6px solid $bg_color;
-    &.fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        height: auto;
-        width: 100%;
-        background-image: none;
-        background-color: #ccc;
-        border-top: none;
-        h1, h2 {
-            margin: 0;
-        }
-    }
-    h1 {
-        margin: 88px 0 0;
-        text-transform: lowercase;
-    }
-    h2 {
-        margin: 112px 0 0;
-        font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
-        color: #666;
-        text-transform: lowercase;
-    }
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    width: 100%;
-    height: 155px;
-    padding: 50px 0;
-    background-color: #666;
-    text-transform: lowercase;
-    h5 {
-        margin: 0 0 16px 0;
+    h3 {
+        padding: 10px;
         font-size: 14px;
-        line-height: 16px;
+        font-weight: normal;
+        line-height: 24px;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+        color: rgba(#000, .6);
     }
-    .m-contact {
-        a {
-            color: #fff;
-            font-size: 36px;
-            font-weight: bold;
-            letter-spacing: -1px;
+    figure {
+        position: relative;
+        img {
+            width: 215px;
+            height: 240px;
+            border: 1px solid #ccc;
+            @include border-radius(3px);
         }
-        .source-code {
-            display: block;
-            margin: 25px 0 0;
-            padding: 25px 0 0;
-            border-top: 1px dotted rgba(#fff, .2);
-            font-weight: normal;
-            font-size: 14px;
-            color: #ccc;
-            &:hover {
-                color: #fff;
-            }
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            width: 217px;
+            height: 242px;
+            @include box-shadow(inset 0 0 10px #ccc);
         }
-    }
-    .m-credits {
-        text-align: right;
-        li {
-            list-style: none;
-        }
-        a {
-            color: #ccc;
-        }
-    }
-    a {
-        text-decoration: underline;
-        &:hover {
-            color: lighten($hover_color, 15);
-        }
-    }
-    h5, .m-credits li {
-        color: lighten($bg_color, 15);
     }
 }
