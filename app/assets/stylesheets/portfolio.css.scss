@@ -39,22 +39,51 @@
 
 }
 
-.masthead {
-    margin-bottom: 30px;
-    height: 40px;
-    background-color: $link_color;
-    border-bottom: 1px solid #000;
-    @include filter-gradient(#000000, #000000, vertical); // IE6-9
-    @include background-image(linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%));
-    @include box-shadow(0 0 10px #000);
-}
-
 body {
     font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
     font-size: 14px;
     background-color: rgb(96,108,136); // Old browsers
     @include filter-gradient(#606c88, #3f4c6b, horizontal); // IE6-9 fallback on horizontal gradient
     @include background-image(linear-gradient(left top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%));
+}
+
+.user-info {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 8px;
+    color: #bbb;
+    background-color: #2d2d2d;
+    border-top: 1px solid #000;
+    li {
+        float: left;
+        list-style: none;
+        margin: 0 12px;
+    }
+    a {
+        color: #fff;
+        text-transform: capitalize;
+        border-bottom: 3px solid #2d2d2d;
+        &:hover {
+            color: #ccc;
+            border-bottom-color: #fff;
+        }
+        &.logout {
+            float: right;
+            margin: 0 20px 0 0;
+        }
+
+
+    }
+}
+
+.masthead {
+    display: none;
+    margin-bottom: 30px;
+    height: 40px;
+    background-color: #000;
+    border-bottom: 1px solid #fff;
 }
 
 a {
@@ -66,7 +95,9 @@ a:hover {
 }
 
 .projects {
+    padding: 30px 0 0;
     article {
+        width: 278px;
         margin: 0 0 30px 0;
         background-color: #fff;
         border: 1px solid #ccc;
@@ -85,7 +116,7 @@ a:hover {
     figure {
         position: relative;
         img {
-            width: 215px;
+            width: 276px;
             height: 240px;
             border: 1px solid #ccc;
             @include border-radius(3px);
@@ -94,9 +125,60 @@ a:hover {
             content: "";
             position: absolute;
             z-index: 2;
-            width: 217px;
+            width: 278px;
             height: 242px;
             @include box-shadow(inset 0 0 10px #ccc);
         }
+    }
+}
+
+footer {
+    z-index: 1;
+    width: 100%;
+    height: 155px;
+    padding: 50px 0;
+    text-transform: lowercase;
+    h5 {
+        margin: 0 0 16px 0;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .m-contact {
+        a {
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+        .source-code {
+            display: block;
+            margin: 25px 0 0;
+            padding: 25px 0 0;
+            border-top: 1px dotted rgba(#fff, .2);
+            font-weight: normal;
+            font-size: 14px;
+            color: #ccc;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .m-credits {
+        text-align: right;
+        li {
+            list-style: none;
+        }
+        a {
+            color: #ccc;
+        }
+    }
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: lighten($hover_color, 15);
+        }
+    }
+    h5, .m-credits li {
+        color: lighten($bg_color, 15);
     }
 }

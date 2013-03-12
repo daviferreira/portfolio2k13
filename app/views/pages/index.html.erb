@@ -1,20 +1,12 @@
-<div class="grid">
-    <section class="projects">
-        <% @projects.each_slice(3) do |slice| %>
-            <div class="row">
-                <% slice.each_with_index do |project, index| %>
-                    <div class="slot-<%= index + 6 %>">
-                        <article class="project">
-                            <figure>
-                                <% unless project.photos.empty? %>
-                                    <%= image_tag project.photos.first.file.url(:thumb) %>
-                                <% end %>
-                            </figure>
-                            <h3><%= project.name %></h3>
-                        </article>
-                    </div>
+<section class="projects">
+    <% @projects.each_with_index do |project, index| %>
+        <article class="project">
+            <figure>
+                <% unless project.photos.empty? %>
+                    <%= image_tag project.photos.first.file.url(:highlight) %>
                 <% end %>
-            </div>
-        <% end %>
-    </section>
-</div>
+            </figure>
+            <h3><%= project.name %></h3>
+        </article>
+    <% end %>
+</section>
