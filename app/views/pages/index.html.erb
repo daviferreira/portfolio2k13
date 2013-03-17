@@ -1,12 +1,17 @@
-<section class="projects">
-    <% @projects.each_with_index do |project, index| %>
-        <article class="project<% if index % 3 == 0 %> first<% end %>">
-            <figure>
-                <% unless project.photos.empty? %>
-                    <%= image_tag project.photos.first.file.url(:highlight) %>
-                <% end %>
-            </figure>
-            <h3><%= project.name %></h3>
-        </article>
-    <% end %>
-</section>
+<div class="projects-container">
+    <section class="container projects clearfix">
+        <header>
+            <h1>These are my latest works</h1>
+        </header>
+        <% @projects.each_with_index do |project, index| %>
+            <article class="project<% if index % 3 == 0 %> first<% end %>">
+                <h3><%= project.name %></h3>
+                <figure>
+                    <% unless project.photos.empty? %>
+                        <%= image_tag project.photos.first.file.url(:highlight) %>
+                    <% end %>
+                </figure>
+            </article>
+        <% end %>
+    </section>
+</div>
