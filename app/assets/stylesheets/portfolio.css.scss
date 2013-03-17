@@ -42,9 +42,13 @@
 body {
     font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    background-color: rgb(96,108,136); // Old browsers
-    @include filter-gradient(#606c88, #3f4c6b, horizontal); // IE6-9 fallback on horizontal gradient
-    @include background-image(linear-gradient(left top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%));
+    background-color: #fff;
+}
+
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .user-info {
@@ -78,12 +82,35 @@ body {
     }
 }
 
+.top-nav-bar {
+    height: 42px;
+    background-color: rgba(#000, 1);
+}
+
 .masthead {
-    display: none;
-    margin-bottom: 30px;
-    height: 40px;
-    background-color: #000;
-    border-bottom: 1px solid #fff;
+    padding: 60px 0 120px 0;
+    margin: 60px 0 0;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    h1 {
+        margin: 0;
+        font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+        font-size: 62px;
+        font-weight: 900;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+    }
+    h2 {
+        display: inline-block;
+        margin: 0;
+        color: #666;
+        font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        font-weight: normal;
+        letter-spacing: -1px;
+        line-height: 22px;
+        text-transform: lowercase;
+    }
 }
 
 a {
@@ -95,14 +122,19 @@ a:hover {
 }
 
 .projects {
-    padding: 30px 0 0;
+    $article_width: 364px;
+    $article_height: 242px;
+    margin: 60px 0 0;
     article {
-        width: 278px;
-        margin: 0 0 30px 0;
+        float: left;
+        height: 320px;
+        width: $article_width;
+        margin: 0 0 21px 21px;
         background-color: #fff;
-        border: 1px solid #ccc;
-        @include border-radius(1px);
-        @include box-shadow(0 0 4px rgba(#000, .5));
+        border: 6px solid #000;
+        &.first {
+            margin-left: 0;
+        }
     }
     h3 {
         padding: 10px;
@@ -115,19 +147,14 @@ a:hover {
     }
     figure {
         position: relative;
+        margin: 0;
+        width: $article_width - 2;
+        height: $article_height - 2;
         img {
-            width: 276px;
-            height: 240px;
-            border: 1px solid #ccc;
+            width: $article_width - 2;
+            height: $article_height - 2;
+            border: 1px solid #fff;
             @include border-radius(3px);
-        }
-        &:before {
-            content: "";
-            position: absolute;
-            z-index: 2;
-            width: 278px;
-            height: 242px;
-            @include box-shadow(inset 0 0 10px #ccc);
         }
     }
 }

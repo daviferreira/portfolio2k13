@@ -2,9 +2,6 @@
 <html>
 <head>
     <title>Portfolio2k13</title>
-    <%= stylesheet_link_tag "base", :media => "all" %>
-    <%= stylesheet_link_tag "720_grid", :media => "screen and (min-width: 720px)" %>
-    <%= stylesheet_link_tag "986_grid", :media => "screen and (min-width: 986px)" %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= stylesheet_link_tag "pages", :media => "all" %>
     <%= csrf_meta_tags %>
@@ -18,42 +15,31 @@
         <a href="#"><%= locale %></a>
     <% end %>
     -->
-    <div class="l-content">
+    <div class="top-nav-bar"></div>
+    <div class="container">
         <header class="masthead" id="page-title">
-            <div class="grid">
-                <div class="row">
-                    <div class="slot-0-1-2-3">
-                        <h1>Davi Ferreira</h1>
-                    </div>
-                    <div class="slot-4-5">
-                        <h2>Web crafter</h2>
-                    </div>
-                </div>
-            </div>
+            <h1>Davi Ferreira</h1>
+            <h2>code crafter</h2>
         </header>
         <%= yield %>
-    </div>
-    <footer>
-        <div class="grid">
-            <div class="row">
-                <div class="slot-6-7 m-contact">
-                    <h5>Get in touch</h5>
-                    <%= mail_to "hi@daviferreira.com" %>
-                    <a class="source-code" href="">&raquo; source code</a>
-                </div>
-                <div class="slot-8-9 m-credits">
-                    <h5>Powered by</h5>
-                    <ul>
-                        <li><%= link_to "nginx", "#" %> + <%= link_to "Varnish", "#" %></li>
-                        <li><%= link_to "Ruby on Rails", "#" %></li>
-                        <li><%= link_to "Sass", "#" %> + <%= link_to "Compass", "#" %></li>
-                        <li><%= link_to "Backbone", "#" %> + <%= link_to "jQuery", "#" %> + <%= link_to "CoffeeScript", "#" %></li>
-                        <li><%= link_to "Proxima Nova font family", "#" %></li>
-                    </ul>
-                </div>
+        <footer>
+            <div class="m-contact">
+                <h5>Get in touch</h5>
+                <%= mail_to "hi@daviferreira.com" %>
+                <a class="source-code" href="">&raquo; source code</a>
             </div>
-        </div>
-    </footer>
+            <div class="m-credits">
+                <h5>Powered by</h5>
+                <ul>
+                    <li><%= link_to "nginx", "#" %> + <%= link_to "Varnish", "#" %></li>
+                    <li><%= link_to "Ruby on Rails", "#" %></li>
+                    <li><%= link_to "Sass", "#" %> + <%= link_to "Compass", "#" %></li>
+                    <li><%= link_to "Backbone", "#" %> + <%= link_to "jQuery", "#" %> + <%= link_to "CoffeeScript", "#" %></li>
+                    <li><%= link_to "Proxima Nova font family", "#" %></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
     <%= javascript_include_tag "application" %>
 </body>
 </html>

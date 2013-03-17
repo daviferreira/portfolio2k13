@@ -1,6 +1,6 @@
 <section class="projects">
     <% @projects.each_with_index do |project, index| %>
-        <article class="project">
+        <article class="project<% if index % 3 == 0 %> first<% end %>">
             <figure>
                 <% unless project.photos.empty? %>
                     <%= image_tag project.photos.first.file.url(:highlight) %>
