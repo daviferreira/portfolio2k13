@@ -73,7 +73,7 @@ body {
         text-transform: capitalize;
         border-bottom: 3px solid #2d2d2d;
         &:hover {
-            color: #ccc;
+            color: #dbdbdb;
             border-bottom-color: #fff;
         }
         &.logout {
@@ -136,7 +136,7 @@ a:hover {
 }
 
 .projects-container {
-    background-color: rgba(#ccc, .1);
+    background-color: rgba(#dbdbdb, .1);
 }
 
 .projects {
@@ -159,9 +159,9 @@ a:hover {
         width: $article_width;
         margin: 0 0 21px 21px;
         background-color: #fff;
-        border: 1px solid rgba(#ccc, .6);
+        border: 1px solid rgba(#dbdbdb, .6);
         @include border-bottom-radius(3px);
-        @include box-shadow(0 0 10px rgba(#ccc, .3));
+        @include box-shadow(0 0 10px rgba(#dbdbdb, .3));
         &.first {
             margin-left: 0;
         }
@@ -202,19 +202,34 @@ a:hover {
 
 .secondary-info-container {
     padding: 60px 0;
-    border-top: 1px solid #ccc;
     background-color: #fff;
+    @include box-shadow(0 -5px 10px #dbdbdb);
 }
 
 .secondary-info {
     section {
         float: left;
-        width: $article_width;
-        margin: 0 22px 0 0;
-        border-right: 1px solid #ccc;
+        width: $article_width + 2;
+        min-height: 200px;
+        margin: 0 21px 0 0;
         &:last-child {
             margin-right: 0;
             border-right: none;
+        }
+    }
+    h1 {
+        padding: 6px;
+        border-bottom: 1px dotted #dbdbdb;
+        font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+        font-size: 26px;
+        font-weight: normal;
+        text-align: center;
+        text-transform: lowercase;
+        em {
+            font-family: Georgia, Times, TimesNewRoman, serif;
+            font-size: 20px;
+            font-weight: bolder;
+            color: red;
         }
     }
 }
@@ -248,7 +263,7 @@ footer {
             border-top: 1px dotted rgba(#fff, .2);
             font-weight: normal;
             font-size: 14px;
-            color: #ccc;
+            color: #dbdbdb;
             &:hover {
                 color: #fff;
             }
@@ -260,7 +275,7 @@ footer {
             list-style: none;
         }
         a {
-            color: #ccc;
+            color: #dbdbdb;
         }
     }
     a {
