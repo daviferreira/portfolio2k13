@@ -97,6 +97,20 @@ a:hover {
 .top-nav-bar {
     height: 42px;
     background-color: rgba(#000, 1);
+    .language {
+        padding: 13px 0 0;
+        color: #ccc;
+        font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-align: center;
+        a {
+            color: #fff;
+            &:hover {
+                color: $link_color;
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .l-content {
@@ -111,12 +125,16 @@ a:hover {
 }
 
 .masthead {
-    padding: 60px 0 180px 0;
-    margin: 120px 0 0;
+    background-color: $link_color; // Old browsers
+    @include filter-gradient($link_color, #000000, vertical); // IE6-9
+    @include background-image(linear-gradient(top,  $link_color 0%,#000000 180%));
+    padding: 180px 0;
+    margin: 0;
     border-bottom: 6px solid #dbdbdb;
     text-align: center;
     h1 {
         margin: 0;
+        color: #fff;
         font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
         font-size: 62px;
         font-weight: 900;
@@ -126,7 +144,7 @@ a:hover {
     h2 {
         display: inline-block;
         margin: 20px 0 0;
-        color: #666;
+        color: #ccc;
         font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
         font-size: 32px;
         font-weight: normal;
@@ -227,6 +245,8 @@ a:hover {
     }
     h1 {
         padding: 6px;
+        margin: 0 0 20px 0;
+        border-bottom: 1px solid rgba(#ccc, .3);
         font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
         font-size: 26px;
         font-weight: normal;
@@ -274,7 +294,7 @@ a:hover {
             border: 1px solid #fff;
             width: 118px;
             height: 118px;
-            @include border-radius(118px);
+            @include border-radius(60px);
             &:after {
                 content: "";
                 position: absolute;
@@ -282,9 +302,102 @@ a:hover {
                 left: 0;
                 width: 118px;
                 height: 118px;
-                @include border-radius(118px);
+                @include border-radius(60px);
                 @include box-shadow(inset 0 0 4px rgba(#000, .6));
             }
+        }
+    }
+}
+
+.about-me-container {
+    background-color: #fcfcfc;
+    border-top: 1px solid #dbdbdb;
+}
+
+.about-me {
+    section {
+        width: $article_width + 1;
+        height: 250px;
+        margin: 0 21px 0 0;
+        padding: 60px 0;
+        float: left;
+        border-right: 1px solid #dbdbdb;
+        &:last-child {
+            margin-right: 0;
+            border-right: none;
+        }
+    }
+    article {
+        padding: 0 10px;
+    }
+    .myself {
+        padding-top: 30px;
+        padding-bottom: 90px;
+        article {
+            padding-right: 31px;
+        }
+        h3 {
+            padding: 6px;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid rgba(#ccc, .3);
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 26px;
+            font-weight: normal;
+            text-align: center;
+            text-transform: lowercase;
+        }
+        p {
+            color: #666;
+            line-height: 20px;
+        }
+        figure {
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            width: 118px;
+            height: 118px;
+            @include border-radius(60px);
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 118px;
+                height: 118px;
+                @include border-radius(60px);
+                @include box-shadow(inset 0 0 4px rgba(#000, .6));
+            }
+        }
+    }
+    .tweets {
+        overflow: hidden;
+        padding: 20px 0;
+        article {
+            margin: 20px 0;
+            a {
+                color: #ccc;
+            }
+            &.active {
+                display: block;
+                a {
+                    color: #333;
+                 }
+            }
+            a:hover {
+                color: #666;
+            }
+        }
+        p {
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 22px;
+        }
+        time {
+            display: block;
+            margin: 10px 0 0;
+            font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+            text-align: right;
         }
     }
 }

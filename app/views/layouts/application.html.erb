@@ -9,20 +9,24 @@
 <body>
     <%= render "shared/notifications" %>
     <%= render "shared/user_info" %>
-    <!--
-    <h1><%= I18n.locale %></h1>
-    <% I18n.available_locales.each do |locale| %>
-        <a href="#"><%= locale %></a>
-    <% end %>
-    -->
     <div class="l-content">
-        <div class="top-nav-bar"></div>
-        <div class="container">
-            <header class="masthead" id="page-title">
+        <div class="top-nav-bar">
+            <div class="container">
+                <div class="language">
+                    <% if I18n.locale == :en %>
+                        <%= link_to raw("ver em português &#8250;"), root_path %>
+                    <% else %>
+                        <%= link_to raw("switch to english &#8250;"), localized_root_path(:locale => "en") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <header class="masthead" id="page-title">
+            <div class="container">
                 <h1>Hi, I'm Davi Ferreira</h1>
                 <h2>I'm a code crafter</h2>
-            </header>
-        </div>
+            </div>
+        </header>
         <%= yield %>
     </div>
     <footer>
