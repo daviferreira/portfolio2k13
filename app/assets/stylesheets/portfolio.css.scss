@@ -283,6 +283,8 @@ a:hover {
                 text-align: right;
             }
         }
+    }
+    .open-source {
         h2, p {
             float: right;
             width: 426px;
@@ -306,6 +308,7 @@ a:hover {
                 @include box-shadow(inset 0 0 4px rgba(#000, .6));
             }
         }
+ 
     }
 }
 
