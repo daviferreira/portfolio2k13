@@ -3,16 +3,24 @@
         <header>
             <h1>Selected works</h1>
         </header>
-        <% @projects.each_with_index do |project, index| %>
-            <article class="project<% if index % 3 == 0 %> first<% end %>">
-                <h3><%= project.name %></h3>
-                <figure>
-                    <% unless project.photos.empty? %>
-                        <%= image_tag project.photos.first.file.url(:highlight) %>
-                    <% end %>
-                </figure>
-            </article>
-        <% end %>
+        <div class="clearfix">
+            <% @projects.each_with_index do |project, index| %>
+                <article class="project<% if index % 3 == 0 %> first<% end %>">
+                    <h3><%= project.name %></h3>
+                    <figure>
+                        <% unless project.photos.empty? %>
+                            <%= image_tag project.photos.first.file.url(:highlight) %>
+                        <% end %>
+                    </figure>
+                </article>
+            <% end %>
+        </div>
+        <div class="all-projects">
+            <div class="button">
+                <span class="label">All projects</span>
+                <span class="label">Visit now &#8250;</span>
+            </div>
+        </div>
     </section>
 </div>
 
@@ -71,11 +79,11 @@
     <div class="about-me clearfix container">
         <section class="social">
             <ul>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Delicious</a></li>
-                <li><a href="#">DeviantArt</a></li>
-                <li><a href="#">last.fm</a></li>
-                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#" class="social-sprite social-twitter">Twitter</a></li>
+                <li><a class="social-sprite social-delicious" href="#">Delicious</a></li>
+                <li><a href="#" class="social-sprite social-deviantart">DeviantArt</a></li>
+                <li><a href="#" class="social-sprite social-lastfm">last.fm</a></li>
+                <li><a href="#" class="social-sprite social-linkedin">LinkedIn</a></li>
             </ul>
         </section>
         <section class="myself clearfix">
