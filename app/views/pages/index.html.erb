@@ -1,7 +1,7 @@
 <div class="projects-container">
     <section class="container projects clearfix">
         <header>
-            <h1>These are my latest works</h1>
+            <h1>Selected works</h1>
         </header>
         <% @projects.each_with_index do |project, index| %>
             <article class="project<% if index % 3 == 0 %> first<% end %>">
@@ -37,11 +37,29 @@
                 <p>Drag and drop files right from your desktop or web browser. Your files will be automatically uploaded to the cloud. <a href="#">Watch the video&hellip;</a></p>
             </article>
         </section>
-        <section class="writing-talks">
+        <section class="writing-talks clearfix">
             <header>
                 <h1><small><a href="#">visit my blog &#8250;</a></small>Writing & Talking</h1>
             </header>
-            <article>
+            <article class="book clearfix">
+                <figure>
+                    <a href="#">
+                        <%= image_tag "instant-html-book.jpg" %>
+                    </a>
+                </figure>
+                <a href="#" class="description">
+                    <h3>Check my new book</h3>
+                    <h2>Instant HTML5 Presentations How-to</h2>
+                </a>
+            </article>
+            <div class="decks">
+                <ul>
+                    <li><a href="#" class="js-deck"><%= image_tag "js-deck.jpg" %></a></li>
+                    <li><a href="#" class="html5-deck"><%= image_tag "html5-css3-deck.jpg" %></a></li>
+                    <li><a href="#" class="compass-deck"><%= image_tag "sass-deck.jpg" %></a></li>
+                </ul>
+            </div>
+            <article class="post">
                 <h2>Zepto.js: JavaScript peso-leve</h2>
                 <p>Inicialmente lançado para aplicações mobile, o framework Zepto.js começa a ganhar espaço também no desktop graças ao seu peso reduzido e a sua alta compatibilidade com jQuery.</p>
             </article>
@@ -70,16 +88,15 @@
             </article>
         </section>
         <section class="tweets">
+            <div class="limit"></div>
             <article class="active">
                 <a href="#">
                     <p>Tá na hora de parar de usar geradores para degradês CSS3, saiba como nesse artigo genial do @bernarddeluna: tableless.com.br/como-usar-grad…</p>
-                    <time>12 de fevereiro de 2012</time>
                 </a>
             </article>
             <article class="active">
                 <a href="#">
                     <p>Tá na hora de parar de usar geradores para degradês CSS3, saiba como nesse artigo genial do @bernarddeluna: tableless.com.br/como-usar-grad…</p>
-                    <time>12 de fevereiro de 2012</time>
                 </a>
             </article>
             <article>
