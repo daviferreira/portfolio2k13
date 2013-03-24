@@ -1,4 +1,11 @@
 # TODO
 
-* big button see more projects below latest projects
-* book + presentations on talk + writing
+* project flipping panel
+* project page
+* all projects
+* tag page
+* blog home
+* post page
+* archive page
+* tests
+* i18n for static content
