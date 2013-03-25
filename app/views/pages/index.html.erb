@@ -7,11 +7,18 @@
             <% @projects.each_with_index do |project, index| %>
                 <article class="project<% if index % 3 == 0 %> first<% end %>">
                     <h3><%= project.name %></h3>
-                    <figure>
-                        <% unless project.photos.empty? %>
-                            <%= image_tag project.photos.first.file.url(:highlight) %>
-                        <% end %>
-                    </figure>
+                    <div class="panel">
+                        <div class="front">
+                            <figure>
+                                <% unless project.photos.empty? %>
+                                    <%= image_tag project.photos.first.file.url(:highlight) %>
+                                <% end %>
+                            </figure>
+                        </div>
+                        <div class="back">
+                            hello world
+                        </div>
+                    </div>
                 </article>
             <% end %>
         </div>
