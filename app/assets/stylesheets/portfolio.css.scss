@@ -381,12 +381,21 @@ a:hover {
         }
         .book {
             width: 335px;
+            img {
+                @include transition(all .15s linear);
+            }
             figure, .description {
                 float: left;
             }
             .description {
                 width: 162px;
                 margin: 45px 0 0 20px;
+            }
+            &:hover {
+                img {
+                    @include simple-transform(1.2, -10deg);
+                    @include box-shadow(0 0 10px #666);
+                }
             }
         }
         .decks {
