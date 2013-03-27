@@ -11,10 +11,10 @@ Portfolio2k13::Application.routes.draw do
   end
 
   match '/:locale' => 'pages#index',
-                      :constraints => {:locale => /en/},
+                      :constraints => {:locale => /pt-BR/},
                       :as => :localized_root
 
-  scope "(:locale)", :locale => /en/, :via => :get do
+  scope "(:locale)", :locale => /pt-BR/, :via => :get do
     match '/projects/:id' => "projects#show", :as => :localized_project
     match '/categories/:id' => "categories#show", :as => :localized_category
     # TODO
