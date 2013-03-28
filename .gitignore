@@ -8,3 +8,4 @@ doc/
 .DS_Store
 coverage
 public/system
+app/assets/images/icons-*.png

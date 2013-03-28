@@ -19,9 +19,10 @@
                             <div class="project-meta-data">
                                 <p><%= project.description %></p>
                                 <ul>
-                                    <li class="tags"><%= project.tags %></li>
-                                    <li class="url"><%= link_to project.url, project.url %></li>
+                                    <li class="tags clearfix"><i class="icons-sprite icons-tag"></i><%= project.tags %></li>
+                                    <li class="link clearfix"><i class="icons-sprite icons-link"></i><%= link_to project.url, project.url %></li>
                                 </ul>
+                                <p class="details"><a class="#">+ details</a></p>
                             </div>
                         </div>
                     </div>
@@ -92,10 +93,10 @@
     <div class="about-me clearfix container">
         <section class="social">
             <ul>
-                <li><a href="#" class="social-sprite social-github"><span>visit my profile &#8250;</span>Github</a></li>
-                <li><a href="#" class="social-sprite social-twitter"><span>visit my profile &#8250;</span>Twitter</a></li>
-                <li><a href="#" class="social-sprite social-linkedin"><span>visit my profile &#8250;</span>LinkedIn</a></li>
-                <li><a class="social-sprite social-delicious" href="#"><span>visit my profile &#8250;</span>Delicious</a></li>
+                <li><a href="#" class="icons-sprite icons-github"><span>visit my profile &#8250;</span>Github</a></li>
+                <li><a href="#" class="icons-sprite icons-twitter"><span>visit my profile &#8250;</span>Twitter</a></li>
+                <li><a href="#" class="icons-sprite icons-linkedin"><span>visit my profile &#8250;</span>LinkedIn</a></li>
+                <li><a class="icons-sprite icons-delicious" href="#"><span>visit my profile &#8250;</span>Delicious</a></li>
             </ul>
         </section>
         <section class="myself clearfix">

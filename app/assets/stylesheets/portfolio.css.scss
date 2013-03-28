@@ -1,8 +1,8 @@
 @import "variables";
 @import "compass/css3";
 
-@import "social/*.png";
-@include all-social-sprites;
+@import "icons/*.png";
+@include all-icons-sprites;
 
 $article_width: 374px;
 $article_height: 242px;
@@ -287,6 +287,42 @@ a:hover {
             &:hover {
                 background-color: $hover_color;
             }
+        }
+    }
+}
+
+.project-meta-data {
+    padding: 20px;
+    color: rgba(#fff, .8);
+    line-height: 20px;
+    i {
+        display: block;
+        margin-right: 10px;
+        float: left;
+        width: 16px;
+        height: 16px;
+    }
+    ul {
+        margin: 20px 0 0;
+        border-top: 1px solid rgba(#fff, .3);
+        border-bottom: 1px solid rgba(#fff, .3);
+    }
+    li {
+        margin: 10px 0;
+    }
+    a {
+        color: rgba(#fff, .5);
+        cursor: pointer !important;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .details {
+        margin: 10px 0 0;
+        text-align: center;
+        font-weight: bold;
+        a {
+            color: #fff;
         }
     }
 }
