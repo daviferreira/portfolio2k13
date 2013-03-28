@@ -5,28 +5,7 @@
         </header>
         <div class="clearfix">
             <% @projects.each_with_index do |project, index| %>
-                <article class="project<% if index % 3 == 0 %> first<% end %>">
-                    <h3><%= project.name %></h3>
-                    <div class="panel">
-                        <div class="front">
-                            <figure>
-                                <% unless project.photos.empty? %>
-                                    <%= image_tag project.photos.first.file.url(:highlight) %>
-                                <% end %>
-                            </figure>
-                        </div>
-                        <div class="back">
-                            <div class="project-meta-data">
-                                <p><%= project.description %></p>
-                                <ul>
-                                    <li class="tags clearfix"><i class="icons-sprite icons-tag"></i><%= project.tags %></li>
-                                    <li class="link clearfix"><i class="icons-sprite icons-link"></i><%= link_to project.url, project.url %></li>
-                                </ul>
-                                <p class="details"><a class="#">+ details</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <%= render project, :index => index %>
             <% end %>
         </div>
         <div class="all-projects">
