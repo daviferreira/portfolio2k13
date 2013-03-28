@@ -16,7 +16,13 @@
                             </figure>
                         </div>
                         <div class="back">
-                            hello world
+                            <div class="project-meta-data">
+                                <p><%= project.description %></p>
+                                <ul>
+                                    <li class="tags"><%= project.tags %></li>
+                                    <li class="url"><%= link_to project.url, project.url %></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </article>
