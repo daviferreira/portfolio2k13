@@ -14,9 +14,9 @@
             <div class="container">
                 <div class="language">
                     <% if I18n.locale == :en %>
-                        <%= link_to raw("ver em português &#8250;"), localized_root_path(:locale => "pt-BR") %>
+                        <%= link_to raw("ver em português &#8250;"), root_path %>
                     <% else %>
-                        <%= link_to raw("switch to english &#8250;"), root_path %>
+                        <%= link_to raw("switch to english &#8250;"), localized_root_path(:locale => "en") %>
                     <% end %>
                 </div>
             </div>
