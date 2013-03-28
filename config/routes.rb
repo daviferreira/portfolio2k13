@@ -11,7 +11,8 @@ Portfolio2k13::Application.routes.draw do
   end
 
   match '/:locale' => 'pages#index',
-                      :constraints => {:locale => /en/}
+                      :constraints => {:locale => /en/},
+                      :as => :localized_root
 
   scope "(:locale)", :locale => /en/, :via => :get do
     match '/projects/:id' => "projects#show", :as => :localized_project

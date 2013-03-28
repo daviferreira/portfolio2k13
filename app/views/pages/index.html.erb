@@ -1,219 +1,131 @@
-<h1>Projects</h1>
-<ul>
-    <% @projects.each do |project| %>
-        <li><%= link_to project.name, localized_project_path(:id => project, :locale => (I18n.locale == I18n.default_locale ? nil : I18n.locale)) %></li>
-    <% end %>
-</ul>
-<ul>
-    <% @categories.each do |category| %>
-        <li><%= link_to category.name, localized_category_path(:id => category, :locale => (I18n.locale == I18n.default_locale ? nil : I18n.locale)) %></li>
-    <% end %>
-</ul>
-<h1>Posts</h1>
-<ul>
-    <% @posts.each do |post| %>
-        <li><%= link_to post.title, post %></li>
-    <% end %>
-</ul>
-
-<div class="m-slides" id="slides">
-  <div class="grid">
-    <div class="row">
-      <div class="slot-0-1-2-3">
-        pic
-      </div>
-      <div class="slot-4-5">
-        <section class="slide">
-          <header>
-            <h1>TVG</h1>
-          </header>
-          <p>O mais novo portal da globo.com agrega os principais produtos de entretenimento da casa</p>
-          <%= link_to "more details", "#" %>
-        </section>
-      </div>
-    </div>
-  </div>
+<div class="projects-container">
+    <section class="container projects clearfix">
+        <header>
+            <h1>Selected works</h1>
+        </header>
+        <div class="clearfix">
+            <% @projects.each_with_index do |project, index| %>
+                <article class="project<% if index % 3 == 0 %> first<% end %>">
+                    <h3><%= project.name %></h3>
+                    <div class="panel">
+                        <div class="front">
+                            <figure>
+                                <% unless project.photos.empty? %>
+                                    <%= image_tag project.photos.first.file.url(:highlight) %>
+                                <% end %>
+                            </figure>
+                        </div>
+                        <div class="back">
+                            <div class="project-meta-data">
+                                <p><%= project.description %></p>
+                                <ul>
+                                    <li class="tags clearfix"><i class="icons-sprite icons-tag"></i><%= project.tags %></li>
+                                    <li class="link clearfix"><i class="icons-sprite icons-link"></i><%= link_to project.url, project.url %></li>
+                                </ul>
+                                <p class="details"><a class="#">+ details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            <% end %>
+        </div>
+        <div class="all-projects">
+            <div class="button">
+                <span class="label">All projects</span>
+                <span class="label">Visit now &#8250;</span>
+            </div>
+        </div>
+    </section>
 </div>
 
-<section class="highlights">
-  <div class="grid m-highlights">
-    <div class="row">
-      <div class="slot-0-1">
-        <article>
-          <figure class="panel">
-            <div class="front">
-              <a href="#">
-                <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
-              </a>
+<div class="secondary-info-container">
+    <div class="secondary-info container clearfix">
+        <section class="open-source">
+            <header>
+                <h1><small><a href="#">more @ github &#8250;</a></small>I <em>&hearts;</em> open source</h1>
+            </header>
+            <article class="clearfix">
+                <figure>
+                    <%= image_tag "canvas.jpg" %>
+                </figure>
+                <h2>Canvas PHP Image Manipulation</h2>
+                <p>Drag and drop files right from your desktop or web browser. Your files will be automatically uploaded to the cloud. <a href="#">Watch the video&hellip;</a></p>
+            </article>
+            <article class="clearfix">
+                <figure>
+                    <%= image_tag "simple-code-review.jpg" %>
+                </figure>
+                <h2>Simple Code Review</h2>
+                <p>Drag and drop files right from your desktop or web browser. Your files will be automatically uploaded to the cloud. <a href="#">Watch the video&hellip;</a></p>
+            </article>
+        </section>
+        <section class="writing-talks clearfix">
+            <header>
+                <h1><small><a href="#">visit my blog &#8250;</a></small>Writing & Talking</h1>
+            </header>
+            <article class="book clearfix">
+                <figure>
+                    <a href="#">
+                        <%= image_tag "instant-html-book.jpg" %>
+                    </a>
+                </figure>
+                <a href="#" class="description">
+                    <h3>Check out my new book</h3>
+                    <h2>Instant HTML5 Presentations How-to</h2>
+                </a>
+            </article>
+            <div class="decks">
+                <ul>
+                    <li><a href="#" class="js-deck"><%= image_tag "js-deck.jpg" %></a></li>
+                    <li><a href="#" class="html5-deck"><%= image_tag "html5-css3-deck.jpg" %></a></li>
+                    <li><a href="#" class="compass-deck"><%= image_tag "sass-deck.jpg" %></a></li>
+                </ul>
             </div>
-            <div class="back">
-              opa
-            </div>
-          </figure>
-          <a href="#">
-            <h4>Big Brother Brasil</h4>
-            <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
-          </a>
-        </article>
-      </div>
-      <div class="slot-2-3">
-        <article>
-          <figure class="panel">
-            <div class="front">
-              <a href="#">
-                <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
-              </a>
-            </div>
-            <div class="back">
-              opa
-            </div>
-          </figure>
-          <a href="#">
-            <h4>Big Brother Brasil</h4>
-            <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
-          </a>
-        </article>
-      </div>
-      <div class="slot-4-5">
-        <article>
-          <figure class="panel">
-            <div class="front">
-              <a href="#">
-                <img src="/images/highlight-dummy.jpg" height="140" width="242" alt="Big Brother Brasil">
-              </a>
-            </div>
-            <div class="back">
-              opa
-            </div>
-          </figure>
-          <a href="#">
-            <h4>Big Brother Brasil</h4>
-            <p>Membro da equipe de desenvolvimento do site oficial do Big Brother Brasil, programa de maior audiência da América Latina</p>
-          </a>
-        </article>
-      </div>
+            <article class="post">
+                <h2>Zepto.js: JavaScript peso-leve</h2>
+                <p>Inicialmente lançado para aplicações mobile, o framework Zepto.js começa a ganhar espaço também no desktop graças ao seu peso reduzido e a sua alta compatibilidade com jQuery.</p>
+            </article>
+        </section>
     </div>
-  </div>
-</section>
+</div>
 
-<div class="secondary-content">
-  <div class="sprite-portfolio separator"></div>
-  <section class="grid m-works">
-    <nav>
-      <%= link_to "websites", "#", :title => "websites" %>
-      <%= link_to "sistemas", "#", :title => "sistemas" %>
-      <%= link_to "e-commerce", "#", :title => "e-commerce" %>
-      <%= link_to "hotsites", "#", :title => "hotsites" %>
-      <%= link_to "outros", "#", :title => "outros" %>
-    </nav>
-    <header>
-      <h1>other <span>works</span></h1>
-    </header>
-    <div class="row row-works" id="row-works">
-      <div class="slot-6">
-        <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
-          <li><%= link_to "The Voice Brasil", "#" %></li>
-          <li><%= link_to "TVG", "#" %></li>
-          <li><%= link_to "Domingão do Faustão", "#" %></li>
-          <li><%= link_to "Caldeirão do Huck", "#" %></li>
-          <li><%= link_to "Vídeo Show", "#" %></li>
-        </ul>
-      </div>
-      <div class="slot-7">
-        <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
-          <li><%= link_to "The Voice Brasil", "#" %></li>
-          <li><%= link_to "TVG", "#" %></li>
-          <li><%= link_to "Domingão do Faustão", "#" %></li>
-          <li><%= link_to "Caldeirão do Huck", "#" %></li>
-          <li><%= link_to "Vídeo Show", "#" %></li>
-        </ul>
-      </div>
-      <div class="slot-8">
-        <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
-          <li><%= link_to "The Voice Brasil", "#" %></li>
-          <li><%= link_to "TVG", "#" %></li>
-          <li><%= link_to "Domingão do Faustão", "#" %></li>
-          <li><%= link_to "Caldeirão do Huck", "#" %></li>
-          <li><%= link_to "Vídeo Show", "#" %></li>
-        </ul>
-      </div>
-      <div class="slot-9">
-        <ul>
-          <li><%= link_to "Big Brother Brasil", "#" %></li>
-          <li><%= link_to "The Voice Brasil", "#" %></li>
-          <li><%= link_to "TVG", "#" %></li>
-          <li><%= link_to "Domingão do Faustão", "#" %></li>
-          <li><%= link_to "Caldeirão do Huck", "#" %></li>
-          <li><%= link_to "Vídeo Show", "#" %></li>
-        </ul>
-      </div>
+<div class="about-me-container">
+    <div class="about-me clearfix container">
+        <section class="social">
+            <ul>
+                <li><a href="#" class="icons-sprite icons-github"><span>visit my profile &#8250;</span>Github</a></li>
+                <li><a href="#" class="icons-sprite icons-twitter"><span>visit my profile &#8250;</span>Twitter</a></li>
+                <li><a href="#" class="icons-sprite icons-linkedin"><span>visit my profile &#8250;</span>LinkedIn</a></li>
+                <li><a class="icons-sprite icons-delicious" href="#"><span>visit my profile &#8250;</span>Delicious</a></li>
+            </ul>
+        </section>
+        <section class="myself clearfix">
+            <article>
+                <figure>
+                    <%= image_tag "davi.jpg" %>
+                </figure>
+                <h3>davi ferreira</h3>
+                <p>Programador apaixonado pelo que faz. Responsável pelo desenvolvimento de sistemas e interfaces para Globo.com, Confederação Brasileira de Vôlei, Ricoh Brasil, Embratel entre outros.</p>
+            </article>
+        </section>
+        <section class="tweets">
+            <div class="limit"></div>
+            <article class="active">
+                <a href="#">
+                    <p>Tá na hora de parar de usar geradores para degradês CSS3, saiba como nesse artigo genial do @bernarddeluna: tableless.com.br/como-usar-grad…</p>
+                </a>
+            </article>
+            <article class="active">
+                <a href="#">
+                    <p>Tá na hora de parar de usar geradores para degradês CSS3, saiba como nesse artigo genial do @bernarddeluna: tableless.com.br/como-usar-grad…</p>
+                </a>
+            </article>
+            <article>
+                <a href="#">
+                    <p>Tá na hora de parar de usar geradores para degradês CSS3, saiba como nesse artigo genial do @bernarddeluna: tableless.com.br/como-usar-grad…</p>
+                    <time>12 de fevereiro de 2012</time>
+                </a>
+            </article>
+        </section>
     </div>
-  </section>
-  <div class="grid m-more-info">
-    <div class="row">
-      <section class="slot-0-1">
-        <header>
-          <h1>I <span class="heart">&hearts;</span> open source</h1>
-        </header>
-        <ul class="open-source-list">
-          <li class="clearfix highlight">
-            <a href="#">
-              <div class="thumb">
-                <img src="/images/tertiary-dummy.jpg" height="60" width="60">
-              </div>
-              <div class="meta-data">
-                <div>
-                  Simple Code Review
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="clearfix highlight highlight-last">
-            <a href="#">
-              <div class="thumb">
-                <img src="/images/tertiary-dummy.jpg" height="60" width="60">
-              </div>
-              <div class="meta-data">
-                <div>
-                  Simple Code Review
-                </div>
-              </div>
-            </a>
-          </li>
-          <li><%= link_to "Canvas PHP Class", "#" %></li>
-          <li><%= link_to "jQuery Sticky Sidebar", "#" %></li>
-          <li><%= link_to "Tissues", "#" %></li>
-          <li><%= link_to "Blank words generator", "#" %></li>
-        </ul>
-      </section>
-      <section class="slot-2-3">
-        <header>
-          <h1>talks <span>&</span> writings</h1>
-        </header>
-        <ul>
-          <li><%= link_to "HTML5 Presentations How-to", "#" %></li>
-          <li><%= link_to "HTML5/CSS3 workshop", "#" %></li>
-          <li><%= link_to "Sass/Compass workshop", "#" %></li>
-          <li><%= link_to "JavaScript overview", "#" %></li>
-          <li><%= link_to "Tableless articles", "#" %></li>
-        </ul>
-      </section>
-      <section class="slot-4-5">
-        <header>
-          <h1><span>social</span> profiles</h1>
-        </header>
-        <ul>
-          <li><%= link_to "github", "http://github.com/daviferreira" %></li>
-          <li><%= link_to "twitter", "http://twitter.com/davitferreira" %></li>
-          <li><%= link_to "delicious", "http://delicious.com/daviferreira" %></li>
-          <li><%= link_to "linkedin", "http://linkedin.com/daviferreira" %></li>
-          <li><%= link_to "deviantart", "http://daviferreira.deviantart.com" %></li>
-          <li><%= link_to "last.fm", "http://last.fm/davitf" %></li>
-        </ul>
-      </section>
-    </div>
-  </div>
 </div>
