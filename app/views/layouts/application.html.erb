@@ -6,7 +6,7 @@
     <%= stylesheet_link_tag "pages", :media => "all" %>
     <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller] %>-<%= params[:action] %>">
     <%= render "shared/notifications" %>
     <%= render "shared/user_info" %>
     <div class="l-content">
@@ -21,12 +21,6 @@
                 </div>
             </div>
         </div>
-        <header class="masthead" id="page-title">
-            <div class="container">
-                <h1>Davi Ferreira</h1>
-                <h2>code crafter</h2>
-            </div>
-        </header>
         <%= yield %>
     </div>
     <footer>

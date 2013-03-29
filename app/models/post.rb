@@ -7,4 +7,6 @@ class Post < ActiveRecord::Base
   attr_accessible :cached_slug # for import only
 
   validates_presence_of :title, :abstract, :body
+
+  scope :published, :conditions => { :published => true }, :order => "posts.published_date DESC"
 end

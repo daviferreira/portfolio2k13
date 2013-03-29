@@ -1,0 +1,17 @@
+<div class="projects-container projects-page secondary-page">
+    <div class="container clearfix">
+        <section class="nav-sidebar">
+            <div class="sidebar-container">
+                <header class="clearfix">
+                    <h1>Portfolio</h1>
+                    <h2>showing all</h2>
+                </header>
+            </div>
+        </section>
+        <section class="projects clearfix main-content">
+            <% @projects.each_with_index do |project, index| %>
+                <%= render project, :index => index, :itens => 2 %>
+            <% end %>
+        </section>
+    </div>
+</div>
