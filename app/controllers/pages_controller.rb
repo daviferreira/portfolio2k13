@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def projects
-    @projects = Project.published.with_translations(I18n.locale)
+    @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
   end
 
   def blog

@@ -4,13 +4,31 @@
             <div class="sidebar-container">
                 <header class="clearfix">
                     <h1>Portfolio</h1>
-                    <h2>showing all</h2>
                 </header>
+                <nav>
+                    <a class="current" href="#">by date</a>
+                    <a href="#">by category</a>
+                    <a href="#">by tag</a>
+                </nav>
             </div>
         </section>
-        <section class="projects clearfix main-content">
-            <% @projects.each_with_index do |project, index| %>
-                <%= render project, :index => index, :itens => 2 %>
+        <section class="projects-list clearfix main-content">
+            <% @projects_by_year.each do |year, projects| %>
+                <h3><%= year %></h3>
+                <ul class="clearfix">
+                <% projects.each do |project| %>
+                    <li>
+                        <a href="#">
+                            <% unless project.photos.empty? %>
+                                <figure>
+                                    <%= image_tag project.photos.first.file.url(:thumb) %>
+                                </figure>
+                            <% end %>
+                            <%= project.name %>
+                        </a>
+                    </li>
+                <% end %>
+                </ul>
             <% end %>
         </section>
     </div>

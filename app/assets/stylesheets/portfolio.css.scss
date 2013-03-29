@@ -227,3 +227,12 @@ footer {
     }
 }
 
+.secondary {
+    .l-content {
+        margin-bottom: 0;
+        @include box-shadow(none);
+    }
+    footer {
+        display: none;
+    }
+}

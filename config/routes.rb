@@ -10,7 +10,6 @@ Portfolio2k13::Application.routes.draw do
     match '/projects.html' => "pages#projects", :as => :localized_projects
     match '/blog(/index.html)' => "pages#blog", :as => :localized_blog
     match '/projects/:id' => "projects#show", :as => :localized_project
-    match '/categories/:id' => "categories#show", :as => :localized_category
     # TODO
     # projects archive
     # tags

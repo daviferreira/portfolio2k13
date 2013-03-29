@@ -453,6 +453,7 @@ a:hover {
 
 .secondary-page {
     position: relative;
+    background-color: #fff;
     .nav-sidebar {
         z-index: 1;
         position: fixed;
@@ -460,8 +461,8 @@ a:hover {
         height: 100%;
         margin-left: 0;
         margin-right: 20px;
-        background-color: #f7f7f7;
-        @include background-image(linear-gradient(bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 143%));
+        padding-top: 60px;
+        background-color: #fff;
         border-left: 1px solid #dbdbdb;
         border-right: 1px solid #dbdbdb;
         h1, h2 {
@@ -470,17 +471,17 @@ a:hover {
         h1 {
             margin: 0;
             padding-top: 10px;
+            padding-bottom: 10px;
             color: #333;
             border-bottom: 1px solid #dbdbdb;
             font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
             font-size: 42px;
             font-weight: bold;
             letter-spacing: -1px;
-            @include text-shadow(1px -1px 0 #fff);
+            line-height: 42px;
         }
         h2 {
             margin: 0;
-            border-top: 1px solid #fff;
             color: #666;
             font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
             font-size: 22px;
@@ -491,14 +492,64 @@ a:hover {
             @include border-radius(3px);
         }
     }
-    .sidebar-container {
-        padding-top: 60px;
-        border-left: 1px solid #fff;
-        border-right: 1px solid #fff;
-    }
     .main-content {
-        padding-top: 60px;
-        margin-left: 386px;
-        width: 775px;
+        padding-bottom: 0;
+        padding-top: 70px;
+        margin-left: 366px;
+        width: 795px;
+        border-right: 1px solid #dbdbdb;
+    }
+    .projects-list {
+        h3 {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #dbdbdb;
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 42px;
+        }
+        ul {
+            margin: 30px 0;
+        }
+        li {
+            float: left;
+            padding: 0 40px;
+            margin-bottom: 80px;
+            width: 172px;
+            font-size: 14px;
+            line-height: 18px;
+            text-align: center;
+            a {
+                color: #dbdbdb;
+                &:hover {
+                    color: $hover_color;
+                }
+            }
+        }
+        figure, img {
+            @include border-radius(60px);
+        }
+        figure {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            margin-bottom: 6px;
+            overflow: hidden;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80px;
+                height: 80px;
+                @include box-shadow(inset 0 0 5px rgba(#000, .4));
+                @include border-radius(60px);
+            }
+        }
     }
 }
