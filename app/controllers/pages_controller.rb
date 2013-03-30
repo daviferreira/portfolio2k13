@@ -7,9 +7,10 @@ class PagesController < ApplicationController
 
   def projects
     @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
+    @year = @projects_by_year.first.first
   end
 
   def blog
-    @posts = Post.published.where(:locale => I18n.locale)
+    @posts = Post.published_local.where(:locale => I18n.locale)
   end
 end

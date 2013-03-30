@@ -1,21 +1,23 @@
-<div class="projects-container projects-page secondary-page">
+<div class="projects-container projects-page secondary-page clearfix">
     <div class="container clearfix">
-        <section class="nav-sidebar">
+        <aside class="sidebar">
             <div class="sidebar-container">
                 <header class="clearfix">
-                    <h1>Portfolio</h1>
+                    <h1>Crafts</h1>
                 </header>
-                <nav>
+                <nav class="sidebar-navigation">
                     <a class="current" href="#">by date</a>
                     <a href="#">by category</a>
                     <a href="#">by tag</a>
                 </nav>
+                <%= render "shared/myself" %>
             </div>
-        </section>
+        </aside>
         <section class="projects-list clearfix main-content">
+            <div class="limit"></div>
+            <h3><%= @year %></h3>
             <% @projects_by_year.each do |year, projects| %>
-                <h3><%= year %></h3>
-                <ul class="clearfix">
+                <ul class="clearfix<% if year == @year %> first<% end %>" data-year="<%= year %>">
                 <% projects.each do |project| %>
                     <li>
                         <a href="#">

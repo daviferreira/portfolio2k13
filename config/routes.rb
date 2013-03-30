@@ -8,12 +8,11 @@ Portfolio2k13::Application.routes.draw do
   scope "(:locale)", :locale => /en/, :via => :get do
     match '/' => 'pages#index', :as => :localized_root
     match '/projects.html' => "pages#projects", :as => :localized_projects
+    # TODO: redirect index.html? => /blog
     match '/blog(/index.html)' => "pages#blog", :as => :localized_blog
     match '/projects/:id' => "projects#show", :as => :localized_project
     # TODO
-    # projects archive
     # tags
-    # blog
     # post
     # blog archive
     # blog tags/categories
@@ -24,5 +23,6 @@ Portfolio2k13::Application.routes.draw do
   resources :posts
   resources :projects
 
+  # TODO: redirect index.html? => /
   root :to => 'pages#index'
 end

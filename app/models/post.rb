@@ -9,4 +9,6 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :abstract, :body
 
   scope :published, :conditions => { :published => true }, :order => "posts.published_date DESC"
+  # TODO; nil, blank etc.
+  scope :published_local, :conditions => { :published => true, :external_url => '' }, :order => 'posts.published_date DESC'
 end

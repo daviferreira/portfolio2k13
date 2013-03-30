@@ -454,25 +454,24 @@ a:hover {
 .secondary-page {
     position: relative;
     background-color: #fff;
-    .nav-sidebar {
+    .sidebar {
         z-index: 1;
         position: fixed;
         width: 364px;
         height: 100%;
         margin-left: 0;
         margin-right: 20px;
-        padding-top: 60px;
+        padding-top: 80px;
         background-color: #fff;
-        border-left: 1px solid #dbdbdb;
+        border-left: 1px dotted rgba(#dbdbdb, .5);
         border-right: 1px solid #dbdbdb;
         h1, h2 {
             padding: 20px;
         }
         h1 {
             margin: 0;
-            padding-top: 10px;
+            padding-top: 0;
             padding-bottom: 10px;
-            color: #333;
             border-bottom: 1px solid #dbdbdb;
             font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
             font-size: 42px;
@@ -493,18 +492,33 @@ a:hover {
         }
     }
     .main-content {
+        padding-top: 0;
         padding-bottom: 0;
-        padding-top: 70px;
         margin-left: 366px;
         width: 795px;
-        border-right: 1px solid #dbdbdb;
+        border-right: 1px dotted rgba(#dbdbdb, .5);
+        .limit {
+            position: fixed;
+            margin-left: 0;
+            top: 100%;
+            margin-top: -130px;
+            z-index: 2;
+            @include background-image(linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 66%));
+            width: 100%;
+            height: 130px;
+        }
     }
     .projects-list {
         h3 {
+            position: fixed;
+            width: 775px;
+            z-index: 10;
             margin-bottom: 20px;
+            padding-top: 84px;
             padding-left: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px dotted #dbdbdb;
+            padding-bottom: 6px;
+            background-color: rgba(#fff, .9);
+            border-bottom: 1px solid #dbdbdb;
             font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
             font-size: 32px;
             font-weight: normal;
@@ -512,19 +526,22 @@ a:hover {
             letter-spacing: -1px;
             line-height: 42px;
         }
-        ul {
-            margin: 30px 0;
+        ul.first {
+            padding-top: 160px;
         }
         li {
+            position: relative;
             float: left;
             padding: 0 40px;
             margin-bottom: 80px;
             width: 172px;
-            font-size: 14px;
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: normal;
             line-height: 18px;
             text-align: center;
             a {
-                color: #dbdbdb;
+                color: #333;
                 &:hover {
                     color: $hover_color;
                 }
@@ -549,6 +566,96 @@ a:hover {
                 height: 80px;
                 @include box-shadow(inset 0 0 5px rgba(#000, .4));
                 @include border-radius(60px);
+            }
+        }
+    }
+    .sidebar-navigation {
+        a {
+            display: block;
+            padding: 20px;
+            color: #333;
+            &:hover {
+                color: $hover_color;
+            }
+        }
+    }
+    .posts {
+        padding: 40px 80px;
+        width: 676px;
+        h1 {
+            margin: 0 0 20px 0;
+            color: #000;
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            font-weight: normal;
+            letter-spacing: -1px;
+            line-height: 40px;
+        }
+        article {
+            padding: 20px 0;
+            margin: 20px 0;
+            a {
+                p {
+                    color: #666;
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+                &:hover {
+                    p {
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+    .myself {
+        padding: 20px;
+        border-bottom: 1px dotted #dbdbdb;
+        border-top: 1px dotted #dbdbdb;
+        figure, img {
+            width: 80px;
+            height: 80px;
+            @include border-radius(60px);
+        } 
+        figure {
+            position: relative;
+            float: left;
+            margin-right: 20px;
+            overflow: hidden;
+            border: 1px solid #fff;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80px;
+                height: 80px;
+                @include box-shadow(inset 0 0 5px rgba(#000, .4));
+                @include border-radius(60px);
+            }
+        }
+        p {
+            padding: 0 20px;
+            color: #666;
+            line-height: 20px;
+            strong {
+                font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            }
+        }
+        a:hover {
+            p {
+                color: $hover_color;
+            }
+        }
+    }
+    .contact {
+        padding: 20px;
+        li {
+            margin: 0 0 10px 0;
+            &:first-child {
+                font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+                font-weight: normal;
+                font-size: 20px;
             }
         }
     }

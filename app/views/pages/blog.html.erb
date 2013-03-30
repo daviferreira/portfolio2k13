@@ -1,15 +1,26 @@
 <div class="posts-container posts-page secondary-page">
     <div class="container clearfix">
-        <section class="nav-sidebar">
-            <header class="clearfix">
-                <h1>Blog</h1>
-                <h2>showing all</h2>
-            </header>
+        <section class="sidebar">
+            <div class="sidebar-container">
+                <header class="clearfix">
+                    <h1>Writing</h1>
+                </header>
+                <nav class="sidebar-navigation">
+                    <a href="#">categories</a>
+                    <a href="#">presentations</a>
+                    <a href="#">tableless</a>
+                </nav>
+                <%= render "shared/myself" %>
+            </div>
         </section>
         <section class="posts clearfix main-content">
+            <div class="limit"></div>
             <% @posts.each do |post| %>
                 <article>
-                    <h1><%= post.title %></h1>
+                    <a href="#">
+                        <h1><%= post.title %></h1>
+                        <p><%= post.abstract %></p>
+                    </a>
                 </article>
             <% end %>
         </section>
