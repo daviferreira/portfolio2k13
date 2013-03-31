@@ -592,7 +592,8 @@ a:hover {
             line-height: 40px;
         }
         article {
-            padding: 20px 0;
+            position: relative;
+            padding: 20px 0 40px 0;
             margin: 20px 0;
             a {
                 p {
@@ -605,6 +606,17 @@ a:hover {
                         color: #000;
                     }
                 }
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 240px;
+                height: 1px;
+                margin-left: -120px;
+                background-color: #dbdbdb;
+                border-bottom: 1px solid #f7f7f7;
             }
         }
     }
