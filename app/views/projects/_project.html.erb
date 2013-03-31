@@ -15,7 +15,7 @@
                     <li class="tags clearfix"><i class="icons-sprite icons-tag"></i><%= project.tags %></li>
                     <li class="link clearfix"><i class="icons-sprite icons-link"></i><%= link_to project.url, project.url %></li>
                 </ul>
-                <p class="details"><a class="#">+ details</a></p>
+                <p class="details"><%= link_to "+ details", localized_project_path(:id => project, :locale => current_locale) %></p>
             </div>
         </div>
     </div>

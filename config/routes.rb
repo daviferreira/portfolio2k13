@@ -11,6 +11,7 @@ Portfolio2k13::Application.routes.draw do
     # TODO: redirect index.html? => /blog
     match '/blog(/index.html)' => "pages#blog", :as => :localized_blog
     match '/projects/:id' => "projects#show", :as => :localized_project
+    match '/posts/:id' => "posts#show", :as => :localized_post
     # TODO
     # tags
     # post

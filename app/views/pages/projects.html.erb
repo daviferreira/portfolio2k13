@@ -20,7 +20,7 @@
                 <ul class="clearfix<% if year == @year %> first<% end %>" data-year="<%= year %>">
                 <% projects.each do |project| %>
                     <li>
-                        <a href="#">
+                        <a href="<%= localized_project_path(:id => project, :locale => current_locale) %>">
                             <% unless project.photos.empty? %>
                                 <figure>
                                     <%= image_tag project.photos.first.file.url(:thumb) %>
