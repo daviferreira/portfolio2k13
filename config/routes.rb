@@ -5,6 +5,11 @@ Portfolio2k13::Application.routes.draw do
     get "/login" => "devise/sessions#new"
   end
 
+  resources :categories
+  resources :photos
+  resources :posts
+  resources :projects
+
   scope "(:locale)", :locale => /en/, :via => :get do
     match '/' => 'pages#index', :as => :localized_root
     match '/projects.html' => "pages#projects", :as => :localized_projects
@@ -18,11 +23,6 @@ Portfolio2k13::Application.routes.draw do
     # blog archive
     # blog tags/categories
   end
-
-  resources :categories
-  resources :photos
-  resources :posts
-  resources :projects
 
   # TODO: redirect index.html? => /
   root :to => 'pages#index'

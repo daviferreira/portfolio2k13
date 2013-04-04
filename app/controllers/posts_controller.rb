@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_using_slug(params[:id]) || render_404
+    @post.body = BlueCloth::new(@post.body).to_html
   end
 
   def new

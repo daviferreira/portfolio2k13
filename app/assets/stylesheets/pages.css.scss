@@ -620,6 +620,23 @@ a:hover {
             }
         }
     }
+    .post {
+        padding: 40px 80px;
+        width: 676px;
+        h1 {
+                margin: 0 0 20px 0;
+                color: #000;
+                font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+                font-size: 46px;
+                font-weight: normal;
+                letter-spacing: -1px;
+                line-height: 40px;
+        }
+        article {
+            padding: 20px 0 40px 0;
+            margin: 20px 0;
+        }
+    }
     .myself {
         padding: 20px;
         border-bottom: 1px dotted #dbdbdb;

@@ -1,2 +1,27 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="post-container post-page secondary-page">
+    <div class="container clearfix">
+        <section class="sidebar">
+            <div class="sidebar-container">
+                <header class="clearfix">
+                    <h1>Writing</h1>
+                </header>
+                <nav class="sidebar-navigation">
+                    <a href="#">categories</a>
+                    <a href="#">presentations</a>
+                    <a href="#">tableless</a>
+                </nav>
+                <%= render "shared/myself" %>
+            </div>
+        </section>
+        <section class="post clearfix main-content">
+            <div class="limit"></div>
+            <article>
+                <a href="<%= localized_post_path(:id => @post, :locale => current_locale) %>">
+                    <h1><%= @post.title %></h1>
+                </a>
+                <p class="abstract"><%= @post.abstract %></p>
+                <%= raw @post.body %>
+            </article>
+        </section>
+    </div>
+</div>
