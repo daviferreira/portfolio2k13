@@ -15,7 +15,7 @@ $project_height: 242px;
         margin: 0;
         color: #fff;
         font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
-        font-size: 62px;
+        font-size: 72px;
         font-weight: 900;
         letter-spacing: -2px;
         text-transform: lowercase;
@@ -23,7 +23,6 @@ $project_height: 242px;
     h2 {
         display: inline-block;
         margin: 20px 0 0;
-        background: #000;
         padding: 10px;
         color: #fff;
         font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
@@ -247,7 +246,7 @@ a:hover {
                 @include box-shadow(inset 0 0 4px rgba(#000, .6));
             }
         }
- 
+
     }
     .writing-talks {
         article {
@@ -627,14 +626,52 @@ a:hover {
                 margin: 0 0 20px 0;
                 color: #000;
                 font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
-                font-size: 46px;
-                font-weight: normal;
-                letter-spacing: -1px;
+                font-size: 56px;
+                font-weight: bold;
+                letter-spacing: -2px;
                 line-height: 40px;
+        }
+        h2 {
+            margin: 20px 0;
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 22px;
+            text-transform: uppercase;
         }
         article {
             padding: 20px 0 40px 0;
             margin: 20px 0;
+        }
+        .abstract {
+            position: relative;
+            margin: 20px 0 40px 0;
+            padding: 20px 0 40px 0;
+            font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: normal;
+            line-height: 32px;
+            color: rgba(#000, .4);
+            letter-spacing: -1px;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 240px;
+                height: 1px;
+                margin-left: -120px;
+                background-color: #dbdbdb;
+                border-bottom: 1px solid #f7f7f7;
+            }
+
+        }
+        p {
+            margin: 20px 0;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        pre {
+            font-family: Monaco, fixed;
+            background-color: #dbdbdb;
         }
     }
     .myself {
@@ -645,7 +682,7 @@ a:hover {
             width: 80px;
             height: 80px;
             @include border-radius(60px);
-        } 
+        }
         figure {
             position: relative;
             float: left;
