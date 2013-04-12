@@ -6,23 +6,24 @@ $project_width: 374px;
 $project_height: 242px;
 
 .masthead {
-    background: #000 url($bg_pattern) 0 -600px repeat;
-    padding: 180px 0;
+    background-color: $link_color;
+    padding: 240px 0;
     margin: 0;
-    border-bottom: 6px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
     text-align: center;
     h1 {
         margin: 0;
-        color: #fff;
+        color: #000;
         font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
-        font-size: 72px;
+        font-size: 96px;
         font-weight: 900;
         letter-spacing: -2px;
+        line-height: 100px;
         text-transform: lowercase;
     }
     h2 {
         display: inline-block;
-        margin: 20px 0 0;
+        margin: 0;
         padding: 10px;
         color: #fff;
         font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
@@ -321,7 +322,7 @@ a:hover {
     .social {
         padding-top: 30px;
         li {
-            padding: 10px 0 10px 0;
+            padding: 20px;
             margin: 0 30px 0 0;
             border-bottom: 1px dotted #dbdbdb;
             &:first-child {
@@ -579,7 +580,7 @@ a:hover {
         }
     }
     .posts {
-        padding: 40px 80px;
+        padding: 40px;
         width: 676px;
         h1 {
             margin: 0 0 20px 0;
@@ -620,7 +621,7 @@ a:hover {
         }
     }
     .post {
-        padding: 40px 80px;
+        padding: 40px;
         width: 676px;
         h1 {
                 margin: 0 0 20px 0;
@@ -629,7 +630,7 @@ a:hover {
                 font-size: 56px;
                 font-weight: bold;
                 letter-spacing: -2px;
-                line-height: 40px;
+                line-height: 60px;
         }
         h2 {
             margin: 20px 0;

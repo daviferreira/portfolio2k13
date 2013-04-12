@@ -11,7 +11,7 @@
     <%= render "shared/user_info" %>
     <div class="l-content">
         <div class="top-nav-bar">
-            <div class="container">
+            <div class="container clearfix">
                 <div class="language">
                     <% if I18n.locale == :en %>
                         <%= link_to raw("ver em português &#8250;"), root_path %>
@@ -19,6 +19,18 @@
                         <%= link_to raw("switch to english &#8250;"), localized_root_path(:locale => "en") %>
                     <% end %>
                 </div>
+                <div class="title">
+                    <a href="#">
+                        <h1>Davi Ferreira</h1>
+                        <h2>Code Crafter</h2>
+                    </a>
+                </div>
+                <nav class="clearfix">
+                    <a href="#">Home</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </nav>
             </div>
         </div>
         <%= yield %>
