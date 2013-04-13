@@ -1,4 +1,28 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
-
-<%= @project.to_yaml %>
+<div class="projects-container projects-page secondary-page clearfix">
+    <div class="container clearfix">
+        <aside class="sidebar">
+            <div class="sidebar-container">
+                <header class="clearfix">
+                    <h1>Crafts</h1>
+                </header>
+                <nav class="sidebar-navigation">
+                    <a class="current" href="#">by date</a>
+                    <a href="#">by category</a>
+                    <a href="#">by tag</a>
+                </nav>
+                <%= render "shared/myself" %>
+            </div>
+        </aside>
+        <section class="project-details clearfix main-content">
+            <figure>
+                <div>
+                    <%= image_tag @project.photos.first.file.url(:highlight) %>
+                </div>
+            </figure>
+            <header>
+                <h1><%= @project.name %></h1>
+            </header>
+            <p class="description"><%= @project.description %></p>
+        </section>
+    </div>
+</div>

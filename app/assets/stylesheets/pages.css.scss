@@ -726,4 +726,47 @@ a:hover {
             }
         }
     }
+    .project-details {
+        padding: 80px 40px;
+        width: 676px;
+        h1 {
+            margin: 20px 0;
+            color: #000;
+            font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+            font-size: 42px;
+            font-weight: normal;
+            letter-spacing: -2px;
+            line-height: 60px;
+            text-align: center;
+        }
+        figure {
+            position: relative;
+            div {
+                position: relative;
+                z-index: 5;
+                margin: 0 auto;
+                width: 240px;
+                height: 240px;
+                overflow: hidden;
+                border: 1px solid rgba(#ccc, .2);
+                @include border-radius(240px);
+            }
+            &:before {
+                content: " ";
+                position: absolute;
+                top: 121px;
+                left: 0;
+                z-index: 3;
+                height: 1px;
+                width: 100%;
+                background-color: rgba(#ccc, .2);
+            }
+        }
+        .description {
+            color: #666;
+            font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
+            font-size: 22px;
+            line-height: 28px;
+        }
+    }
 }
