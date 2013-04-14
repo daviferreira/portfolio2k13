@@ -748,8 +748,11 @@ a:hover {
                 width: 240px;
                 height: 240px;
                 overflow: hidden;
-                border: 1px solid rgba(#ccc, .2);
+                border: 1px solid rgba(#ccc, .5);
                 @include border-radius(240px);
+                img {
+                    margin-left: -17px;
+                }
             }
             &:before {
                 content: " ";
@@ -766,7 +769,38 @@ a:hover {
             color: #666;
             font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
             font-size: 22px;
-            line-height: 28px;
+            line-height: 32px;
+            text-align: center;
+        }
+        .screenshots {
+            position: relative;
+            margin: 40px 0;
+            text-align: center;
+            &:before {
+                content: " ";
+                position: absolute;
+                top: 40px;
+                left: 0;
+                z-index: 3;
+                height: 1px;
+                width: 100%;
+                background-color: rgba(#ccc, .2);
+            }
+            ul {
+                display: inline-block;
+                position: relative;
+                z-index: 5;
+            }
+            li {
+                float: left;
+                margin: 0 0 0 20px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                img {
+                    @include border-radius(40px);
+                }
+            }
         }
     }
 }

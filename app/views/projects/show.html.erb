@@ -23,6 +23,14 @@
                 <h1><%= @project.name %></h1>
             </header>
             <p class="description"><%= @project.description %></p>
+            <div class="screenshots">
+                <ul class="clearfix">
+                    <% @project.photos.each do |photo| %>
+                        <li><%= image_tag photo.file.url(:thumb) %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <p class="tags"><%= @project.tags %></p>
         </section>
     </div>
 </div>
