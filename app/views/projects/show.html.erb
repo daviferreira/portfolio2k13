@@ -24,9 +24,9 @@
             </header>
             <p class="description"><%= @project.description %></p>
             <div class="screenshots">
-                <ul class="clearfix">
+                <ul class="clearfix js-gallery">
                     <% @project.photos.each do |photo| %>
-                        <li><%= image_tag photo.file.url(:thumb) %></li>
+                        <li><a href="<%= photo.file.url(:original) %>" title="<%= photo.title %>"><%= image_tag photo.file.url(:thumb) %></a></li>
                     <% end %>
                 </ul>
             </div>

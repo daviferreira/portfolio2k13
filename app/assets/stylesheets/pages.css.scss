@@ -792,15 +792,39 @@ a:hover {
                 z-index: 5;
             }
             li {
+                position: relative;
                 float: left;
                 margin: 0 0 0 20px;
                 &:first-child {
                     margin-left: 0;
                 }
                 img {
+                    border: 1px solid rgba(#ccc, .5);
+                    cursor: -webkit-zoom-in;
+                    cursor: -moz-zoom-in;
                     @include border-radius(40px);
                 }
             }
         }
     }
+}
+
+.js-gallery-overlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #000;
+    z-index: 1000;
+    cursor: -webkit-zoom-out;
+    cursor: -moz-zoom-out;
+    @include opacity(.8);
+}
+
+.js-gallery-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1005;
+    border: 12px solid #fff;
+    @include box-shadow(0 0 10px #000);
 }
