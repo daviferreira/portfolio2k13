@@ -25,8 +25,10 @@ FactoryGirl.define do
     name "Test Project"
     description "This is a test project"
     url "http://www.daviferreira.com"
-    due_date "2013-02-06"
+    due_date Time.now
     published false
+    tags "tag1, tag2"
+    cached_slug "test-project"
     category
   end
 end

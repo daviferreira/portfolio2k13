@@ -13,7 +13,7 @@ gem 'bluecloth'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-	gem 'compass-rails'
+  gem 'compass-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -39,5 +39,6 @@ group :development do
 end
 
 group :test do
+  gem 'debugger'
   gem 'factory_girl_rails'
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Project do
-  before { 
+  before {
     category = Category.create(name: "Example Category")
     @project = Project.new(name: "Example Project",
                            description: "Description",
