@@ -1,13 +1,16 @@
 Portfolio2k13::Application.routes.draw do
-  devise_for :users
 
-  devise_scope :user do
-    get "/login" => "devise/sessions#new"
+  namespace :admin do
+    resources :categories, :photos, :posts, :projects
   end
 
-  resources :categories
-  resources :photos
-  resources :posts
+  scope '/admin' do
+    devise_for :users
+  end
+
+#  devise_scope :user do
+#    get "/login" => "devise/sessions#new"
+#  end
 
   scope "(:locale)", :locale => /en/, :via => :get do
     match '/' => 'pages#index', :as => :localized_root
@@ -23,8 +26,6 @@ Portfolio2k13::Application.routes.draw do
     # blog archive
     # blog tags/categories
   end
-
-  resources :projects
 
   # TODO: redirect index.html? => /
   root :to => 'pages#index'

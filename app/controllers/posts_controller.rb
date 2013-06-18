@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
-  layout "admin", :except => [:show]
 
   def index
     @posts = Post.all
@@ -15,41 +13,4 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    @post = Post.new(:locale => I18n.default_locale)
-  end
-
-  def create
-    @post = Post.new(params[:post])
-    if @post.save
-      redirect_to posts_path, :flash => { :success => t("posts.created") }
-    else
-      render "posts/new"
-    end
-  end
-
-  def edit
-    @post = Post.find_using_slug(params[:id]) || render_404
-  end
-
-  def update
-    @post = Post.find_using_slug(params[:id])
-    if @post.nil?
-      render_404
-    elsif @post.update_attributes(params[:post])
-      redirect_to edit_post_path(@post), :flash => { :success => t("posts.updated") }
-    else
-      render "edit"
-    end
-  end
-
-  def destroy
-    @post = Post.find_using_slug(params[:id])
-    if @post.nil?
-      render_404
-    else
-      @post.destroy
-      redirect_to posts_path, :flash => { :notice => t("posts.deleted") }
-    end
-  end
 end
