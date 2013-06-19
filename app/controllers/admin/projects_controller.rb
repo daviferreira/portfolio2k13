@@ -1,4 +1,4 @@
-class Admin::ProjectsController < Admin::AdminControler
+class Admin::ProjectsController < Admin::AdminController
   def index
     @projects = Project.all
   end
@@ -10,7 +10,7 @@ class Admin::ProjectsController < Admin::AdminControler
   def create
     @project = Project.new(params[:project])
     if @project.save
-      redirect_to projects_path, :flash => { :success => t("projects.created") }
+      redirect_to admin_projects_path, :flash => { :success => t("projects.created") }
     else
       render "projects/new"
     end
@@ -25,7 +25,7 @@ class Admin::ProjectsController < Admin::AdminControler
     if @project.nil?
       render_404
     elsif @project.update_attributes(params[:project])
-      redirect_to edit_project_path(@project), :flash => { :success => t("projects.updated") }
+      redirect_to edit_admin_project_path(@project), :flash => { :success => t("projects.updated") }
     else
       render "edit"
     end
@@ -37,7 +37,7 @@ class Admin::ProjectsController < Admin::AdminControler
       render_404
     else
       @project.destroy
-      redirect_to projects_path, :flash => { :notice => t("projects.deleted") }
+      redirect_to admin_projects_path, :flash => { :notice => t("projects.deleted") }
     end
   end
 

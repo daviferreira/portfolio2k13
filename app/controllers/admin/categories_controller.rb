@@ -1,4 +1,4 @@
-class Admin::CategoriesController < Admin::AdminControler
+class Admin::CategoriesController < Admin::AdminController
 
   def index
     @categories = Category.all
@@ -11,7 +11,7 @@ class Admin::CategoriesController < Admin::AdminControler
   def create
     @category = Category.new(params[:category])
     if @category.save
-      redirect_to categories_path, :flash => { :success => t("categories.created") }
+      redirect_to admin_categories_path, :flash => { :success => t("categories.created") }
     else
       render "categories/new"
     end
@@ -26,7 +26,7 @@ class Admin::CategoriesController < Admin::AdminControler
     if @category.nil?
       render_404
     elsif @category.update_attributes(params[:category])
-      redirect_to edit_category_path(@category), :flash => { :success => t("categories.updated") }
+      redirect_to edit_admin_category_path(@category), :flash => { :success => t("categories.updated") }
     else
       render "edit"
     end
@@ -38,7 +38,7 @@ class Admin::CategoriesController < Admin::AdminControler
       render_404
     else
       @category.destroy
-      redirect_to categories_path, :flash => { :notice => t("categories.deleted") }
+      redirect_to admin_categories_path, :flash => { :notice => t("categories.deleted") }
     end
   end
 

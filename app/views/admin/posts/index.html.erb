@@ -7,7 +7,7 @@
               </header>
             </div>
             <div class="slot-4-5">
-                <%= link_to t("posts.add"), new_post_path, :class => "admin-button" %>
+                <%= link_to t("posts.add"), new_admin_post_path, :class => "admin-button" %>
             </div>
         </section>
 
@@ -16,10 +16,10 @@
                 <tbody>
                     <% @posts.each do |post| %>
                         <tr>
-			    <td><%= link_to post.title, edit_post_path(post) %></td>
+			    <td><%= link_to post.title, edit_admin_post_path(post) %></td>
                             <td class="actions">
-                              <%= link_to "", edit_post_path(post), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
-                              <%= link_to "", post_path(post), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
+                              <%= link_to "", edit_admin_post_path(post), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
+                              <%= link_to "", admin_post_path(post), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
                             </td>
                         </tr>
                     <% end %>

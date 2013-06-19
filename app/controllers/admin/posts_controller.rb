@@ -1,4 +1,4 @@
-class Admin::PostsController < Admin::AdminControler
+class Admin::PostsController < Admin::AdminController
 
   def index
     @posts = Post.all
@@ -11,7 +11,7 @@ class Admin::PostsController < Admin::AdminControler
   def create
     @post = Post.new(params[:post])
     if @post.save
-      redirect_to posts_path, :flash => { :success => t("posts.created") }
+      redirect_to admin_posts_path, :flash => { :success => t("posts.created") }
     else
       render "posts/new"
     end
@@ -26,7 +26,7 @@ class Admin::PostsController < Admin::AdminControler
     if @post.nil?
       render_404
     elsif @post.update_attributes(params[:post])
-      redirect_to edit_post_path(@post), :flash => { :success => t("posts.updated") }
+      redirect_to edit_admin_post_path(@post), :flash => { :success => t("posts.updated") }
     else
       render "edit"
     end
@@ -38,7 +38,7 @@ class Admin::PostsController < Admin::AdminControler
       render_404
     else
       @post.destroy
-      redirect_to posts_path, :flash => { :notice => t("posts.deleted") }
+      redirect_to admin_posts_path, :flash => { :notice => t("posts.deleted") }
     end
   end
 end

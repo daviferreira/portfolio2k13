@@ -7,7 +7,7 @@
               </header>
             </div>
             <div class="slot-4-5">
-                <%= link_to t("photos.add"), new_photo_path, :class => "admin-button" %>
+                <%= link_to t("photos.add"), new_admin_photo_path, :class => "admin-button" %>
             </div>
         </section>
 
@@ -17,10 +17,10 @@
                     <% @photos.each do |photo| %>
                         <tr>
                             <td class="photo"><%= image_tag photo.file.url(:thumb) %></td>
-			    <td class="meta-data"><%= link_to photo.title, edit_photo_path(photo) %><small><%= photo.project.name %> / #<%= photo.order %></small></td>
+			    <td class="meta-data"><%= link_to photo.title, edit_admin_photo_path(photo) %><small><%= photo.project.name %> / #<%= photo.order %></small></td>
                             <td class="actions">
-                              <%= link_to "", edit_photo_path(photo), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
-                              <%= link_to "", photo_path(photo), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
+                              <%= link_to "", edit_admin_photo_path(photo), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
+                              <%= link_to "", admin_photo_path(photo), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
                             </td>
                         </tr>
                     <% end %>
