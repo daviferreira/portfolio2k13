@@ -61,6 +61,7 @@ a:hover {
 }
 
 .button {
+    padding: 0 !important;
     background-color: $link_color;
     color: #fff;
     cursor: pointer;
