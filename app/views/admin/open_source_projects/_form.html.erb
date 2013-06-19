@@ -1,0 +1,41 @@
+<%= form_for([:admin, @open_source_project], :html => { :class => "object-form" }) do |f| %>
+    <%= render 'admin/shared/error_messages', object: f.object %>
+    <fieldset>
+        <div>
+            <%= f.label t("open_source_projects.title") %>
+            <%= f.text_field :title %>
+        </div>
+
+        <div>
+            <%= f.label t("open_source_projects.description") %>
+            <%= f.text_area :description %>
+        </div>
+
+        <div>
+            <%= f.label t("open_source_projects.url") %>
+            <%= f.text_field :url %>
+        </div>
+
+        <div class="translations">
+            <% I18n.available_locales.each do |locale| %>
+                <%= f.globalize_fields_for locale do |ff| %>
+                    <% if locale != I18n.default_locale %>
+                        <p>Translations for <strong><%= locale %></strong></p>
+                        <div>
+                            <%= ff.label t("open_source_projects.title") %>
+                            <%= ff.text_field :title %>
+                        </div>
+                        <div>
+                            <%= ff.label t("open_source_projects.description") %>
+                            <%= ff.text_area :description %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div class="form-action">
+            <%= link_to t("cancel"), admin_open_source_projects_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
+        </div>
+    </fieldset>
+<% end %>

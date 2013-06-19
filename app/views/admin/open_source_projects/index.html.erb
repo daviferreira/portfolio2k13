@@ -1,0 +1,26 @@
+<section class="row admin-header">
+    <div class="slot-0-1-2-3">
+      <header>
+          <h1><%= t "open_source_projects.list" %></h1>
+      </header>
+    </div>
+    <div class="slot-4-5">
+        <%= link_to t("open_source_projects.add"), new_admin_open_source_project_path, :class => "admin-button" %>
+    </div>
+</section>
+
+<section class="row">
+    <table>
+        <tbody>
+            <% @open_source_projects.each do |open_source_project| %>
+                <tr>
+                    <td><%= link_to open_source_project.title, edit_admin_open_source_project_path(open_source_project) %></td>
+                    <td class="actions">
+                      <%= link_to "", edit_admin_open_source_project_path(open_source_project), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
+                      <%= link_to "", admin_open_source_project_path(open_source_project), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>

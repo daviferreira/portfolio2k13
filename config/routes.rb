@@ -12,7 +12,8 @@ Portfolio2k13::Application.routes.draw do
 
   namespace :admin do
     root :to => "projects#index"
-    resources :categories, :photos, :posts, :projects, :pages
+    resources :categories, :photos, :posts, :projects, :pages,
+              :open_source_projects
   end
 
   scope '/admin' do

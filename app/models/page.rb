@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  attr_accessible :body, :meta_description, :meta_title, :published, :title
+  attr_accessible :body, :meta_description, :meta_title, :published, :title, :translations_attributes
 
   is_sluggable :title
 

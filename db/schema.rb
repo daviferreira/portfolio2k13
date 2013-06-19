@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619183138) do
+ActiveRecord::Schema.define(:version => 20130619183555) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(:version => 20130619183138) do
 
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
   add_index "category_translations", ["locale"], :name => "index_category_translations_on_locale"
+
+  create_table "open_source_project_translations", :force => true do |t|
+    t.integer  "open_source_project_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "open_source_project_translations", ["locale"], :name => "index_open_source_project_translations_on_locale"
+  add_index "open_source_project_translations", ["open_source_project_id"], :name => "index_0bc61bb1e8fb270213aa57c193324a914ca9810d"
 
   create_table "open_source_projects", :force => true do |t|
     t.string   "title"
