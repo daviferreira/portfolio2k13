@@ -17,7 +17,7 @@
             <div class="limit"></div>
             <% @posts.each do |post| %>
                 <article>
-                    <a href="<%= post_path(:id => post, :locale => current_locale) %>">
+                    <a href="<%= post_path(post, :locale => current_locale) %>">
                         <h1><%= post.title %></h1>
                         <p><%= post.abstract %></p>
                     </a>

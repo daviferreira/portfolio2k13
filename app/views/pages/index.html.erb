@@ -29,20 +29,15 @@
             <header>
                 <h1><small><a href="#">more @ github &#8250;</a></small>I <em>&hearts;</em> open source</h1>
             </header>
-            <article class="clearfix">
-                <figure>
-                    <%= image_tag "canvas.jpg" %>
-                </figure>
-                <h2>Canvas PHP Image Manipulation</h2>
-                <p>Drag and drop files right from your desktop or web browser. Your files will be automatically uploaded to the cloud. <a href="#">Watch the video&hellip;</a></p>
-            </article>
-            <article class="clearfix">
-                <figure>
-                    <%= image_tag "simple-code-review.jpg" %>
-                </figure>
-                <h2>Simple Code Review</h2>
-                <p>Drag and drop files right from your desktop or web browser. Your files will be automatically uploaded to the cloud. <a href="#">Watch the video&hellip;</a></p>
-            </article>
+            <% @open_source_projects.each do |project| %>
+              <article class="clearfix">
+                  <figure>
+                      <%= image_tag project.file.url(:thumb) %>
+                  </figure>
+                  <h2><%= project.title %></h2>
+                  <p><%= project.description %> <%= link_to "Code", project.url %></p>
+              </article>
+            <% end %>
         </section>
         <section class="writing-talks clearfix">
             <header>
@@ -66,10 +61,14 @@
                     <li><a href="#" class="compass-deck"><%= image_tag "sass-deck.jpg" %></a></li>
                 </ul>
             </div>
+            <% @posts.each do |post| %>
             <article class="post">
-                <h2>Zepto.js: JavaScript peso-leve</h2>
-                <p>Inicialmente lançado para aplicações mobile, o framework Zepto.js começa a ganhar espaço também no desktop graças ao seu peso reduzido e a sua alta compatibilidade com jQuery.</p>
+              <a href="<%= post_path(post, :locale => current_locale) %>">
+                    <h2><%= post.title %></h2>
+                    <p><%= post.abstract %></p>
+                </a>
             </article>
+            <% end %>
         </section>
     </div>
 </div>
