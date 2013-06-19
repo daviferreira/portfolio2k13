@@ -10,7 +10,7 @@ describe 'Home Page' do
     before do
       visit new_user_session_path
       valid_signin user
-      visit root_path
+      visit admin_root_path
     end
 
     it { should have_selector('a.logout', :text => "#{I18n.t('logout')}") }
