@@ -16,6 +16,16 @@
             <%= f.text_field :url %>
         </div>
 
+        <% if @open_source_project.file? %>
+        <div class="thumb"><%= image_tag @open_source_project.file.url(:medium) %></div>
+        <% end %>
+
+        <div>
+            <%= f.label t("open_source_projects.file") %>
+            <%= f.file_field :file %>
+        </div>
+
+
         <div class="translations">
             <% I18n.available_locales.each do |locale| %>
                 <%= f.globalize_fields_for locale do |ff| %>
