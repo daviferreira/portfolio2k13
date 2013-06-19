@@ -54,7 +54,7 @@ var JSGallery = JSGallery || {};
 
         showImage: function () {
             var img,
-                h = $(window).height() - 300,
+                h = $(window).height() - 80,
                 w;
             if (this.images.indexOf(this.currentPhoto) === -1) {
                 this.images.push(this.currentPhoto);
