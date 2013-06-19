@@ -67,3 +67,10 @@ FactoryGirl.define do
   end
 end
 
+FactoryGirl.define do
+  factory :open_source_project do
+    title "Test Project"
+    description "This is a test project"
+    url "http://www.daviferreira.com"
+  end
+end
