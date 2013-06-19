@@ -226,6 +226,7 @@ footer {
     text-transform: lowercase;
     h5 {
         margin: 0 0 12px 0;
+        color: #de5643;
         font-family: Georgia, Cambria, "Times New Roman", Times, serif;
         font-size: 32px;
         line-height: 36px;
@@ -260,12 +261,12 @@ footer {
         }
     }
     a {
-        text-decoration: underline;
         &:hover {
-            color: lighten($hover_color, 15);
+            color: #fff;
+            text-decoration: underline;
         }
     }
-    h5, .m-credits li {
+    .m-credits li {
         color: lighten($bg_color, 15);
     }
 }
