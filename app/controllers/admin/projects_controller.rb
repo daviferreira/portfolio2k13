@@ -12,7 +12,7 @@ class Admin::ProjectsController < Admin::AdminController
     if @project.save
       redirect_to admin_projects_path, :flash => { :success => t("projects.created") }
     else
-      render "projects/new"
+      render "new"
     end
   end
 

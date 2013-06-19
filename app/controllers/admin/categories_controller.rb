@@ -13,7 +13,7 @@ class Admin::CategoriesController < Admin::AdminController
     if @category.save
       redirect_to admin_categories_path, :flash => { :success => t("categories.created") }
     else
-      render "categories/new"
+      render "new"
     end
   end
 

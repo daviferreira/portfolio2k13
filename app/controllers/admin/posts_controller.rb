@@ -13,7 +13,7 @@ class Admin::PostsController < Admin::AdminController
     if @post.save
       redirect_to admin_posts_path, :flash => { :success => t("posts.created") }
     else
-      render "posts/new"
+      render "new"
     end
   end
 

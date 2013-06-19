@@ -13,7 +13,7 @@ class Admin::PhotosController < Admin::AdminController
     if @photo.save
       redirect_to admin_photos_path, :flash => { :success => t("photos.created") }
     else
-      render "photos/new"
+      render "new"
     end
   end
 
