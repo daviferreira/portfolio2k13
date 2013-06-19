@@ -1,0 +1,26 @@
+<section class="row admin-header">
+    <div class="slot-0-1-2-3">
+      <header>
+          <h1><%= t "pages.list" %></h1>
+      </header>
+    </div>
+    <div class="slot-4-5">
+        <%= link_to t("pages.add"), new_admin_page_path, :class => "admin-button" %>
+    </div>
+</section>
+
+<section class="row">
+    <table>
+        <tbody>
+            <% @pages.each do |page| %>
+                <tr>
+	    <td><%= link_to page.title, edit_admin_page_path(page) %></td>
+                    <td class="actions">
+                      <%= link_to "", edit_admin_page_path(page), :class => "sprite-portfolio admin-list-edit admin-list-action" %>
+                      <%= link_to "", admin_page_path(page), :class => "sprite-portfolio admin-list-delete admin-list-action", :method => "delete" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309203649) do
+ActiveRecord::Schema.define(:version => 20130619165624) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,34 @@ ActiveRecord::Schema.define(:version => 20130309203649) do
 
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
   add_index "category_translations", ["locale"], :name => "index_category_translations_on_locale"
+
+  create_table "page_translations", :force => true do |t|
+    t.integer  "page_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "body"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "cached_slug"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "page_translations", ["locale"], :name => "index_page_translations_on_locale"
+  add_index "page_translations", ["page_id"], :name => "index_page_translations_on_page_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "published"
+    t.string   "meta_description"
+    t.string   "meta_title"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "cached_slug"
+  end
+
+  add_index "pages", ["cached_slug"], :name => "index_pages_on_cached_slug"
 
   create_table "photo_translations", :force => true do |t|
     t.integer  "photo_id"

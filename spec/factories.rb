@@ -55,3 +55,15 @@ FactoryGirl.define do
     block_comments false
   end
 end
+
+FactoryGirl.define do
+  factory :page do
+    title "Test Page"
+    body "This is a test page"
+    published false
+    cached_slug "test-page"
+    meta_title "Page Meta Title"
+    meta_description "Page Meta Description"
+  end
+end
+

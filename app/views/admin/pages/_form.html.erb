@@ -1,0 +1,63 @@
+<%= form_for([:admin, @page], :html => { :class => "object-form" }) do |f| %>
+    <%= render 'admin/shared/error_messages', object: f.object %>
+    <fieldset>
+        <div>
+            <%= f.label t("pages.title") %>
+            <%= f.text_field :title, :class => "x-large" %>
+        </div>
+
+        <div>
+            <%= f.label t("pages.body") %>
+            <%= f.text_area :body, :class => "x-large page-body" %>
+        </div>
+
+        <div>
+            <label><%= f.check_box :published %> <%= t("pages.published") %></label>
+        </div>
+
+        <div>
+            <%= f.label t("pages.meta_title") %>
+            <%= f.text_field :meta_title%>
+        </div>
+
+        <div>
+            <%= f.label t("pages.meta_description") %>
+            <%= f.text_area :meta_description %>
+        </div>
+
+        <div class="translations">
+            <% I18n.available_locales.each do |locale| %>
+                <%= f.globalize_fields_for locale do |ff| %>
+                    <% if locale != I18n.default_locale %>
+                        <p>Translations for <strong><%= locale %></strong></p>
+                        <div>
+                            <%= ff.label t("pages.title") %>
+                            <%= ff.text_field :title %>
+                        </div>
+                        <div>
+                            <%= ff.label t("pages.body") %>
+                            <%= ff.text_area :body %>
+                        </div>
+                        <div>
+                            <%= ff.label t("pages.meta_title") %>
+                            <%= ff.text_field :meta_title %>
+                        </div>
+                        <div>
+                            <%= ff.label t("pages.meta_description") %>
+                            <%= ff.text_field :meta_description %>
+                        </div>
+                        <div>
+                            <%= ff.label t("slug") %>
+                            <%= ff.text_field :cached_slug %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div class="form-action">
+            <%= link_to t("cancel"), admin_pages_path, :class => "cancel" %> <%= t "or" %> <%= f.submit t("save") %>
+        </div>
+    </fieldset>
+<% end %>
