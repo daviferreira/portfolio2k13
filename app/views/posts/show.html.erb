@@ -15,7 +15,7 @@
         </section>
         <section class="post clearfix main-content">
             <article>
-                <a href="<%= localized_post_path(:id => @post, :locale => current_locale) %>">
+                <a href="<%= post_path(:id => @post, :locale => current_locale) %>">
                     <h1><%= @post.title %></h1>
                 </a>
                 <p class="abstract"><%= @post.abstract %></p>

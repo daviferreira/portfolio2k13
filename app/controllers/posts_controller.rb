@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.published_local.where(:locale => I18n.locale)
   end
 
   def show

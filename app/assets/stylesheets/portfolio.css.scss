@@ -270,13 +270,3 @@ footer {
         color: lighten($bg_color, 15);
     }
 }
-
-.secondary {
-    .l-content {
-        margin-bottom: 0;
-        @include box-shadow(none);
-    }
-    footer {
-        display: none;
-    }
-}

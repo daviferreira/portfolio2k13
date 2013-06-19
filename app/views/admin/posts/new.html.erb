@@ -1,16 +1,12 @@
-<div class="grid">
-    <div class="admin-container">
-        <section class="row admin-header">
-            <div class="slot-0-1-2-3">
-              <header>
-                  <h1><%= t "posts.new" %><small><%= t "or" %> <%= link_to t("go_back_listing"), admin_posts_path %></small></h1>
-              </header>
-            </div>
-            <div class="slot-4-5">
-            </div>
-        </section>
-        <section class="row admin-form">
-            <%= render "form" %>
-        </section>
+<section class="row admin-header">
+    <div class="slot-0-1-2-3">
+      <header>
+          <h1><%= t "posts.new" %><small><%= t "or" %> <%= link_to t("go_back_listing"), admin_posts_path %></small></h1>
+      </header>
     </div>
-</div>
+    <div class="slot-4-5">
+    </div>
+</section>
+<section class="row admin-form">
+    <%= render "form" %>
+</section>

@@ -4,6 +4,14 @@ describe PostsController do
 
   let(:blog_post) { FactoryGirl.create(:post) }
 
+  describe "projects listing" do
+    describe "GET 'index'" do
+      it "returns http success" do
+        get :index
+        response.should be_success
+      end
+    end
+  end
 
   describe "show post" do
 

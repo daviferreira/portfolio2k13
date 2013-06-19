@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
+    @year = @projects_by_year.first.first
   end
 
   def show

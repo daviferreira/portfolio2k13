@@ -12,7 +12,11 @@
 <body>
     <%= render "shared/notifications" %>
     <%= render "shared/user_info" %>
-    <%= yield %>
+    <div class="grid">
+      <div class="admin-container container">
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
 </body>
 </html>

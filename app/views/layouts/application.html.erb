@@ -6,10 +6,10 @@
     <%= stylesheet_link_tag "pages", :media => "all" %>
     <%= csrf_meta_tags %>
 </head>
-<body class="<%= params[:controller] %>-<%= params[:action] %><% if params[:action] != 'index' %> secondary<% end %>">
+<body class="<%= params[:controller] %>-<%= params[:action] %>">
     <%= render "shared/notifications" %>
     <%= render "shared/user_info" %>
-    <div class="l-content">
+    <div<% if @has_footer %> class="l-content"<% end %>>
         <div class="top-nav-bar">
             <div class="container clearfix">
                 <div class="language">
@@ -37,6 +37,7 @@
         </div>
         <%= yield %>
     </div>
+    <% if @has_footer %>
     <footer>
         <div class="container">
             <div class="m-contact">
@@ -48,6 +49,7 @@
             </div>
         </div>
     </footer>
+    <% end %>
     <%= javascript_include_tag "application" %>
 </body>
 </html>

@@ -1,18 +1,13 @@
 Portfolio2k13::Application.routes.draw do
 
   scope "(:locale)", :locale => /en/, :via => :get do
+    #resources :categories, :pages, :posts, :projects
     match '/' => 'pages#index', :as => :localized_root
-    match '/projects.html' => "pages#projects", :as => :localized_projects
-    # TODO: redirect index.html? => /blog
-    match '/blog(/index.html)' => "pages#blog", :as => :localized_blog
-    match '/projects/:id' => "projects#show", :as => :localized_project
-    match '/posts/:id' => "posts#show", :as => :localized_post
-    match '/categories/:id' => "categories#show", :as => :localized_category
-    # TODO
-    # tags
-    # post
-    # blog archive
-    # blog tags/categories
+    match '/categories/:id(.:format)' => "categories#show", :as => :category
+    match '/posts(.:format)' => "posts#index", :as => :posts
+    match '/posts/:id(.:format)' => "posts#show", :as => :post
+    match '/projects(.:format)' => "projects#index", :as => :projects
+    match '/projects/:id(.:format)' => "projects#show", :as => :project
   end
 
   namespace :admin do
@@ -24,12 +19,5 @@ Portfolio2k13::Application.routes.draw do
     devise_for :users
   end
 
-#  devise_scope :user do
-#    get "/login" => "devise/sessions#new"
-#  end
-
-
-
-  # TODO: redirect index.html? => /
   root :to => 'pages#index'
 end
