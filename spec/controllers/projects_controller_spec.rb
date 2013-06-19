@@ -1,14 +1,11 @@
 require 'spec_helper'
 
 describe ProjectsController do
-  let(:category) { FactoryGirl.create(:category) }
-  let(:project) { FactoryGirl.create(:project, :name => "Sample Project",
-                                               :category => category,
-                                               :published => true) }
-
   describe "projects listing" do
     describe "GET 'index'" do
       it "returns http success" do
+        category = FactoryGirl.create(:category)
+        FactoryGirl.create(:project, :published => true)
         get :index
         response.should be_success
       end
