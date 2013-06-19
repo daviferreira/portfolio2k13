@@ -3,12 +3,10 @@
 <head>
     <title>Portfolio2k13</title>
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= stylesheet_link_tag "pages", :media => "all" %>
+    <%= stylesheet_link_tag params[:controller], :media => "all" %>
     <%= csrf_meta_tags %>
 </head>
 <body class="<%= params[:controller] %>-<%= params[:action] %>">
-    <%= render "shared/notifications" %>
-    <%= render "shared/user_info" %>
     <div<% if @has_footer %> class="l-content"<% end %>>
         <div class="top-nav-bar">
             <div class="container clearfix">
