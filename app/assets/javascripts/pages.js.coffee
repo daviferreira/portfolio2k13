@@ -19,21 +19,29 @@ if works.length > 0
           $(this).unbind 'scroll.works'
         , 300
 
-###
-title = $('#page-title')
-titleOffset = title.offset().top + 88
-content = $('#l-content')
-isFixed = false
+posts = $('.post')
+if posts.length > 0
+    timer = ''
+    latestPosts = $('#latest-posts')
+    postsNavigation = $('#latest-posts-navigation')
+    currentPost = 0
+    navigate = ->
+               currentPost += 1
+               if currentPost == posts.length
+                   currentPost = 0
+               latestPosts.css 'margin-left', -1 * currentPost * 565
+               postsNavigation.find('a').removeClass 'current';
+               postsNavigation.find('a:eq(' + currentPost + ')').addClass 'current'
 
-$(window).bind 'scroll.title', ->
-  if $(this).scrollTop() > titleOffset
-    if isFixed == false
-      title.addClass 'fixed'
-      slides.addClass 'pos-fixed'
-      isFixed = true
-  else
-    if isFixed == true
-      title.removeClass 'fixed'
-      slides.removeClass 'pos-fixed'
-      isFixed = false
-###
+    timer = setInterval navigate, 10000
+
+    $('.post').hover ->
+        clearInterval timer
+    , ->
+        timer = setInterval navigate, 10000
+    postsNavigation.on 'click', 'a', (e) ->
+        e.preventDefault()
+        clearInterval timer
+        currentPost = $(this).index() - 1
+        navigate()
+        timer = setInterval navigate, 10000

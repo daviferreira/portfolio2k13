@@ -61,14 +61,25 @@
                     <li><a href="#" class="compass-deck"><%= image_tag "sass-deck.jpg" %></a></li>
                 </ul>
             </div>
-            <% @posts.each do |post| %>
-            <article class="post">
-              <a href="<%= post_path(post, :locale => current_locale) %>">
-                    <h2><%= post.title %></h2>
-                    <p><%= post.abstract %></p>
-                </a>
-            </article>
-            <% end %>
+            <div class="latest-posts-wrapper">
+                <div id="latest-posts" class="clearfix">
+                    <% @posts.each_with_index do |post, index| %>
+                    <article class="post<% if index == 0 %> post-active<% end %>">
+                        <a href="<%= post_path(post, :locale => current_locale) %>">
+                            <h2><%= post.title %></h2>
+                            <p><%= post.abstract %></p>
+                        </a>
+                    </article>
+                    <% end %>
+                </div>
+            </div>
+            <div class="posts-navigation" id="latest-posts-navigation">
+                <a href="#" class="current">&bullet;</a>
+                <a href="#">&bullet;</a>
+                <a href="#">&bullet;</a>
+                <a href="#">&bullet;</a>
+                <a href="#">&bullet;</a>
+            </div>
         </section>
     </div>
 </div>

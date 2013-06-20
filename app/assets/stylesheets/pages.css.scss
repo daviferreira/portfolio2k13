@@ -296,8 +296,21 @@ a:hover {
             }
         }
         .post {
-            float: none;
-            clear: both;
+            float: left;
+            width: 565px;
+        }
+        .posts-navigation {
+            text-align: center;
+            a {
+                font-size: 40px;
+                color: #dbdbdb;
+                &:hover {
+                    color: $hover_color;
+                }
+            }
+            .current {
+                color: $hover_color;
+            }
         }
     }
 }
@@ -452,4 +465,23 @@ a:hover {
             }
         }
     }
+}
+
+.latest-posts-wrapper {
+    overflow: hidden;
+}
+
+#latest-posts {
+    width: 2825px;
+    -webkit-transition: all 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530);
+       -moz-transition: all 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530);
+        -ms-transition: all 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530);
+         -o-transition: all 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530);
+            transition: all 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+
+    -webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+       -moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+        -ms-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+         -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+            transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
 }
