@@ -7,4 +7,5 @@ class Page < ActiveRecord::Base
   accepts_nested_attributes_for :translations
 
   validates_presence_of :title, :body
+  scope :published, :conditions => { :published => true }
 end

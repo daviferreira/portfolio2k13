@@ -485,3 +485,29 @@ a:hover {
          -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
             transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
 }
+
+.secondary-page {
+    .page {
+        padding: 40px;
+        h1 {
+            margin: 0 0 20px 0;
+            color: #000;
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 56px;
+            font-weight: bold;
+            letter-spacing: -2px;
+            line-height: 60px;
+        }
+        article {
+            padding: 20px 0 40px 0;
+            margin: 20px 0;
+            font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        p {
+            margin: 20px 0 31px 0;
+        }
+    }
+}

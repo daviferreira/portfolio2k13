@@ -8,6 +8,7 @@ Portfolio2k13::Application.routes.draw do
     match '/posts/:id(.:format)' => "posts#show", :as => :post
     match '/projects(.:format)' => "projects#index", :as => :projects
     match '/projects/:id(.:format)' => "projects#show", :as => :project
+    match '/page/:id(.:format)' => "pages#show", :as => :page
   end
 
   namespace :admin do

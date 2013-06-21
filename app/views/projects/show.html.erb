@@ -30,7 +30,7 @@
                     <% end %>
                 </ul>
             </div>
-            <div class="meta">Filed under <%= link_to @project.category.name, category_path(:id => @project.category, :locale => current_locale) %> <span>&bullet;</span> delievered on <time><%= @project.due_date.to_s(:published) %></time></div>
+            <div class="meta">Filed under <%= link_to @project.category.name, category_path(:id => @project.category, :locale => current_locale) %> &bullet; Delievered on <time><%= @project.due_date.to_s(:published) %></time></div>
             <% if @project.url %>
               <div class="link"><%= link_to @project.url, @project.url %></div>
             <% end %>
