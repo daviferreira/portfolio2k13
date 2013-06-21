@@ -208,7 +208,7 @@ a:hover {
     position: relative;
     z-index: 2;
     overflow: hidden;
-    margin-bottom: 328px;
+    margin-bottom: 302px;
     background-color: #fff;
     @include box-shadow(0 0 10px #000);
     &.pos-fixed {
@@ -225,21 +225,17 @@ footer {
     padding: 100px 0 0;
     background-color: #333332;
     text-transform: lowercase;
-    h5 {
-        margin: 0 0 12px 0;
-        color: #de5643;
-        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-        font-size: 32px;
-        line-height: 36px;
-    }
     .m-contact {
         text-align: center;
+        color: #ccc;
+        margin: 0 0 12px 0;
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+        font-size: 32px;
+        font-style: italic;
+        line-height: 36px;
+        @include text-shadow(-1px -1px 3px #000);
         a {
-            color: #fff;
-            font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
-            font-size: 36px;
-            font-weight: normal;
-            letter-spacing: -1px;
+            color: #de5643;
             text-decoration: none;
         }
     }
