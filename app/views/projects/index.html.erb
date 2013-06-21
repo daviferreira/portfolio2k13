@@ -15,7 +15,7 @@
         </aside>
         <section class="projects-list clearfix main-content">
             <div class="limit"></div>
-            <h3><%= @year %></h3>
+            <h3><span id="year-title"><%= @year %></span></h3>
             <% @projects_by_year.each do |year, projects| %>
                 <ul class="clearfix<% if year == @year %> first<% end %>" data-year="<%= year %>">
                 <% projects.each do |project| %>
