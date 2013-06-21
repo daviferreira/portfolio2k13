@@ -2,7 +2,7 @@ var currentYear = parseInt($('ul[data-year]:first').data('year'), 10),
     title = $('#year-title'),
     year;
 $(window).scroll(function () {
-    var scrollTop = $(this).scrollTop() + 133,
+    var scrollTop = $(this).scrollTop() - 133,
         hasYear = false;
     $('ul[data-year]').each(function () {
         year = parseInt($(this).data('year'), 10);
