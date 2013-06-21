@@ -2,7 +2,11 @@ class ProjectsController < ApplicationController
 
   def index
     @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
-    @year = @projects_by_year.first.first
+    if @projects_by_year.first
+      @year = @projects_by_year.first.first
+    else
+      @year = Time.now.year
+    end
   end
 
   def show
