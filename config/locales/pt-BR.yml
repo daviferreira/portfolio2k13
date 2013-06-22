@@ -23,6 +23,9 @@ pt-BR:
     name: "Nome"
     new: "Novo categoria"
     updated: "Categoria atualizada"
+  meta:
+    title: "Programador Python, Django, Rails, Ruby, Javascript, jQuery, HTML/CSS, PHP/MySQL"
+    description: "Página/portfolio pessoal do programador Davi Ferreira. Python, Django, Rails, Ruby, Javascript, jQuery, HTML/CSS, PHP/MySQL, Design"
   photos:
     add: "Adicionar foto"
     created: "Foto criada com sucesso"
@@ -62,6 +65,9 @@ pt-BR:
     external_url: "URL externa"
     invalid: "Post inválido"
     list: "Posts"
+    meta:
+        title: "Artigos e tutoriais sobre JavaScript, jQuery, HTML, CSS, PHP, Ruby, Python e Design"
+        description: "Blog sobre PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails, Ruby, Python e Django. Mantido pelo programador Davi Ferreira."
     meta_description: "Meta description"
     meta_title: "Meta title"
     new: "Novo post"
@@ -95,6 +101,9 @@ pt-BR:
     due_date: "Prazo"
     edit: "Editar projeto"
     invalid: "Projeto inválido"
+    meta:
+        title: "Projetos de sites, sistemas, hotsites, e-commerces e intranets"
+        description: "Portfolio do programador Davi Ferreira com projetos de sistemas, sites, intranets, e-commerces e hotsites. Criação e desenvolvimento."
     name: "Nome"
     new: "Novo projeto"
     published: "Publicado"

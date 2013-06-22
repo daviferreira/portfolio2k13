@@ -47,12 +47,12 @@ namespace :import do
     projects.each do |project|
       legacy_project = Legacy::Project.find(project.id)
       project = Project.find_by_name(legacy_project.name)
-      if not project.photos
+      if not Legacy::Photo.find_by_project_id(legacy_project.id)
         Photo.create!(:title => "Screenshot #{project.name}",
                       :order => 0,
                       :project_id => project.id,
                       :file => File.new("#{Rails.root}/public/system/legacy/screenshots/#{legacy_project.id}/original/#{legacy_project.screenshot_file_name}"))
-        puts "#{legacy_project.screenshot_file_name} imported"
+        puts "Screenshot #{legacy_project.screenshot_file_name} imported"
       end
     end
 
@@ -64,7 +64,7 @@ namespace :import do
                     :order => photo.order,
                     :project_id => project.id,
                     :file => File.new("#{Rails.root}/public/system/legacy/photos/#{photo.id}/original/#{photo.photo_file_name}"))
-      puts "#{photo.photo_file_name} imported"
+      puts "Photo #{photo.photo_file_name} imported"
     end
     puts "---------------------------"
   end

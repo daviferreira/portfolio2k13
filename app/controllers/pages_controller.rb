@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     @open_source_projects = OpenSourceProject.all.sample(2)
     @categories = Category.with_translations(I18n.locale)
     @has_footer = true
+    @meta_title = t "meta.title"
+    @meta_description = t "meta.description"
   end
 
   def show
@@ -13,5 +15,7 @@ class PagesController < ApplicationController
     else
       @page = Page.published.find_using_slug(params[:id]) || render_404
     end
+    @meta_title = @page.meta_title || t("meta.title")
+    @meta_description = @page.meta_description || t("meta.description")
   end
 end

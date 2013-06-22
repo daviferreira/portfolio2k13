@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
     else
       @year = Time.now.year
     end
+    @meta_title = t "projects.meta.title"
+    @meta_description = t "projects.meta.description"
   end
 
   def show
@@ -15,6 +17,8 @@ class ProjectsController < ApplicationController
     else
       @project = Project.find_using_slug(params[:id]) || render_404
     end
+    @meta_title = @project.name
+    @meta_description = "#{@project.description} - #{@project.tags}"
   end
 
 end
