@@ -1,0 +1,27 @@
+<div class="open-source-projects-container open-source-projects-page secondary-page">
+    <div class="container clearfix">
+        <section class="sidebar">
+            <div class="sidebar-container">
+                <header class="clearfix">
+                    <h1>Open Source</h1>
+                </header>
+                <nav class="sidebar-navigation">
+                    <a href="#">github</a>
+                </nav>
+                <%= render "shared/myself" %>
+            </div>
+        </section>
+        <section class="open-source-projects clearfix main-content">
+            <div class="limit"></div>
+            <% @open_source_projects.each do |open_source_project| %>
+                <article>
+                    <a href="<%= open_source_project_path(open_source_project, :locale => current_locale) %>">
+                        <h1><%= open_source_project.title %></h1>
+                        <p><%= open_source_project.abstract %></p>
+                    </a>
+                </article>
+            <% end %>
+        </section>
+    </div>
+</div>
+

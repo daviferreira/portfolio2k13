@@ -11,10 +11,9 @@ class PostsController < ApplicationController
     if @post.nil?
       render_404
     else
-      @post.body = BlueCloth::new(@post.body).to_html
+      @meta_title = @post.meta_title || @post.title
+      @meta_description = @post.meta_description || @post.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
     end
-    @meta_title = @post.meta_title || @post.title
-    @meta_description = @post.meta_description || @post.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
   end
 
 end

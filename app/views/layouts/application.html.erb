@@ -30,9 +30,10 @@
                     </a>
                 </div>
                 <nav class="clearfix">
-                    <%= link_to t('home'), root_path %>
-                    <%= link_to t('portfolio'), projects_path %>
-                    <%= link_to t('blog'), posts_path %>
+                    <%= link_to t('home'), root_path(:locale => current_locale) %>
+                    <%= link_to t('portfolio'), projects_path(:locale => current_locale) %>
+                    <%= link_to t('blog'), posts_path(:locale => current_locale) %>
+                    <%= link_to t('projects.list'), open_source_path(:locale => current_locale) %>
                     <%= link_to t('book'), page_path('book', :locale => current_locale) %>
                     <%= link_to t('presentations'), page_path('presentations', :locale => current_locale) %>
                     <%= link_to t('about'), page_path('about', :locale => current_locale) %>

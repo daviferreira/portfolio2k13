@@ -13,12 +13,16 @@ class ProjectsController < ApplicationController
 
   def show
     if I18n.locale != I18n.default_locale
-      @project = Project.find_by_cached_slug(params[:id]) || render_404
+      @project = Project.find_by_cached_slug(params[:id])
     else
-      @project = Project.find_using_slug(params[:id]) || render_404
+      @project = Project.find_using_slug(params[:id])
     end
-    @meta_title = @project.name
-    @meta_description = "#{@project.description} - #{@project.tags}"
+    if @project.nil?
+      render_404
+    else
+      @meta_title = @project.name
+      @meta_description = "#{@project.description} - #{@project.tags}"
+    end
   end
 
 end

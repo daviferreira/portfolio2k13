@@ -8,7 +8,6 @@ gem 'devise'
 gem 'paperclip'
 gem 'globalize3'
 gem 'slugged'
-gem 'bluecloth'
 gem 'bourbon'
 
 group :assets do

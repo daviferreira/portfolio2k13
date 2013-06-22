@@ -14,6 +14,13 @@ if posts.length > 0
 
     timer = setInterval navigate, 10000
 
+    html = ''
+    if posts.length > 1
+        for i in [0...posts.length]
+            html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bullet;</a>'
+
+    postsNavigation.html html
+
     $('.post').hover ->
         clearInterval timer
     , ->
@@ -43,8 +50,9 @@ carrosselCover = (init) ->
     if init == true
         html = ''
         cover.slideDown 400
-        for i in [0...sections.length]
-            html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bullet;</a>'
+        if sections.length > 1
+            for i in [0...sections.length]
+                html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bullet;</a>'
         nav.html html
         nav.find('a').click (e) ->
             clearInterval coverTimer
