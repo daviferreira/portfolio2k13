@@ -8,7 +8,7 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :file, :styles => {:medium => "400x400#",
                                        :thumb => "80x80#",
-                                       :highlight => "276x240#"}
+                                       :highlight => "374x242#"}
 
   validates :title, presence: true, length: { maximum: 140 }
   validates_presence_of :order
