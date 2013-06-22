@@ -25,7 +25,7 @@
     <div class="secondary-info container clearfix">
         <section class="open-source">
             <header>
-                <h1><small><a href="#">more @ github &#8250;</a></small>I <em>&hearts;</em> open source</h1>
+              <h1><small><a href="<%= open_source_path(:locale => current_locale) %>">mais projetos &#8250;</a></small>Eu <em>&hearts;</em> open source</h1>
             </header>
             <% @open_source_projects.each do |project| %>
               <article class="clearfix">
@@ -39,7 +39,7 @@
         </section>
         <section class="writing-talks clearfix">
             <header>
-                <h1><small><a href="#">visit my blog &#8250;</a></small>Writing & Talking</h1>
+              <h1><small><a href="<%= posts_path(:locale => current_locale) %>">visite meu blog &#8250;</a></small>Publicações</h1>
             </header>
             <article class="book clearfix">
                 <figure>
@@ -86,10 +86,10 @@
     <div class="about-me clearfix container">
         <section class="social">
             <ul>
-                <li><a href="#" class="icons-sprite icons-github"><span>visit my profile &#8250;</span>Github</a></li>
-                <li><a href="#" class="icons-sprite icons-twitter"><span>visit my profile &#8250;</span>Twitter</a></li>
-                <li><a href="#" class="icons-sprite icons-linkedin"><span>visit my profile &#8250;</span>LinkedIn</a></li>
-                <li><a class="icons-sprite icons-delicious" href="#"><span>visit my profile &#8250;</span>Delicious</a></li>
+                <li><a href="#" class="icons-sprite icons-github"><span>visite meu perfil &#8250;</span>Github</a></li>
+                <li><a href="#" class="icons-sprite icons-twitter"><span>visite meu perfil &#8250;</span>Twitter</a></li>
+                <li><a href="#" class="icons-sprite icons-linkedin"><span>visite meu perfil &#8250;</span>LinkedIn</a></li>
+                <li><a class="icons-sprite icons-delicious" href="#"><span>visite meu perfil &#8250;</span>Delicious</a></li>
             </ul>
         </section>
         <section class="myself clearfix">
