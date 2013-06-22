@@ -1,24 +1,3 @@
-works = $('#row-works')
-if works.length > 0
-    worksOffset = works.offset().top + 50
-    time = 40
-
-    showHover = (el, time) ->
-      setTimeout -> 
-        $(el).addClass('hover')
-        setTimeout ->
-          $(el).removeClass('hover')
-        , time + 30
-      , time
-
-    $(window).bind 'scroll.works', ->
-      if $(this).scrollTop() + $(this).height() > worksOffset
-        setTimeout ->
-          works.find('a').each (i, el) ->
-            showHover(el, time * (i + 1))
-          $(this).unbind 'scroll.works'
-        , 300
-
 posts = $('.post')
 if posts.length > 0
     timer = ''
@@ -30,7 +9,7 @@ if posts.length > 0
                if currentPost == posts.length
                    currentPost = 0
                latestPosts.css 'margin-left', -1 * currentPost * 565
-               postsNavigation.find('a').removeClass 'current';
+               postsNavigation.find('a').removeClass 'current'
                postsNavigation.find('a:eq(' + currentPost + ')').addClass 'current'
 
     timer = setInterval navigate, 10000
@@ -45,3 +24,56 @@ if posts.length > 0
         currentPost = $(this).index() - 1
         navigate()
         timer = setInterval navigate, 10000
+
+cover = $('#cover')
+sections = cover.find('section')
+nav = $('#cover-navigation')
+coverTimer = ''
+currentIndex = 0
+coverInterval = 10000
+
+carrosselCover = (init) ->
+    width = $(window).width()
+
+    if width < 1170
+        width = 1170
+
+    cover.width sections.length * width
+    sections.width width
+    if init == true
+        html = ''
+        cover.slideDown 400
+        for i in [0...sections.length]
+            html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bullet;</a>'
+        nav.html html
+        nav.find('a').click (e) ->
+            clearInterval coverTimer
+            e.preventDefault()
+            paginateCover $(this).data('index')
+            coverTimer = setInterval -> 
+                            paginateCover(currentIndex + 1)
+                         , coverInterval
+
+paginateCover = (index) ->
+    if index > (sections.length - 1)
+        index = 0
+    nav.find('.current').removeClass 'current'
+    nav.find('[data-index="' + index + '"]').addClass 'current'
+    cover.css 'margin-left', -(index * $(window).width())
+    currentIndex = index
+
+sections.find('container').hover ->
+    clearInterval coverTimer
+, ->
+    coverTimer = setInterval -> 
+                    paginateCover(currentIndex + 1)
+                 , coverInterval
+
+coverTimer = setInterval -> 
+                paginateCover(currentIndex + 1)
+             , coverInterval
+
+carrosselCover true
+
+$(window).resize ->
+    carrosselCover false

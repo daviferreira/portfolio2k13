@@ -31,6 +31,9 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bluecloth (2.2.0)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.0.4)
     capybara (2.0.2)
       mime-types (>= 1.16)
@@ -244,6 +247,7 @@ PLATFORMS
 
 DEPENDENCIES
   bluecloth
+  bourbon
   capybara
   coffee-rails (~> 3.2.1)
   compass-rails
