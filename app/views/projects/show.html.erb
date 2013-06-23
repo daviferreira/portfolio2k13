@@ -34,6 +34,9 @@
             <% if @project.url %>
               <div class="link"><%= link_to @project.url, @project.url %></div>
             <% end %>
+            <% if @project.tags %>
+              <div class="tags"><%= show_tags_as_links(@project.tags) %></div>
+            <% end %>
         </section>
     </div>
 </div>

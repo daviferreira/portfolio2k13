@@ -5,11 +5,14 @@
                 <header class="clearfix">
                     <h1>Crafts</h1>
                 </header>
-                <nav class="sidebar-navigation">
-                    <a class="current" href="#">by date</a>
-                    <a href="#">by category</a>
-                    <a href="#">by tag</a>
-                </nav>
+                <div class="sidebar-navigation">
+                    <ul class="filters clearfix filters-categories">
+                      <li><%= link_to "todos", projects_path(:locale => current_locale) %></li>
+                      <% @categories.each do |category| %>
+                        <li><%= link_to category.name, projects_by_category_path(category, :locale => current_locale) %></li>
+                      <% end %>
+                    </ul>
+                </div>
                 <%= render "shared/myself" %>
             </div>
         </aside>

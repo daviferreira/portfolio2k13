@@ -1,7 +1,19 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
+    if request['category_id']
+      if I18n.locale != I18n.default_locale
+        category = Category.find_by_cached_slug(request['category_id'])
+      else
+        category = Category.find_using_slug(request['category_id'])
+      end
+      @projects_by_year = Project.published.where(:category_id => category.id).with_translations(I18n.locale).group_by{|v| v.due_date.year}
+    elsif request['tag']
+      # TODO: better tagging
+      @projects_by_year = Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
+    else
+      @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
+    end
     if @projects_by_year.first
       @year = @projects_by_year.first.first
     else
@@ -9,6 +21,7 @@ class ProjectsController < ApplicationController
     end
     @meta_title = t "projects.meta.title"
     @meta_description = t "projects.meta.description"
+    @categories = Category.all
   end
 
   def show

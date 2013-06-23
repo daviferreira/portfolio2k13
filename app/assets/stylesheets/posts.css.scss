@@ -1,5 +1,6 @@
 @import "variables";
 @import "compass/css3";
+@import "bourbon";
 
 .secondary-page {
     .posts {
@@ -125,8 +126,8 @@
 
 .posts-show {
     .sidebar {
-        @include opacity(.5);
-        @include transition(opacity .2s linear);
+        @include opacity(.3);
+        @include transition(opacity .3s $ease-in-out-quad);
         &:hover {
             @include opacity(1);
         }

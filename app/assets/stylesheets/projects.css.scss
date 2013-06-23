@@ -1,11 +1,12 @@
 @import "variables";
 @import "compass/css3";
+@import "bourbon";
 
 .secondary-page {
     .projects-list {
         h3 {
             position: fixed;
-            width: 783px;
+            width: 883px;
             z-index: 10;
             margin-bottom: 20px;
             padding-top: 84px;
@@ -71,7 +72,7 @@
 
     .project-details {
         padding: 80px 40px;
-        width: 726px;
+        width: 826px;
         h1 {
             margin: 20px 0;
             color: #000;
@@ -190,8 +191,8 @@
 
 .projects-show {
     .sidebar {
-        @include opacity(.5);
-        @include transition(opacity .2s linear);
+        @include opacity(.3);
+        @include transition(opacity .3s $ease-in-out-quad);
         &:hover {
             @include opacity(1);
         }

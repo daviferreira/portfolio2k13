@@ -1,5 +1,6 @@
 @import "variables";
 @import "compass/css3";
+@import "bourbon";
 
 @import "icons/*.png";
 @include all-icons-sprites;
@@ -274,13 +275,13 @@ footer {
     .sidebar {
         z-index: 1;
         position: fixed;
-        width: 364px;
+        width: 264px;
         height: 100%;
         margin-left: 0;
         margin-right: 20px;
         padding-top: 80px;
         background-color: #fff;
-        border-left: 1px dotted rgba(#dbdbdb, .5);
+        border-left: 1px solid #dbdbdb;
         border-right: 1px solid #dbdbdb;
         h1, h2 {
             padding: 20px;
@@ -311,8 +312,8 @@ footer {
     .main-content {
         padding-top: 0;
         padding-bottom: 0;
-        margin-left: 366px;
-        border-right: 1px dotted rgba(#dbdbdb, .5);
+        margin-left: 266px;
+        border-right: 1px solid #dbdbdb;
         .limit {
             position: fixed;
             margin-left: 0;
@@ -326,12 +327,32 @@ footer {
     }
 
     .sidebar-navigation {
-        a {
-            display: block;
-            padding: 20px;
-            color: #333;
-            &:hover {
-                color: $hover_color;
+        padding: 0;
+        h3 {
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid #d8d1c0;
+            box-shadow: 0 1px 0 white;
+            color: #4d4d4d;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+            text-shadow: 0 1px 0 white;
+            text-transform: uppercase;
+        }
+        ul {
+            margin: 0;
+        }
+        li {
+            a {
+                display: block;
+                padding: 20px;
+                border-bottom: 1px solid #dbdbdb;
+                text-transform: lowercase;
+                border-left: 5px solid #fff;
+                @include transition(border-color .3s $ease-in-quint);
+                &:hover {
+                    border-left: 5px solid $hover_color;
+                }
             }
         }
     }
