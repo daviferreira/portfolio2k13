@@ -26,30 +26,4 @@ describe "Locale routing" do
         )
     end
   end
-
-  describe "Categories" do
-    it "should route to category with english locale" do
-      { :get => "/en/categories/test-category" }.
-          should route_to(
-          :locale => "en",
-          :controller => "categories",
-          :action => "show",
-          :id => "test-category"
-        )
-    end
-
-    it "should not accept an invalid locale" do
-      { :get => "/fr/categories/test-category" }.should_not be_routable
-    end
-
-    it "should accept no locale" do
-      { :get => "/categories/test-category" }.
-          should route_to(
-          :controller => "categories",
-          :action => "show",
-          :id => "test-category"
-        )
-    end
-  end
-
 end
