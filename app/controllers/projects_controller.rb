@@ -10,7 +10,11 @@ class ProjectsController < ApplicationController
       @projects_by_year = Project.published.where(:category_id => category.id).with_translations(I18n.locale).group_by{|v| v.due_date.year}
     elsif request['tag']
       # TODO: better tagging
-      @projects_by_year = Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
+      if I18n.locale != I18n.default_locale
+        @projects_by_year = Project.published.with_translations(I18n.locale).where(["project_translations.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
+      else
+        @projects_by_year = Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
+      end
     else
       @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
     end
