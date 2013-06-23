@@ -15,3 +15,12 @@ $(window).scroll(function () {
         }
     });
 });
+
+$('.projects-list').find('ul').each(function () {
+    var height = 0;
+    $(this).find('li').each(function () {
+        if ($(this).height() > height) {
+            height = $(this).height();
+        }
+    }).height(height);
+});

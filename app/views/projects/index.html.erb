@@ -26,7 +26,7 @@
                         <a href="<%= project_path(project, :locale => current_locale) %>">
                             <% unless project.photos.empty? %>
                                 <figure>
-                                    <%= image_tag project.photos.first.file.url(:thumb) %>
+                                    <%= image_tag project.photos.first.file.url(:thumb), :size => "80x80" %>
                                 </figure>
                             <% end %>
                             <%= project.name %>
