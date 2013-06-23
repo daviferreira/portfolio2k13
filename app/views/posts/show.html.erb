@@ -11,7 +11,7 @@
         </section>
         <section class="post clearfix main-content">
             <article>
-            <div class="meta"><%= @post.tags %> <span>&bullet;</span> <time><%= @post.published_date.to_s(:published) %></time></div>
+            <div class="meta"><%= @post.tags %> <span>&bullet;</span> <time><%= localize @post.published_date, :format => '%B %Y' %></time></div>
                 <a href="<%= post_path(:id => @post, :locale => current_locale) %>">
                     <h1><%= @post.title %></h1>
                 </a>
