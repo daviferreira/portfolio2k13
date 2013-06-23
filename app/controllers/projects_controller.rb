@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
     if @project.nil?
       render_404
     else
+      @categories = Category.all
       @meta_title = @project.name
       @meta_description = "#{@project.description} - #{@project.tags}"
     end
