@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published_local.where(:locale => I18n.locale)
+    if request['tag']
+        @posts = Post.published_local.where(:locale => I18n.locale).where("tags LIKE :tag", {:tag => "%#{request['tag']}%"})
+    else
+        @posts = Post.published_local.where(:locale => I18n.locale)
+    end
     @meta_title = t "posts.meta.title"
     @meta_description = t "posts.meta.description"
   end
@@ -11,8 +15,8 @@ class PostsController < ApplicationController
     if @post.nil?
       render_404
     else
-      @meta_title = @post.meta_title || @post.title
-      @meta_description = @post.meta_description || @post.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
+      @meta_title = @post.meta_title.empty? ? @post.title : @post.meta_title
+      @meta_description = @post.meta_description.empty? ? @post.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip : @post.meta_title
     end
   end
 
