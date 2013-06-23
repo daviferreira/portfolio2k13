@@ -192,6 +192,19 @@ a:hover {
             color: #fff;
         }
     }
+    .tags {
+        .tags-container {
+            float: left;
+            width: 308px;
+        }
+        a {
+            display: inline-block;
+            margin-right: 5px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 .secondary-info-container {

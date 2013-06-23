@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   has_many :photos
 
   validates :name, presence: true, length: { maximum: 140 }
-  validates_presence_of :description, :url, :due_date
+  validates_presence_of :description, :due_date
   validates :category, presence: true
 
   default_scope order: "projects.due_date DESC"

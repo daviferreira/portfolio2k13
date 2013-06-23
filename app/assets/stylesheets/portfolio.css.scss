@@ -275,7 +275,7 @@ footer {
     .sidebar {
         z-index: 1;
         position: fixed;
-        width: 264px;
+        width: 248px;
         height: 100%;
         margin-left: 0;
         margin-right: 20px;
@@ -312,7 +312,7 @@ footer {
     .main-content {
         padding-top: 0;
         padding-bottom: 0;
-        margin-left: 266px;
+        margin-left: 250px;
         border-right: 1px solid #dbdbdb;
         .limit {
             position: fixed;
@@ -408,20 +408,4 @@ footer {
             }
         }
     }
-}
-
-.tags {
-    margin: 20px 0 0;
-    text-align: center;
-    a {
-        display: inline-block;
-        margin-right: 10px;
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-}
-
-.meta {
-    text-transform: lowercase;
 }

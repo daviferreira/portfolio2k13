@@ -1,5 +1,7 @@
 pt-BR:
+  about: "Sobre"
   blog: "Blog"
+  book: "Livro"
   cancel: "Cancelar"
   delete: "Excluir"
   edit: "Editarar"
@@ -9,6 +11,7 @@ pt-BR:
   logout: "logout"
   or: "ou"
   portfolio: "portfolio"
+  presentations: "Apresentações"
   save: "salvar"
   site: "Site"
   slug: "Slug"

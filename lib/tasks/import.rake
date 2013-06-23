@@ -24,9 +24,12 @@ namespace :import do
     projects.each do |project|
       category = Legacy::Category.find(project.category_id)
       category = Category.find_by_name(category.name)
+      if project.url
+        project.url = project.url.start_with?("http") ? project.url : "http://#{project.url}"
+      end
       Project.create!(:name => project.name,
                       :description => project.description,
-                      :url => project.url? ? project.url : "offline",
+                      :url => project.url,
                       :due_date => project.due_date,
                       :published => project.published,
                       :category_id => category ? category.id : website.id,

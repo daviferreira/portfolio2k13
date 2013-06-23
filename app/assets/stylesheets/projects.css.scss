@@ -4,9 +4,12 @@
 
 .secondary-page {
     .projects-list {
+        .limit {
+            width: 919px;
+        }
         h3 {
             position: fixed;
-            width: 883px;
+            width: 899px;
             z-index: 10;
             margin-bottom: 20px;
             padding-top: 84px;
@@ -72,7 +75,7 @@
 
     .project-details {
         padding: 80px 40px;
-        width: 826px;
+        width: 842px;
         h1 {
             margin: 20px 0;
             color: #000;
@@ -167,6 +170,22 @@
             text-align: center;
         }
     }
+    .tags {
+        margin: 20px 0 0;
+        text-align: center;
+        a {
+            display: inline-block;
+            margin-right: 10px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .meta {
+        text-transform: lowercase;
+    }
+
 }
 
 .js-gallery-overlay {

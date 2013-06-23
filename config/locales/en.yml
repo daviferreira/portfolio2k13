@@ -1,4 +1,6 @@
 en:
+  about: "About"
+  book: "Book"
   blog: "Blog"
   cancel: "Cancel"
   delete: "Delete"
@@ -9,6 +11,7 @@ en:
   logout: "logout"
   or: "or"
   portfolio: "portfolio"
+  presentations: "Presentations"
   save: "save"
   site: "Site"
   slug: "Slug"

@@ -7,7 +7,6 @@ describe Project do
                            description: "Description",
                            due_date: Time.now,
                            published: true,
-                           url: "http://project.com",
                            category_id: category.id)
   }
 
@@ -39,11 +38,6 @@ describe Project do
     it { should_not be_valid }
   end
 
-  describe "when url is not present" do
-    before { @project.url = "" }
-    it { should_not be_valid }
-  end
-
   describe "when due_date is not present" do
     before { @project.due_date = "" }
     it { should_not be_valid }
@@ -67,19 +61,16 @@ describe Project do
                           description: "Project 1 description",
                           due_date: "2013-01-27",
                           published: true,
-                          url: "http://project1.com",
                           category_id: category.id)
       p2 = Project.create(name: "Project 2",
                           description: "Project 2 description",
                           due_date: "2013-02-03",
                           published: true,
-                          url: "http://project2.com",
                           category_id: category.id)
       p3 = Project.create(name: "Project 3",
                           description: "Project 3 description",
                           due_date: "2011-11-11",
                           published: true,
-                          url: "http://project3.com",
                           category_id: category.id)
       projects = Project.all
       projects[0].should == p2
@@ -95,19 +86,16 @@ describe Project do
                           description: "Project 1 description",
                           due_date: "2013-01-31",
                           published: true,
-                          url: "http://project1.com",
                           category_id: category.id)
       p2 = Project.create(name: "Project 2",
                           description: "Project 2 description",
                           due_date: "2013-02-03",
                           published: false,
-                          url: "http://project2.com",
                           category_id: category.id)
       p3 = Project.create(name: "Project 3",
                           description: "Project 3 description",
                           due_date: "2011-11-11",
                           published: true,
-                          url: "http://project3.com",
                           category_id: category.id)
       projects = Project.published
       projects.count.should == 2
