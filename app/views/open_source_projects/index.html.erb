@@ -3,11 +3,13 @@
         <section class="sidebar">
             <div class="sidebar-container">
                 <header class="clearfix">
-                    <h1>Open Source</h1>
+                    <h1>eu <span class="heart">&hearts;</span> open source</h1>
                 </header>
-                <nav class="sidebar-navigation">
-                    <a href="#">github</a>
-                </nav>
+                <div class="sidebar-navigation">
+                    <ul>
+                        <li><a href="#">github</a></li>
+                    </ul>
+                </div>
                 <%= render "shared/myself" %>
             </div>
         </section>
@@ -15,9 +17,9 @@
             <div class="limit"></div>
             <% @open_source_projects.each do |open_source_project| %>
                 <article>
-                    <a href="<%= open_source_project_path(open_source_project, :locale => current_locale) %>">
+                    <a href="<%= open_source_project.url %>">
                         <h1><%= open_source_project.title %></h1>
-                        <p><%= open_source_project.abstract %></p>
+                        <p><%= open_source_project.description %></p>
                     </a>
                 </article>
             <% end %>
