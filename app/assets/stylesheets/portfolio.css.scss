@@ -409,3 +409,19 @@ footer {
         }
     }
 }
+
+.tags {
+    margin: 20px 0 0;
+    text-align: center;
+    a {
+        display: inline-block;
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.meta {
+    text-transform: lowercase;
+}
