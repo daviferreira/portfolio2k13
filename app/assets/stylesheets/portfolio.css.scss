@@ -282,7 +282,7 @@ footer {
         padding-top: 80px;
         background-color: #fff;
         border-left: 1px solid #dbdbdb;
-        border-right: 1px solid #dbdbdb;
+        border-right: 1px solid #fff;
         h1, h2 {
             padding: 20px;
         }
@@ -313,6 +313,7 @@ footer {
         padding-top: 0;
         padding-bottom: 0;
         margin-left: 250px;
+        border-left: 1px solid #dbdbdb;
         border-right: 1px solid #dbdbdb;
         .limit {
             position: fixed;
