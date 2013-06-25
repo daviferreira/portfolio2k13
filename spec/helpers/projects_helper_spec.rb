@@ -1,15 +1,14 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ProjectsHelper. For example:
-#
-# describe ProjectsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe ProjectsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "showing tags as links" do
+    it "should render tags as html links" do
+      I18n.locale = :en
+      html = ''
+      html << "<a href=\"#{projects_search_path(:locale => I18n.locale, :tag => "javascript")}\">#javascript</a>"
+      html << "<a href=\"#{projects_search_path(:locale => I18n.locale, :tag => "php")}\">#php</a>"
+      html << "<a href=\"#{projects_search_path(:locale => I18n.locale, :tag => "css")}\">#css</a>"
+      helper.show_tags_as_links("javascript,php, css").should == html
+    end
+  end
 end

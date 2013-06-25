@@ -1,15 +1,10 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PagesHelper. For example:
-#
-# describe PagesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe PagesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:page) { FactoryGirl.create(:page, :body => '<p>Hello world!</p>') }
+  describe "render page" do
+    it "should render the page html" do
+      expect helper.render_page('test-page').should == '<p>Hello world!</p>'
+    end
+  end
 end
