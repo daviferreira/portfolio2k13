@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
         category = Category.find_using_slug(request['category_id'])
       end
       @projects_by_year = Project.published.where(:category_id => category.id).with_translations(I18n.locale).group_by{|v| v.due_date.year}
+      @meta_title = category.name
     elsif request['tag']
       # TODO: better tagging
       if I18n.locale != I18n.default_locale
@@ -15,16 +16,17 @@ class ProjectsController < ApplicationController
       else
         @projects_by_year = Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
       end
+      @meta_title = request['tag']
     else
       @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
+      @meta_title = t "projects.meta.title"
     end
+    @meta_description = t "projects.meta.description"
     if @projects_by_year.first
       @year = @projects_by_year.first.first
     else
       @year = Time.now.year
     end
-    @meta_title = t "projects.meta.title"
-    @meta_description = t "projects.meta.description"
     @categories = Category.all
   end
 

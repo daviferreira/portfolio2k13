@@ -4,8 +4,10 @@ class PostsController < ApplicationController
     @posts = Post.published_local.where(:locale => I18n.locale)
     if request['tag']
         @posts = @posts.where("tags LIKE :tag", {:tag => "%#{request['tag']}%"})
+        @meta_title = request['tag']
+    else
+      @meta_title = t "posts.meta.title"
     end
-    @meta_title = t "posts.meta.title"
     @meta_description = t "posts.meta.description"
   end
 
