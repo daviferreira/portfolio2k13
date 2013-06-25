@@ -36,6 +36,7 @@ end
 
 group :development do
   gem 'guard-livereload'
+  gem 'builder'
 end
 
 group :test do
