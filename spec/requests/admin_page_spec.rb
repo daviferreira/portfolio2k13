@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe 'Home Page' do
+describe 'Admin Page' do
 
   subject { page }
 
-  describe "As an authenticated user" do
+  context "Authenticated user" do
     let(:user) { FactoryGirl.create(:user, :name => "Davi Ferreira") }
 
     before do
@@ -19,6 +19,16 @@ describe 'Home Page' do
     it { should have_selector('ul > li > a[href="' + admin_categories_path + '"]', :text => "#{I18n.t('categories.list')}") }
     it { should have_selector('ul > li > a[href="' + admin_photos_path + '"]', :text => "#{I18n.t('photos.list')}") }
     it { should have_selector('ul > li > a[href="' + admin_posts_path + '"]', :text => "#{I18n.t('posts.list')}") }
+
+    describe "logout" do
+      before do
+        click_link I18n.t('logout')
+      end
+
+      it { should have_selector('input#user_email') }
+      it { should have_selector('input#user_password') }
+      it { should have_selector('input[type="submit"]') }
+    end
 
   end
 

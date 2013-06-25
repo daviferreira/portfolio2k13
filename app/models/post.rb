@@ -17,19 +17,19 @@ class Post < ActiveRecord::Base
 
   private
       def get_meta_title
-        if self.meta_title.nil? or self.meta_title.empty?
-          self.title
-        else
+        if self.meta_title.present?
           self.meta_title
+        else
+          self.title
         end
       end
 
       # TODO: refactor, transform word limit into helper
       def get_meta_description
-        if self.meta_description.nil? or self.meta_description.empty?
-          self.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
-        else
+        if self.meta_description.present?
           self.meta_title
+        else
+          self.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
         end
       end
 

@@ -22,9 +22,7 @@ class Admin::OpenSourceProjectsController < Admin::AdminController
 
   def update
     @open_source_project = OpenSourceProject.find(params[:id])
-    if @open_source_project.nil?
-      render_404
-    elsif @open_source_project.update_attributes(params[:open_source_project])
+    if @open_source_project.update_attributes(params[:open_source_project])
       redirect_to edit_admin_open_source_project_path(@open_source_project), :flash => { :success => t("open_source_projects.updated") }
     else
       render "edit"
@@ -33,12 +31,8 @@ class Admin::OpenSourceProjectsController < Admin::AdminController
 
   def destroy
     @open_source_project = OpenSourceProject.find(params[:id])
-    if @open_source_project.nil?
-      render_404
-    else
-      @open_source_project.destroy
-      redirect_to admin_open_source_projects_path, :flash => { :notice => t("open_source_projects.deleted") }
-    end
+    @open_source_project.destroy
+    redirect_to admin_open_source_projects_path, :flash => { :notice => t("open_source_projects.deleted") }
   end
 
 end

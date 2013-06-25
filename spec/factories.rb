@@ -51,8 +51,9 @@ FactoryGirl.define do
     published_date Time.now
     meta_title "Post Meta Title"
     meta_description "Post Meta Description"
-    external_url nil
+    external_url ''
     block_comments false
+    locale I18n.locale
   end
 end
 
@@ -60,7 +61,7 @@ FactoryGirl.define do
   factory :page do
     title "Test Page"
     body "This is a test page"
-    published false
+    published true
     cached_slug "test-page"
     meta_title "Page Meta Title"
     meta_description "Page Meta Description"
