@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 
 # script/wxr_export.rb
 # TODO: strip HTML, converting br to new line
+# TODO: do not encode HTML
 
 xml = Builder::XmlMarkup.new(:target => STDOUT, :indent => 2)
 
