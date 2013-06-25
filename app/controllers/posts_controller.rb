@@ -15,8 +15,8 @@ class PostsController < ApplicationController
     if @post.nil?
       render_404
     else
-      @meta_title = @post.meta_title.empty? ? @post.title : @post.meta_title
-      @meta_description = @post.meta_description.empty? ? @post.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip : @post.meta_title
+      @meta_title = @post.get_meta_title
+      @meta_description = @post.get_meta_description
     end
   end
 

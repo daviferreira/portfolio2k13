@@ -9,6 +9,22 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :abstract, :body
 
   scope :published, :conditions => { :published => true }, :order => "posts.published_date DESC"
-  # TODO; nil, blank etc.
   scope :published_local, :conditions => { :published => true, :external_url => '' }, :order => 'posts.published_date DESC'
+
+  def get_meta_title
+    if self.meta_title.nil? or self.meta_title.empty?
+      self.title
+    else
+      self.meta_title
+    end
+  end
+
+  def get_meta_description
+    if self.meta_description.nil? or self.meta_description.empty?
+      self.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
+    else
+      self.meta_title
+    end
+  end
+
 end
