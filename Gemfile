@@ -24,7 +24,8 @@ group :development, :test do
   gem 'guard-spork'
   gem 'capybara'
   gem 'spork'
-  gem 'simplecov'
+  gem 'simplecov', :git => 'git@github.com:colszowka/simplecov.git'
+  gem 'simplecov-html', :git => 'git@github.com:colszowka/simplecov-html.git'
   gem 'rb-fsevent'
   gem 'growl'
 end
