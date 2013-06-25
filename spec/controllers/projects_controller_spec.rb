@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe ProjectsController do
 
+  after { I18n.locale = I18n.default_locale }
+
   let!(:project) { FactoryGirl.create(:project, :published => true) }
 
   describe "projects listing" do
@@ -37,18 +39,46 @@ describe ProjectsController do
         assigns(:year).should == Time.now.year
       end
 
-      it "should list post by categories" do
+      it "should list posts by categories" do
         another_project = FactoryGirl.create(:project, :published => true,
                                                        :category => FactoryGirl.create(:category))
         get :index, :category_id => project.category.id
         assigns(:projects_by_year).should == {Time.now.year => [project]}
       end
 
-      it "should list post by tags" do
+      it "should list posts by localized category" do
+        category = FactoryGirl.create(:category)
+        localized_project = FactoryGirl.create(:project, :published => true,
+                                                         :category => category)
+        I18n.locale = :en
+        category.name = "English category"
+        category.generate_slug!
+        category.save
+        localized_project.name = "English Project"
+        localized_project.description = "English Project"
+        localized_project.generate_slug!
+        localized_project.save
+        get :index, { :locale => :en, :category_id => category }
+        assigns(:projects_by_year).should == {Time.now.year => [localized_project]}
+      end
+
+      it "should list posts by tags" do
         tagged_project = FactoryGirl.create(:project, :published => true,
                                                       :tags => "php,css,javascript,html")
         get :index, :tag => "javascript"
         assigns(:projects_by_year).should == {Time.now.year => [tagged_project]}
+      end
+
+      it "shoud list localized posts by tags" do
+        tagged_project = FactoryGirl.create(:project, :published => true)
+        I18n.locale = :en
+        tagged_project.name = "English Project"
+        tagged_project.description = "English Project"
+        tagged_project.tags = "english,css,php"
+        tagged_project.generate_slug!
+        tagged_project.save
+        get :index, {:locale => :en, :tag => "english"}
+        get :index, :tag => "javascript"
       end
 
     end

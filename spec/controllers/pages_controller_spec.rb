@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe PagesController do
 
+  after { I18n.locale = I18n.default_locale }
+
   describe "GET 'index'" do
     it "should return http success" do
       get :index

@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe PostsController do
 
+  after { I18n.locale = I18n.default_locale }
+
   let!(:blog_post) { FactoryGirl.create(:post) }
 
   describe "projects listing" do
