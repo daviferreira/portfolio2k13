@@ -17,7 +17,7 @@ xml.rss 'version' => "2.0",
         'xmlns:wp' => "http://wordpress.org/export/1.0/" do
 
   xml.channel do
-      Legacy::Post.where(:published => true).each do |post|
+      Legacy::Post.where(:published => true).order('posts.published_date ASC').each do |post|
 
         if not post.tableless.present?
 
@@ -31,7 +31,7 @@ xml.rss 'version' => "2.0",
           xml.wp(:comment_status) { |x| x << "open" }
 
 
-          post.comments.where(:published => true).each do |comment|
+          post.comments.where(:published => true).order('comments.created_at ASC').each do |comment|
 
             xml.wp(:comment) do
 
@@ -57,7 +57,7 @@ xml.rss 'version' => "2.0",
 
               xml.wp(:comment_date_gmt) { |x| x << comment.created_at.utc.to_formatted_s(:db) }
 
-              xml.wp(:comment_content) { |x| x << "<![CDATA[" + comment.body.encode(:xml => :text).gsub('--', '- -').gsub('--', '- -').chars.select{|i| i.valid_encoding?}.join + "]]>" }
+              xml.wp(:comment_content) { |x| x << "<![CDATA[" + comment.body.gsub('--', '- -').gsub('--', '- -').chars.select{|i| i.valid_encoding?}.join + "]]>" }
 
               xml.wp(:comment_approved) { |x| x << 1 } #approve all comments
 
