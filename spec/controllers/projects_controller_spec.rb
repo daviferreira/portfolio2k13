@@ -70,7 +70,13 @@ describe ProjectsController do
       end
 
       it "should find localized project" do
-        pending
+        I18n.locale = :en
+        project.name = "Test project"
+        project.description = "Project description"
+        project.generate_slug!
+        project.save
+        get :show, { :id => project, :locale => I18n.locale }
+        response.should be_success
       end
 
     end

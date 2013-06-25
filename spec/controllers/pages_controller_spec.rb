@@ -26,7 +26,13 @@ describe PagesController do
       end
 
       it "should find localized page" do
-        pending
+        I18n.locale = :en
+        page.title = "Test page"
+        page.body = "test page"
+        page.generate_slug!
+        page.save
+        get :show, { :id => page, :locale => I18n.locale }
+        response.should be_success
       end
 
     end
