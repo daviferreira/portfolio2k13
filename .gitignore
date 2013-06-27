@@ -13,4 +13,4 @@ comments.xml
 .sass-cache/
 public/assets/
 public/blog/
-
+precompile.sh
