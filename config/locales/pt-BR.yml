@@ -88,6 +88,9 @@ pt-BR:
     due_date: "Prazo"
     edit: "Editar projeto"
     file: "Foto"
+    meta:
+      title: "Open Source Projects"
+      description: "Lista de projetos open sources desenvolvidos por Davi Ferreira"
     invalid: "Projeto inválido"
     title: "Título"
     new: "Novo projeto"

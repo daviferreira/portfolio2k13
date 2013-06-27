@@ -88,6 +88,9 @@ en:
     edit: "Edit project"
     file: "Photo"
     invalid: "Invalid project"
+    meta:
+      title: "Open Source Projects"
+      description: "Open Source projects developed by Davi Ferreira"
     title: "Title"
     new: "New project"
     published: "Published"
