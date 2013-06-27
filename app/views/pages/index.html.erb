@@ -5,7 +5,7 @@
 <div class="projects-container">
     <section class="container projects clearfix">
         <header>
-            <h1><strong>Trabalhos</strong> selecionados</h1>
+          <h1><%= raw (t "selected_works") %></h1>
         </header>
         <div class="clearfix">
             <% @projects.each_with_index do |project, index| %>
@@ -14,8 +14,8 @@
         </div>
         <div class="all-projects">
             <a class="button" href="<%= projects_path(:locale => current_locale) %>">
-                <span class="label">All projects</span>
-                <span class="label">Visit now &#8250;</span>
+                <span class="label"><%= t "all_projects" %></span>
+                <span class="label"><%= t "visit_now" %> &#8250;</span>
             </a>
         </div>
     </section>
@@ -25,7 +25,7 @@
     <div class="secondary-info container clearfix">
         <section class="open-source">
             <header>
-              <h1><small><a href="<%= open_source_path(:locale => current_locale) %>">mais projetos &#8250;</a></small>Eu <em>&hearts;</em> open source</h1>
+            <h1><small><a href="<%= open_source_path(:locale => current_locale) %>"><%= t "more_projects" %> &#8250;</a></small><%= t "eu" %> <em>&hearts;</em> open source</h1>
             </header>
             <% @open_source_projects.each do |project| %>
               <article class="clearfix">
@@ -33,13 +33,13 @@
                       <%= image_tag project.file.url(:thumb) %>
                   </figure>
                   <h2><%= project.title %></h2>
-                  <p><%= project.description %> <%= link_to "Code", project.url %></p>
+                  <p><%= project.description %> <%= link_to raw("&raquo; #{t("code")}"), project.url %></p>
               </article>
             <% end %>
         </section>
         <section class="writing-talks clearfix">
             <header>
-              <h1><small><a href="<%= posts_path(:locale => current_locale) %>">visite meu blog &#8250;</a></small>Publicações</h1>
+              <h1><small><a href="<%= posts_path(:locale => current_locale) %>"><%= t "posts.visit" %> &#8250;</a></small><%= t "publications" %></h1>
             </header>
             <article class="book clearfix">
                 <figure>
@@ -47,16 +47,16 @@
                         <%= image_tag "instant-html-book.jpg" %>
                     </a>
                 </figure>
-                <a href="#" class="description">
-                    <h3>Check out my new book</h3>
+                <a href="<%= page_path('book', :locale => current_locale) %>" class="description">
+                    <h3><%= t "check_book" %></h3>
                     <h2>Instant HTML5 Presentations How-to</h2>
                 </a>
             </article>
             <div class="decks">
                 <ul>
-                    <li><a href="#" class="js-deck"><%= image_tag "js-deck.jpg" %></a></li>
-                    <li><a href="#" class="html5-deck"><%= image_tag "html5-css3-deck.jpg" %></a></li>
-                    <li><a href="#" class="compass-deck"><%= image_tag "sass-deck.jpg" %></a></li>
+                    <li><a href="https://speakerdeck.com/daviferreira/javascript-workshop" class="js-deck" target="_blank"><%= image_tag "js-deck.jpg" %></a></li>
+                    <li><a href="https://speakerdeck.com/daviferreira/workshop-html5-css3" class="html5-deck" target="_blank"><%= image_tag "html5-css3-deck.jpg" %></a></li>
+                    <li><a href="https://speakerdeck.com/daviferreira/workshop-compass-globocom" class="compass-deck" target="_blank"><%= image_tag "sass-deck.jpg" %></a></li>
                 </ul>
             </div>
             <div class="latest-posts-wrapper">
@@ -71,13 +71,7 @@
                     <% end %>
                 </div>
             </div>
-            <div class="posts-navigation" id="latest-posts-navigation">
-                <a href="#" class="current">&bullet;</a>
-                <a href="#">&bullet;</a>
-                <a href="#">&bullet;</a>
-                <a href="#">&bullet;</a>
-                <a href="#">&bullet;</a>
-            </div>
+            <div class="posts-navigation" id="latest-posts-navigation"></div>
         </section>
     </div>
 </div>
@@ -86,10 +80,10 @@
     <div class="about-me clearfix container">
         <section class="social">
             <ul>
-                <li><a href="#" class="icons-sprite icons-github"><span>visite meu perfil &#8250;</span>Github</a></li>
-                <li><a href="#" class="icons-sprite icons-twitter"><span>visite meu perfil &#8250;</span>Twitter</a></li>
-                <li><a href="#" class="icons-sprite icons-linkedin"><span>visite meu perfil &#8250;</span>LinkedIn</a></li>
-                <li><a class="icons-sprite icons-delicious" href="#"><span>visite meu perfil &#8250;</span>Delicious</a></li>
+                <li><a href="#" class="icons-sprite icons-github"><span><%= t "visit_profile" %> &#8250;</span>Github</a></li>
+                <li><a href="#" class="icons-sprite icons-twitter"><span><%= t "visit_profile" %> &#8250;</span>Twitter</a></li>
+                <li><a href="#" class="icons-sprite icons-linkedin"><span><%= t "visit_profile" %> &#8250;</span>LinkedIn</a></li>
+                <li><a class="icons-sprite icons-delicious" href="#"><span><%= t "visit_profile" %> &#8250;</span>Delicious</a></li>
             </ul>
         </section>
         <section class="myself clearfix">
