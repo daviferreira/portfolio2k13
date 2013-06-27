@@ -23,7 +23,7 @@
                     <% end %>
                 </div>
                 <div class="title">
-                    <a href="<%= root_path %>">
+                    <a href="<%= I18n.locale == :en ? localized_root_path(:locale => current_locale) : root_path %>">
                         <h1>Davi Ferreira</h1>
                         <h2>Code Crafter</h2>
                     </a>
