@@ -10,3 +10,7 @@ coverage
 public/system
 app/assets/images/icons-*.png
 comments.xml
+.sass-cache/
+public/assets/
+public/blog/
+
