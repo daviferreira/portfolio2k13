@@ -79,6 +79,9 @@ a:hover {
     -moz-transition: background-color 0.35s;
     transition: background-color 0.35s;
     @include border-radius(3px);
+    &:hover {
+        color: #fff;
+    }
 }
 
 .label {

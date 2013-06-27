@@ -547,3 +547,21 @@ a:hover {
         }
     }
 }
+
+.pages-show {
+    .page-container {
+        h1 {
+            margin: 0 0 20px 0;
+            color: #000;
+            font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            font-weight: normal;
+            letter-spacing: -1px;
+            line-height: 40px;
+        }
+    }
+}
+
+.book-title, .book-cover, .book-buy {
+    text-align: center;
+}

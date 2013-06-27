@@ -3,19 +3,13 @@
         <section class="sidebar">
             <div class="sidebar-container">
                 <header class="clearfix">
-                    <h1>Writing</h1>
+                  <h1><%= @page.title %></h1>
                 </header>
-                <nav class="sidebar-navigation">
-                    <a href="#">categories</a>
-                    <a href="#">presentations</a>
-                    <a href="#">tableless</a>
-                </nav>
                 <%= render "shared/myself" %>
             </div>
         </section>
         <section class="page clearfix main-content">
             <article>
-                <h1><%= @page.title %></h1>
                 <%= raw @page.body %>
             </article>
         </section>
