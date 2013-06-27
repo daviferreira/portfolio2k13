@@ -37,6 +37,18 @@ describe PagesController do
         response.should be_success
       end
 
+      it "should have an empty sidebar when page does not exists" do
+        get :show, :id => page
+        assigns(:page_sidebar).should be_empty
+      end
+
+      it "should show sidebar body when it exists" do
+        sidebar = FactoryGirl.create(:page, :title => "Sidebar Test Page",
+                                            :body => "sidebar")
+        get :show, :id => page
+        assigns(:page_sidebar).should == "sidebar"
+      end
+
     end
 
   end

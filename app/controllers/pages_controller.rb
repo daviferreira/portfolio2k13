@@ -18,6 +18,16 @@ class PagesController < ApplicationController
     if @page.nil?
       render_404
     else
+      if I18n.locale != I18n.default_locale
+        @page_sidebar = Page.published.find_by_cached_slug("sidebar-#{params[:id]}")
+      else
+        @page_sidebar = Page.published.find_using_slug("sidebar-#{params[:id]}")
+      end
+      if @page_sidebar
+        @page_sidebar = @page_sidebar.body
+      else
+        @page_sidebar = ''
+      end
       @meta_title = @page.meta_title || t("meta.title")
       @meta_description = @page.meta_description || t("meta.description")
     end

@@ -569,3 +569,25 @@ a:hover {
 .book-cover {
     margin: 60px 0;
 }
+
+.book-meta-data {
+    padding: 40px 20px;
+    border-bottom: 1px solid #dbdbdb;
+    strong {
+        font-family: "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        a {
+            color: #666665;
+        }
+    }
+    p {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #b3b3b1;
+        word-wrap: break-word;
+    }
+}
