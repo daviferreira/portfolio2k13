@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <nav class="clearfix">
-                    <%= link_to t('home'), root_path(:locale => current_locale) %>
+                    <%= link_to t('home'), I18n.locale == :en ? localized_root_path(:locale => current_locale) : root_path %>
                     <%= link_to t('portfolio'), projects_path(:locale => current_locale) %>
                     <%= link_to t('blog'), posts_path(:locale => current_locale) %>
                     <%= link_to t('projects.list'), open_source_path(:locale => current_locale) %>
