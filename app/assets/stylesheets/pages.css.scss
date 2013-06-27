@@ -591,3 +591,36 @@ a:hover {
         word-wrap: break-word;
     }
 }
+
+.deck {
+    padding: 40px 0;
+    position: relative;
+    text-align: center;
+    h3 {
+        margin: 0 0 20px 0;
+        color: #000;
+        font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+        font-size: 32px;
+        font-weight: normal;
+        letter-spacing: -1px;
+        line-height: 40px;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 240px;
+        height: 1px;
+        margin-left: -120px;
+        background-color: #dbdbdb;
+        border-bottom: 1px solid #f7f7f7;
+    }
+    &:first-child {
+        padding-top: 0;
+    }
+    .slide {
+        margin: 0 auto;
+        width: 80%;
+    }
+}
