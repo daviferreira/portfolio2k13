@@ -63,7 +63,7 @@
                 <div id="latest-posts" class="clearfix">
                     <% @posts.each_with_index do |post, index| %>
                     <article class="post<% if index == 0 %> post-active<% end %>">
-                        <a href="<%= post_path(post, :locale => current_locale) %>">
+                        <a href="<%= post.external_url.present? ? post.external_url : post_path(post, :locale => current_locale) %>">
                             <h2><%= post.title %></h2>
                             <p><%= post.abstract %></p>
                         </a>
