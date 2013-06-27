@@ -29,18 +29,22 @@ $project_height: 242px;
         line-height: 100px;
         text-transform: lowercase;
     }
-    h2 {
-        display: inline-block;
-        margin: 0;
-        padding: 10px;
-        color: #fff;
+    p {
+        display: block;
+        margin: 40px auto 0 auto;
+        width: 960px;
         font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
         font-size: 32px;
         font-weight: normal;
         letter-spacing: -1px;
-        line-height: 22px;
-        text-transform: lowercase;
+        line-height: 40px;
         @include border-radius(3px);
+        a {
+            color: #fff;
+            &:hover {
+                color: rgba(#fff, .8);
+            }
+        }
     }
 }
 
