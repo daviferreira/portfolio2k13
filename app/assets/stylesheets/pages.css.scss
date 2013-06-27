@@ -549,7 +549,7 @@ a:hover {
 }
 
 .pages-show {
-    .page-container {
+    .main-content {
         h1 {
             margin: 0 0 20px 0;
             color: #000;
@@ -564,4 +564,8 @@ a:hover {
 
 .book-title, .book-cover, .book-buy {
     text-align: center;
+}
+
+.book-cover {
+    margin: 60px 0;
 }

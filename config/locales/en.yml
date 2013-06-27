@@ -22,6 +22,7 @@ en:
   site: "Site"
   slug: "Slug"
   tags: "Tags"
+  todos: "all"
   visit_now: "Visit now"
   visit_profile: "visit my profile"
   categories:
