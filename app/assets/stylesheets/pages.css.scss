@@ -448,25 +448,6 @@ a:hover {
             color: #666;
             line-height: 20px;
         }
-        figure {
-            position: relative;
-            margin: 0 auto;
-            overflow: hidden;
-            width: 118px;
-            height: 118px;
-            border: 1px solid #fff;
-            @include border-radius(50%);
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 118px;
-                height: 118px;
-                @include box-shadow(inset 0 0 4px rgba(#000, .6));
-                @include border-radius(50%);
-            }
-        }
     }
     .tweets {
         position: relative;
@@ -622,5 +603,31 @@ a:hover {
     .slide {
         margin: 0 auto;
         width: 80%;
+    }
+}
+
+.about-container {
+    h1, figure {
+        text-align: center;
+    }
+}
+
+.about-container figure, .myself figure {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 118px;
+    height: 118px;
+    border: 1px solid #fff;
+    @include border-radius(50%);
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 118px;
+        height: 118px;
+        @include box-shadow(inset 0 0 4px rgba(#000, .6));
+        @include border-radius(50%);
     }
 }
