@@ -17,7 +17,7 @@ if posts.length > 0
     html = ''
     if posts.length > 1
         for i in [0...posts.length]
-            html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bullet;</a>'
+            html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bull;</a>'
 
     postsNavigation.html html
 
@@ -52,7 +52,7 @@ carrosselCover = (init) ->
         cover.slideDown 400
         if sections.length > 1
             for i in [0...sections.length]
-                html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bullet;</a>'
+                html += '<a href="#"' + (if i == 0 then ' class="current"' else '') + ' data-index="' + i + '">&bull;</a>'
         nav.html html
         nav.find('a').click (e) ->
             clearInterval coverTimer
