@@ -18,11 +18,14 @@ class Project < ActiveRecord::Base
   scope :published, :conditions => { :published => true }, :order => "projects.due_date DESC"
 
   def get_by_tag(tag)
-    if I18n.locale != I18n.default_locale
-      Project.published.with_translations(I18n.locale).where(["project_translations.tags LIKE :tag", {:tag => "%#{tag}%"}]).group_by{|v| v.due_date.year}
+    locale = I18n.locale
+    published_projects = Project.published.with_translations(locale)
+    if locale != I18n.default_locale
+      params = ["project_translations.tags LIKE :tag", {:tag => "%#{tag}%"}]
     else
-      Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{tag}%"}]).group_by{|v| v.due_date.year}
+      params = ["projects.tags LIKE :tag", {:tag => "%#{tag}%"}]
     end
+    published_projects.where(params).group_by{|project| project.due_date.year}
   end
 
   def get_localized(id)
