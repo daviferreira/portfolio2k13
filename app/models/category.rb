@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 40 }
 
-  default_scope order: "categories.name ASC" 
+  default_scope order: "categories.name ASC"
 
   def get_localized(id)
     if I18n.locale != I18n.default_locale
