@@ -20,16 +20,6 @@ describe 'Admin Page' do
     it { should have_selector('ul > li > a[href="' + admin_photos_path + '"]', :text => "#{I18n.t('photos.list')}") }
     it { should have_selector('ul > li > a[href="' + admin_posts_path + '"]', :text => "#{I18n.t('posts.list')}") }
 
-    describe "logout" do
-      before do
-        click_link I18n.t('logout')
-      end
-
-      it { should have_selector('input#user_email') }
-      it { should have_selector('input#user_password') }
-      it { should have_selector('input[type="submit"]') }
-    end
-
   end
 
 end
