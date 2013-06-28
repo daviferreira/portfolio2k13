@@ -1,4 +1,4 @@
-<%= form_for([:admin, @photo], :html => { :class => "object-form" }) do |f| %>
+<%= form_for([:admin, photo], :html => { :class => "object-form" }) do |f| %>
     <%= render 'admin/shared/error_messages', object: f.object %>
     <fieldset>
         <div>
@@ -6,8 +6,8 @@
             <%= f.text_field :title %>
         </div>
 
-        <% if @photo.file? %>
-        <div class="thumb"><%= image_tag @photo.file.url(:medium) %></div>
+        <% if photo.file? %>
+        <div class="thumb"><%= image_tag photo.file.url(:medium) %></div>
         <% end %>
 
         <div>

@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(:version => 20130619183555) do
     t.datetime "file_updated_at"
   end
 
+  add_index "photos", ["project_id"], :name => "index_photos_on_project_id"
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "abstract"
@@ -156,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20130619183555) do
   end
 
   add_index "projects", ["cached_slug"], :name => "index_projects_on_cached_slug"
+  add_index "projects", ["category_id"], :name => "index_projects_on_category_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "scope"

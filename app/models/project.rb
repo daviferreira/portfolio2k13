@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   attr_accessible :description, :due_date, :name, :published, :url,
                   :category_id, :tags, :cached_slug, :translations_attributes
+  delegate :name, :to => :category, :prefix => true
 
   is_sluggable :name, { :use_cache => false }
 

@@ -1,6 +1,8 @@
 class Photo < ActiveRecord::Base
   attr_accessible :order, :project_id, :title, :file
   belongs_to :project
+  delegate :name, :to => :project, :prefix => true
+  delegate :url, :to => :file, :prefix => true
 
   translates :title
   accepts_nested_attributes_for :translations

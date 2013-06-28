@@ -46,12 +46,12 @@ describe PagesController do
         sidebar = FactoryGirl.create(:page, :title => "Sidebar Test Page",
                                             :body => "sidebar")
         get :show, :id => page
+
         assigns(:page_sidebar).should == "sidebar"
       end
 
     end
 
   end
-
 
 end
