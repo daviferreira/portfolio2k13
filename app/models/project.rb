@@ -16,7 +16,8 @@ class Project < ActiveRecord::Base
   validates :category, presence: true
 
   default_scope order: "projects.due_date DESC"
-  scope :published, :conditions => { :published => true }, :order => "projects.due_date DESC"
+  scope :published, :conditions => { :published => true },
+                    :order => "projects.due_date DESC"
 
   def get_by_tag(tag)
     locale = I18n.locale

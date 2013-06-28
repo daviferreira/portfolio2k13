@@ -7,8 +7,11 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title, :abstract, :body
 
-  scope :published, :conditions => { :published => true }, :order => "posts.published_date DESC"
-  scope :published_local, :conditions => { :published => true, :external_url => '' }, :order => 'posts.published_date DESC'
+  scope :published, :conditions => { :published => true },
+                    :order => "posts.published_date DESC"
+  scope :published_local, :conditions => { :published => true,
+                                          :external_url => '' },
+                          :order => 'posts.published_date DESC'
 
   def get_metas
     [get_meta_title, get_meta_description]
@@ -28,7 +31,10 @@ class Post < ActiveRecord::Base
         if self.meta_description.present?
           self.meta_title
         else
-          self.abstract.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 160);ob << (" " + x)}.strip
+          self.abstract.split(" ").each_with_object("") do |x, ob|
+            break ob unless (ob.length + " ".length + x.length <= 160)
+            ob << (" " + x)
+          end.strip
         end
       end
 

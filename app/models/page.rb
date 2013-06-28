@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-  attr_accessible :body, :meta_description, :meta_title, :published, :title, :translations_attributes
+  attr_accessible :body, :meta_description, :meta_title, :published, :title,
+                  :translations_attributes
 
   is_sluggable :title, { :use_cache => false }
 
@@ -19,7 +20,8 @@ class Page < ActiveRecord::Base
   end
 
   def get_metas
-    [self.meta_title || I18n.t("meta.title"), self.meta_description || I18n.t("meta.description")]
+    [self.meta_title || I18n.t("meta.title"),
+     self.meta_description || I18n.t("meta.description")]
   end
 
   def get_sidebar
