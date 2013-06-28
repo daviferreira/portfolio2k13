@@ -15,3 +15,4 @@ public/assets/
 public/blog/
 precompile.sh
 public/fonts
+libpeerconnection.log

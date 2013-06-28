@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
     @projects = Project.published.with_translations(I18n.locale).limit(9)
-    @posts = Post.published.where(:locale => I18n.locale).limit(5);
+    @posts = Post.published.where(:locale => I18n.locale).limit(5)
     @open_source_projects = OpenSourceProject.all.sample(2)
     @categories = Category.with_translations(I18n.locale)
     @has_footer = true
@@ -10,14 +10,9 @@ class PagesController < ApplicationController
   end
 
   def show
-    if I18n.locale != I18n.default_locale
-      @page = Page.published.find_by_cached_slug(params[:id])
-    else
-      @page = Page.published.find_using_slug(params[:id])
-    end
+    @page = Page.new.get_localized(params[:id])
     render_404 and return if @page.nil?
     @page_sidebar = @page.get_sidebar
-    @meta_title = @page.meta_title || t("meta.title")
-    @meta_description = @page.meta_description || t("meta.description")
+    @meta_title, @meta_description = @page.get_metas
   end
 end

@@ -2,28 +2,16 @@ class ProjectsController < ApplicationController
 
   def index
     if request['category_id']
-      if I18n.locale != I18n.default_locale
-        category = Category.find_by_cached_slug(request['category_id'])
-      else
-        category = Category.find_using_slug(request['category_id'])
-      end
-      @projects_by_year = Project.published.where(:category_id => category.id).with_translations(I18n.locale).group_by{|v| v.due_date.year}
-      @meta_title = category.name
+      with_category
     elsif request['tag']
-      # TODO: better tagging
-      if I18n.locale != I18n.default_locale
-        @projects_by_year = Project.published.with_translations(I18n.locale).where(["project_translations.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
-      else
-        @projects_by_year = Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{request['tag']}%"}]).group_by{|v| v.due_date.year}
-      end
-      @meta_title = request['tag']
+      with_tag
     else
       @projects_by_year = Project.published.with_translations(I18n.locale).group_by{|v| v.due_date.year}
       @meta_title = t "projects.meta.title"
     end
     @meta_description = t "projects.meta.description"
-    if @projects_by_year.first
-      @year = @projects_by_year.first.first
+    if not @projects_by_year.keys.empty?
+      @year = @projects_by_year.keys.first
     else
       @year = Time.now.year
     end
@@ -31,18 +19,23 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    if I18n.locale != I18n.default_locale
-      @project = Project.find_by_cached_slug(params[:id])
-    else
-      @project = Project.find_using_slug(params[:id])
-    end
-    if @project.nil?
-      render_404
-    else
-      @categories = Category.all
-      @meta_title = @project.name
-      @meta_description = "#{@project.description} - #{@project.tags}"
-    end
+    @project = Project.new.get_localized(params[:id])
+    render_404 and return if @project.nil?
+    @categories = Category.all
+    @meta_title, @meta_description = @project.get_metas
   end
+
+  private
+
+    def with_category
+      category = Category.new.get_localized(request['category_id'])
+      @projects_by_year = Project.published.where(:category_id => category.id).with_translations(I18n.locale).group_by{|v| v.due_date.year}
+      @meta_title = category.name
+    end
+
+    def with_tag
+      @projects_by_year = Project.new.get_by_tag(request['tag'])
+      @meta_title = request['tag']
+    end
 
 end

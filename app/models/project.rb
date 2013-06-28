@@ -16,4 +16,24 @@ class Project < ActiveRecord::Base
 
   default_scope order: "projects.due_date DESC"
   scope :published, :conditions => { :published => true }, :order => "projects.due_date DESC"
+
+  def get_by_tag(tag)
+    if I18n.locale != I18n.default_locale
+      Project.published.with_translations(I18n.locale).where(["project_translations.tags LIKE :tag", {:tag => "%#{tag}%"}]).group_by{|v| v.due_date.year}
+    else
+      Project.published.with_translations(I18n.locale).where(["projects.tags LIKE :tag", {:tag => "%#{tag}%"}]).group_by{|v| v.due_date.year}
+    end
+  end
+
+  def get_localized(id)
+    if I18n.locale != I18n.default_locale
+      Project.find_by_cached_slug id
+    else
+      Project.find_using_slug id
+    end
+  end
+
+  def get_metas
+    [self.name, "#{self.description} - #{self.tags}"]
+  end
 end

@@ -3,14 +3,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   protect_from_forgery
 
-  def after_sign_in_path_for(resource_or_scope)
-    admin_root_path
-  end
-
-  def after_sign_out_path_for(resource_or_scope)
-    admin_root_path
-  end
-
   def render_404(exception = nil)
     if exception
         logger.info "Rendering 404: #{exception.message}"
