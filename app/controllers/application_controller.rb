@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
         logger.info "Rendering 404: #{exception.message}"
     end
 
-    render :file => "#{Rails.root}/public/404", :status => 404, :layout => false, :formats => [:html]
+    render :file => "#{Rails.root}/public/404", :status => 404,
+           :layout => false, :formats => [:html]
   end
 
   private

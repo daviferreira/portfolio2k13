@@ -26,7 +26,8 @@ class Admin::PagesController < Admin::AdminController
     if @page.nil?
       render_404
     elsif @page.update_attributes(params[:page])
-      redirect_to edit_admin_page_path(@page), :flash => { :success => t("pages.updated") }
+      redirect_to edit_admin_page_path(@page),
+                  :flash => { :success => t("pages.updated") }
     else
       render "edit"
     end

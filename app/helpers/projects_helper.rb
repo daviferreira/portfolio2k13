@@ -3,7 +3,8 @@ module ProjectsHelper
     html = ''
     tags.split(",").each do |tag|
       tag.strip!
-      html << "<a href=\"#{projects_search_path(:locale => current_locale, :tag => tag)}\">##{tag}</a>"
+      tag_url = projects_search_path(:locale => current_locale, :tag => tag)
+      html << "<a href=\"#{tag_url}\">##{tag}</a>"
     end
     raw html
   end

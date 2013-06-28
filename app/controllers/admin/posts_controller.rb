@@ -26,7 +26,8 @@ class Admin::PostsController < Admin::AdminController
     if @post.nil?
       render_404
     elsif @post.update_attributes(params[:post])
-      redirect_to edit_admin_post_path(@post), :flash => { :success => t("posts.updated") }
+      redirect_to edit_admin_post_path(@post),
+                  :flash => { :success => t("posts.updated") }
     else
       render "edit"
     end

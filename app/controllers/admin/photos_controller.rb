@@ -1,7 +1,8 @@
 class Admin::PhotosController < Admin::AdminController
 
   def index
-    @photos = Photo.joins(:project).order('projects.name ASC, photos.`order` ASC')
+    @photos = Photo.joins(:project)
+                    .order('projects.name ASC, photos.`order` ASC')
   end
 
   def new
@@ -11,7 +12,8 @@ class Admin::PhotosController < Admin::AdminController
   def create
     @photo = Photo.new(params[:photo])
     if @photo.save
-      redirect_to admin_photos_path, :flash => { :success => t("photos.created") }
+      redirect_to admin_photos_path,
+                  :flash => { :success => t("photos.created") }
     else
       render "new"
     end
@@ -24,7 +26,8 @@ class Admin::PhotosController < Admin::AdminController
   def update
     @photo = Photo.find(params[:id])
     if @photo.update_attributes(params[:photo])
-      redirect_to edit_admin_photo_path(@photo), :flash => { :success => t("photos.updated") }
+      redirect_to edit_admin_photo_path(@photo),
+                  :flash => { :success => t("photos.updated") }
     else
       render "edit"
     end
