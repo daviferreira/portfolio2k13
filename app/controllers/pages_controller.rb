@@ -15,23 +15,9 @@ class PagesController < ApplicationController
     else
       @page = Page.published.find_using_slug(params[:id])
     end
-    if @page.nil?
-      render_404
-    else
-      begin
-        if I18n.locale != I18n.default_locale
-          @page_sidebar = Page.published.find_by_cached_slug("sidebar-#{params[:id]}")
-        else
-          @page_sidebar = Page.published.find_using_slug("sidebar-#{params[:id]}")
-        end
-      rescue ActiveRecord::RecordNotFound
-        @page_sidebar = ''
-      end
-      if @page_sidebar.present?
-        @page_sidebar = @page_sidebar.body
-      end
-      @meta_title = @page.meta_title || t("meta.title")
-      @meta_description = @page.meta_description || t("meta.description")
-    end
+    render_404 and return if @page.nil?
+    @page_sidebar = @page.get_sidebar
+    @meta_title = @page.meta_title || t("meta.title")
+    @meta_description = @page.meta_description || t("meta.description")
   end
 end

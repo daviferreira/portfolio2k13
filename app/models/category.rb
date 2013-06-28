@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   translates :name, :cached_slug
   accepts_nested_attributes_for :translations
 
-  is_sluggable :name
+  is_sluggable :name, { :use_cache => false }
 
   has_many :projects
 

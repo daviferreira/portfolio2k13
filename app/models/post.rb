@@ -3,8 +3,7 @@ class Post < ActiveRecord::Base
                   :meta_description, :meta_title, :published, :published_date,
                   :title, :tags, :locale
 
-  is_sluggable :title
-  attr_accessible :cached_slug # for import only
+  is_sluggable :title, { :use_cache => false }
 
   validates_presence_of :title, :abstract, :body
 
