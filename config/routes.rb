@@ -16,8 +16,12 @@ Portfolio2k13::Application.routes.draw do
 
   namespace :admin do
     root :to => 'projects#index'
-    resources :categories, :photos, :posts, :projects, :pages,
-              :open_source_projects, :only => [:new, :create, :edit, :update, :destroy, :index]
+    resources :categories, :only => [:new, :create, :edit, :update, :destroy, :index]
+    resources :photos, :only => [:new, :create, :edit, :update, :destroy, :index]
+    resources :posts, :only => [:new, :create, :edit, :update, :destroy, :index]
+    resources :projects, :only => [:new, :create, :edit, :update, :destroy, :index]
+    resources :pages, :only => [:new, :create, :edit, :update, :destroy, :index]
+    resources :open_source_projects, :only => [:new, :create, :edit, :update, :destroy, :index]
   end
 
   scope '/admin' do
