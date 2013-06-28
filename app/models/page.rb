@@ -16,6 +16,10 @@ class Page < ActiveRecord::Base
     else
       sidebar = Page.published.find_using_slug("sidebar-#{self.cached_slug}")
     end
-    sidebar.body || ''
+    if sidebar.nil?
+      ''
+    else
+      sidebar.body
+    end
   end
 end
