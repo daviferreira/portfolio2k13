@@ -25,7 +25,7 @@ var JSGallery = JSGallery || {};
             var self = this;
             this.root.find('a').click(function (e) {
                 e.preventDefault();
-                self.currentPhoto = $(this).attr('href');
+                self.currentPhoto = $(this).data('index');
                 self.showOverlay();
             });
         },
@@ -56,17 +56,18 @@ var JSGallery = JSGallery || {};
         showImage: function () {
             var img,
                 h = $(window).height() - 80,
+                self = this,
                 w;
             if (this.images.indexOf(this.currentPhoto) === -1) {
                 this.images.push(this.currentPhoto);
                 img = new Image();
-                img.src = this.currentPhoto;
+                img.src = this.root.find('a').eq(this.currentPhoto).attr('href');
                 img.onload = function () {
                     if (h > this.height) {
                         h = this.height;
                     }
                     w = Math.ceil(this.width / this.height * h);
-                    $('<img src="' + this.src + '" class="js-gallery-image" />')
+                    $('<img src="' + this.src + '" class="js-gallery-image" data-index="' + self.currentPhoto + '" />')
                         .appendTo('body')
                         .css({
                             'display': 'none',
@@ -78,11 +79,11 @@ var JSGallery = JSGallery || {};
                         .show();
                 };
             } else {
-                img = $('img[src*="' + this.currentPhoto + '"]');
-                if (h > img.height()) {
-                    h = img.height();
+                img = $('.js-gallery-image[data-index="' + this.currentPhoto + '"]');
+                if (h > img[0].height) {
+                    h = img[0].height;
                 }
-                w = Math.ceil(img.width() / img.height() * h);
+                w = Math.ceil(img[0].width / img[0].height * h);
                 img.css({
                     'display': 'none',
                     'margin-left': -(w/2),
