@@ -34,7 +34,7 @@ var JSGallery = JSGallery || {};
             if (this.overlay.length === 0) {
                 this.overlay = this.createOverlay();
             }
-            this.overlay.css('height', this.doc.height() + 'px').fadeIn('fast');
+            this.overlay.css('height', this.doc.height() + 'px').show();
             this.showImage();
         },
 
@@ -49,8 +49,8 @@ var JSGallery = JSGallery || {};
         },
 
         close: function () {
-            this.overlay.fadeOut('fast');
-            $('.js-gallery-image').fadeOut('fast');
+            this.overlay.hide();
+            $('.js-gallery-image').hide();
         },
 
         showImage: function () {
@@ -75,7 +75,7 @@ var JSGallery = JSGallery || {};
                             'width': w,
                             'height': h
                         })
-                        .fadeIn('fast');
+                        .show();
                 };
             } else {
                 img = $('img[src*="' + this.currentPhoto + '"]');
@@ -89,7 +89,7 @@ var JSGallery = JSGallery || {};
                     'margin-top': -(h/2),
                     'width': w,
                     'height': h
-                }).fadeIn('fast');
+                }).show();
             }
         },
 

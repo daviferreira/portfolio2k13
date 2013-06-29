@@ -10,9 +10,9 @@
     notification = $('.notification');
 
     if (notification.length > 0) {
-      notification.slideDown(300);
+      notification.show();
       setTimeout(function() {
-        return notification.slideUp(300);
+        return notification.hide();
       }, 5000);
     }
 
