@@ -42,7 +42,9 @@ class Project < ActiveRecord::Base
 
   private
 
-    locale = I18n.locale
+    def locale
+      I18n.locale
+    end
 
     def published_projects
       Project.published.with_translations(locale)
