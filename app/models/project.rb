@@ -20,8 +20,6 @@ class Project < ActiveRecord::Base
                     :order => "projects.due_date DESC"
 
   def get_by_tag(tag)
-    locale = I18n.locale
-    published_projects = Project.published.with_translations(locale)
     if locale != I18n.default_locale
       params = ["project_translations.tags LIKE :tag", {:tag => "%#{tag}%"}]
     else
@@ -31,7 +29,7 @@ class Project < ActiveRecord::Base
   end
 
   def get_localized(id)
-    if I18n.locale != I18n.default_locale
+    if locale != I18n.default_locale
       Project.find_by_cached_slug id
     else
       Project.find_using_slug id
@@ -41,4 +39,15 @@ class Project < ActiveRecord::Base
   def get_metas
     [self.name, "#{self.description} - #{self.tags}"]
   end
+
+  private
+
+    def locale
+      I18n.locale
+    end
+
+    def published_projects
+      Project.published.with_translations(locale)
+    end
+
 end
