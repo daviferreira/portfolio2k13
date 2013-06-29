@@ -1,6 +1,6 @@
 /*jslint browser:true */
 /*global window*/
-/*global jQuery */
+/*global Zepto */
 
 var JSGallery = JSGallery || {};
 
@@ -106,4 +106,4 @@ var JSGallery = JSGallery || {};
     };
 
     JSGallery.init();
-}(window, document, jQuery));
+}(window, document, Zepto));

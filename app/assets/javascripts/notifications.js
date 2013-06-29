@@ -1,6 +1,6 @@
 /*jslint browser:true */
 /*global window*/
-/*global jQuery */
+/*global Zepto */
 
 (function (window, document, $) {
     'use strict';
@@ -16,4 +16,4 @@
       }, 5000);
     }
 
-}(window, document, jQuery));
+}(window, document, Zepto));

@@ -1,11 +1,15 @@
 /*jslint browser:true */
 /*global window*/
-/*global jQuery */
+/*global Zepto */
 
 (function (window, document, $) {
     'use strict';
 
-    var currentYear = parseInt($('ul[data-year]:first').data('year'), 10),
+    if ($('.projects-index').length === 0) {
+        return;
+    }
+
+    var currentYear = parseInt($('ul[data-year]').first().data('year'), 10),
         title = $('#year-title'),
         timerScroll,
         year,
@@ -17,7 +21,7 @@
                 if ($(this).offset().top > scrollTop && hasYear !== true) {
                     hasYear = true;
                     if (year !== currentYear) {
-                        title.hide().html(year).fadeIn(200);
+                        title.html(year);
                         currentYear = year;
                     }
                 }
@@ -38,4 +42,4 @@
         }).height(height);
     });
 
-}(window, document, jQuery));
+}(window, document, Zepto));

@@ -1,9 +1,13 @@
 /*jslint browser:true */
 /*global window*/
-/*global jQuery */
+/*global Zepto */
 
 (function (window, document, $) {
     'use strict';
+
+    if ($('.pages-index').length === 0) {
+        return;
+    }
 
     var carrosselCover, cover, coverInterval, coverTimer,
         currentIndex, currentPost, html, i, latestPosts,
@@ -24,7 +28,7 @@
             }
             latestPosts.css('margin-left', -1 * currentPost * 565);
             postsNavigation.find('a').removeClass('current');
-            return postsNavigation.find('a:eq(' + currentPost + ')').addClass('current');
+            return postsNavigation.find('a').first().addClass('current');
         };
         timer = setInterval(navigate, 10000);
         html = '';
@@ -34,9 +38,9 @@
             }
         }
         postsNavigation.html(html);
-        $('.post').hover(function() {
+        $('.post').bind('mouseenter', function() {
             return clearInterval(timer);
-        }, function() {
+        }).bind('mouseleave', function() {
             return (timer = setInterval(navigate, 10000));
         });
         postsNavigation.on('click', 'a', function(e) {
@@ -70,7 +74,7 @@
         sections.width(width);
         if (init === true) {
             html = '';
-            cover.slideDown(400);
+            cover.show();
             if (sections.length > 1) {
                 for (i = 0;  i < sections.length; i += 1) {
                     html += '<a href="#"' + (i === 0 ? ' class="current"' : '') + ' data-index="' + i + '">&bull;</a>';
@@ -98,9 +102,9 @@
         return (currentIndex = index);
     };
 
-    sections.find('container').hover(function() {
+    sections.find('container').bind('mouseenter', function() {
         return clearInterval(coverTimer);
-    }, function() {
+    }).bind('mouseleave', function() {
         return (coverTimer = setInterval(function() {
             return (paginateCover(currentIndex + 1));
         }, coverInterval));
@@ -116,4 +120,4 @@
         return carrosselCover(false);
     });
 
-}(window, document, jQuery));
+}(window, document, Zepto));
