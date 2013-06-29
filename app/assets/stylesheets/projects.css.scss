@@ -191,7 +191,7 @@
     z-index: 1000;
     cursor: -webkit-zoom-out;
     cursor: -moz-zoom-out;
-    @include opacity(.8);
+    @include opacity(0);
 }
 
 .js-gallery-image {
@@ -200,6 +200,7 @@
     left: 50%;
     z-index: 1005;
     border: 12px solid #fff;
+    @include opacity(0);
     @include box-shadow(0 0 10px #000);
 }
 
