@@ -1,9 +1,10 @@
 /*jslint browser:true */
+/*global window*/
 /*global jQuery */
 
 var JSGallery = JSGallery || {};
 
-(function ($, window, undefined) {
+(function (window, document, $) {
     'use strict';
 
     JSGallery = {
@@ -75,7 +76,7 @@ var JSGallery = JSGallery || {};
                             'height': h
                         })
                         .fadeIn('fast');
-                }
+                };
             } else {
                 img = $('img[src*="' + this.currentPhoto + '"]');
                 if (h > img.height()) {
@@ -104,9 +105,5 @@ var JSGallery = JSGallery || {};
 
     };
 
-}(jQuery, window));
-
-
-$(function () {
     JSGallery.init();
-});
+}(window, document, jQuery));

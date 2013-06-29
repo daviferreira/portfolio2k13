@@ -37,6 +37,7 @@ end
 
 group :development do
   gem 'guard-livereload'
+  gem 'guard-jslint-on-rails'
   gem 'builder'
 end
 

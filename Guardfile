@@ -1,6 +1,3 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
-
 guard 'rspec' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -22,7 +19,6 @@ guard 'rspec' do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
-
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
@@ -42,4 +38,13 @@ guard 'livereload' do
   watch(%r{config/locales/.+\.yml})
   # Rails Assets Pipeline
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
+end
+
+# verify that application Javascript files are lintable
+# see https://github.com/psionides/jslint_on_rails
+guard 'jslint-on-rails' do
+  # watch for changes to application javascript files
+  watch(%r{^app/assets/javascripts/.*\.js$})
+  # watch for changes to the JSLint configuration
+  watch('config/jslint.yml')
 end
