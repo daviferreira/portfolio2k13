@@ -1,7 +1,5 @@
 Portfolio2k13::Application.routes.draw do
 
-  get 'open_source_projects/index'
-
   scope '(:locale)', :locale => /en/, :via => :get do
     match '/' => 'pages#index', :as => :localized_root
     match '/open-source' => 'open_source_projects#index', :as => :open_source

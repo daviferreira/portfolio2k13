@@ -8,6 +8,7 @@ gem 'paperclip'
 gem 'globalize3'
 gem 'slugged'
 gem 'bourbon'
+gem 'sitemap_generator'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
