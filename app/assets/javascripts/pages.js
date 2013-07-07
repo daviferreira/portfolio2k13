@@ -28,7 +28,7 @@
             }
             latestPosts.css('margin-left', -1 * currentPost * 565);
             postsNavigation.find('a').removeClass('current');
-            return postsNavigation.find('a').first().addClass('current');
+            return postsNavigation.find('a[data-index="' + currentPost + '"]').addClass('current');
         };
         timer = setInterval(navigate, 10000);
         html = '';
