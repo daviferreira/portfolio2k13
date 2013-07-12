@@ -4,7 +4,7 @@
         <div class="front">
             <figure>
                 <% unless project.photos.empty? %>
-                    <%= image_tag project.photos.first.file.url(:highlight) %>
+                  <%= image_tag project.photos.first.file.url(:highlight), :width => 374, :height => 242 %>
                 <% end %>
             </figure>
         </div>
