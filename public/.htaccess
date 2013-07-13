@@ -1,3 +1,9 @@
+RewriteEngine on
+
+RewriteBase /
+RewriteCond %{HTTP_HOST} !^(www.daviferreira.com|.*dfimg.com)$ [NC]
+RewriteRule ^(.*)$ http://www.daviferreira.com/$1 [L,R=301]
+
 Header unset ETag
 FileETag None
 
@@ -5,17 +11,8 @@ ExpiresActive On
 ExpiresDefault A7200
 Header append Cache-Control "proxy-revalidate"
 
-# Set up caching on media files for 1 year (forever?)
-<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|gif|jpg|jpeg|png|swf)$">
-ExpiresDefault A29030400
-Header append Cache-Control "public"
-</FilesMatch>
- 
-# Set up caching on media files for 1 week
-<FilesMatch "\.(js|css)$">
-ExpiresDefault A604800
-Header append Cache-Control "public"
-</FilesMatch>
+ExpiresByType text/css "now plus 1 week"
+ExpiresByType text/javascript "now plus 1 week"
 
 # Add Proper MIME-Type for Favicon
 AddType image/x-icon .ico
@@ -32,3 +29,5 @@ ExpiresByType image/svg+xml "access plus 1 year"
 ExpiresByType application/vnd.ms-fontobject "access plus 1 year" 
 
 order deny,allow
+
+Options -Indexes
