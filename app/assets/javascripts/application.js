@@ -11,4 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require 'zepto.min.js'
+//= require turbolinks
 //= require_tree .

@@ -9,6 +9,7 @@ gem 'globalize3'
 gem 'slugged'
 gem 'bourbon'
 gem 'sitemap_generator'
+gem 'turbolinks'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
