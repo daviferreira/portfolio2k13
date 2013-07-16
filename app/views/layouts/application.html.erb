@@ -34,9 +34,15 @@
                     <%= link_to t('portfolio'), projects_path(:locale => current_locale) %>
                     <%= link_to t('blog'), posts_path(:locale => current_locale) %>
                     <%= link_to t('projects.list'), open_source_path(:locale => current_locale) %>
-                    <%= link_to t('book'), page_path('book', :locale => current_locale) %>
-                    <%= link_to t('presentations'), page_path('presentations', :locale => current_locale) %>
-                    <%= link_to t('about'), page_path('about', :locale => current_locale) %>
+                    <% if I18n.locale == I18n.default_locale  %>
+                      <%= link_to t('book'), page_path('livro', :locale => current_locale) %>
+                      <%= link_to t('presentations'), page_path('decks', :locale => current_locale) %>
+                      <%= link_to t('about'), page_path('sobre', :locale => current_locale) %>
+                    <% else %>
+                      <%= link_to t('book'), page_path('book', :locale => current_locale) %>
+                      <%= link_to t('presentations'), page_path('decks', :locale => current_locale) %>
+                      <%= link_to t('about'), page_path('about', :locale => current_locale) %>
+                    <% end %>
                 </nav>
             </div>
         </div>

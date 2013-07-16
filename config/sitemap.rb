@@ -3,11 +3,12 @@ SitemapGenerator::Sitemap.default_host = "http://www.daviferreira.com"
 SitemapGenerator::Sitemap.create do
 
   # TODO:
-  #   pages
   #   categories
   #   tags
 
   # pt-br
+  pages_to_be_indexed = ['livro', 'decks', 'sobre']
+
   add open_source_path(:locale => nil)
   add posts_path(:locale => nil)
   add projects_path(:locale => nil)
@@ -24,9 +25,14 @@ SitemapGenerator::Sitemap.create do
         :lastmod => project.updated_at
   end
 
+  pages_to_be_indexed.each do |slug|
+    add page_path(Page.find_using_slug(slug), :locale => nil)
+  end
+
 
   # en
   I18n.locale = :en
+  pages_to_be_indexed = ['book', 'presentations', 'about']
 
   add localized_root_path(:locale => I18n.locale)
   add open_source_path(:locale => I18n.locale)
@@ -44,4 +50,9 @@ SitemapGenerator::Sitemap.create do
     add project_path(project, :locale => I18n.locale),
         :lastmod => project.updated_at
   end
+
+  pages_to_be_indexed.each do |slug|
+    add page_path(Page.find_using_slug(slug), :locale => I18n.locale)
+  end
+
 end
