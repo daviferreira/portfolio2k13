@@ -125,6 +125,17 @@
             background-color: #fff8d9;
             overflow: auto;
         }
+        blockquote {
+            border-left: 6px solid $link_color;
+            margin-bottom: 40px;
+            padding-left: 20px;
+            p {
+                margin-bottom: 10px;
+            }
+            small {
+                color: #666;
+            }
+        }
     }
 }
 
