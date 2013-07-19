@@ -9,7 +9,6 @@ var JSGallery = JSGallery || {};
 
     JSGallery = {
         init: function () {
-            this.doc = $(document);
             this.root = $('.js-gallery');
             this.overlay = $('#js-gallery-overlay');
             this.images = [];
@@ -34,7 +33,7 @@ var JSGallery = JSGallery || {};
             if (this.overlay.length === 0) {
                 this.overlay = this.createOverlay();
             }
-            this.overlay.css('height', this.doc.height() + 'px')
+            this.overlay.css('height', $(window).height() + 'px')
                         .show()
                         .animate({opacity: 0.8}, 300, 'ease-in');
             this.showImage();
@@ -105,8 +104,8 @@ var JSGallery = JSGallery || {};
             var self = this;
             $(window).on('resize.js_gallery', function () {
                 self.overlay.css({
-                    'width': self.doc.width() + 'px',
-                    'height': self.doc.height() + 'px'
+                    'width': $(window).width() + 'px',
+                    'height': $(window).height() + 'px'
                 });
             });
         }
