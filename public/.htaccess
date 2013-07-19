@@ -12,7 +12,7 @@ ExpiresDefault A7200
 Header append Cache-Control "proxy-revalidate"
 
 ExpiresByType text/css "now plus 1 week"
-ExpiresByType text/javascript "now plus 1 week"
+ExpiresByType application/javascript "now plus 1 week"
 
 # Add Proper MIME-Type for Favicon
 AddType image/x-icon .ico
