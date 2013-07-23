@@ -200,6 +200,7 @@
     left: 50%;
     z-index: 1005;
     @include opacity(0);
+    @include box-shadow(0 0 10px #000);
 }
 
 .projects-show {
