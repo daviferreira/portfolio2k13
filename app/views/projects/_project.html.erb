@@ -16,7 +16,9 @@
                         <i class="icons-sprite icons-tag"></i>
                         <div class="tags-container"><%= show_tags_as_links(project.tags) %></div>
                     </li>
+                    <% if project.url %>
                     <li class="link clearfix"><i class="icons-sprite icons-link"></i><%= link_to project.url, project.url %></li>
+                    <% end %>
                 </ul>
                 <p class="details"><%= link_to "+ details", project_path(:id => project, :locale => current_locale) %></p>
             </div>
