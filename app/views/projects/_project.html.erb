@@ -16,7 +16,7 @@
                         <i class="icons-sprite icons-tag"></i>
                         <div class="tags-container"><%= show_tags_as_links(project.tags) %></div>
                     </li>
-                    <% if project.url %>
+                    <% if project.url.present? %>
                     <li class="link clearfix"><i class="icons-sprite icons-link"></i><%= link_to project.url, project.url %></li>
                     <% end %>
                 </ul>
