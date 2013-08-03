@@ -10,6 +10,9 @@ var JSGallery = JSGallery || {};
     JSGallery = {
         init: function () {
             this.root = $('.js-gallery');
+            if (this.root.length === 0) {
+                return;
+            }
             this.overlay = $('#js-gallery-overlay');
             this.images = [];
             this.bindActions();
