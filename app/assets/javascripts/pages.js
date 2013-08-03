@@ -5,6 +5,11 @@
 (function (window, document, $) {
     'use strict';
 
+    $('#navicon').click(function (e) {
+        e.preventDefault();
+        $('#menu').toggleClass('visible');
+    });
+
     if ($('.pages-index').length === 0) {
         return;
     }

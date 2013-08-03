@@ -138,9 +138,33 @@ a:hover {
             float: right;
             margin: 0 20px 0 0;
         }
-
-
     }
+}
+
+.border-menu {
+    margin: 3px 0 0;
+    float: right;
+    position: relative;
+    font-size: 36px;
+    width: 40px;
+    height: 30px;
+    &:hover {
+        &:before {
+            border-color: rgba(#fff, .7);
+        }
+    }
+}
+
+.border-menu:before {
+    content: "";
+    position: absolute;
+    top: 0.25em;
+    left: 0;
+    width: 1em;
+    height: 0.125em;
+    border-top: 0.375em double #fff;
+    border-bottom: 0.125em solid #fff;
+    @include transition(border-color .2s linear);
 }
 
 .top-nav-bar {
@@ -149,12 +173,14 @@ a:hover {
     left: 0;
     z-index: 20;
     width: 100%;
-    height: 42px;
+    height: 60px;
+    padding: 15px 0 0;
     background-color: rgba(#000, .9);
     @include box-shadow(0 0 0 4px rgba(#000, .1));
     .language {
-        padding: 15px 0 0;
-        float: right;
+        float: left;
+        padding: 15px 0 14px 20px;
+        border-left: 1px solid rgba(#fff, .2);
         color: #ccc;
         font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
         font-weight: normal;
@@ -172,7 +198,7 @@ a:hover {
     .title {
         position: relative;
         padding-right: 20px;
-        border-right: 1px solid rgba(#ccc, .2);
+        border-right: 1px solid rgba(#000, .2);
         h1, h2 {
             display: inline-block;
         }
@@ -188,21 +214,33 @@ a:hover {
             font-size: 16px;
         }
     }
-    nav {
-        padding-left: 20px;
-        border-left: 1px solid rgba(#000, .3);
-        a {
-            display: block;
-            float: left;
-            margin: 6px 0 0;
-            padding: 0 10px;
-            border-right: 1px dotted rgba(#fff, .1);
-            &:first-child {
-                padding-left: 0;
-            }
-            &:last-child {
-                border-right: none;
-            }
+}
+
+#menu {
+    display: block;
+    position: absolute;
+    top: -420px;
+    right: 0;
+    z-index: 15;
+    background-color: #f7f7f7;
+    height: 440px;
+    width: 100%;
+    @include transition(top .2s $ease-in-out-circ);
+    @include box-shadow(0 0 0 4px rgba(#000, .1));
+    &.visible {
+        top: 74px;
+    }
+    a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #dbdbdb;
+        font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+        font-size: 32px;
+        letter-spacing: -1px;
+        text-align: center;
+        text-transform: capitalize;
+        &:last-child {
+            border-bottom: none;
         }
     }
 }
@@ -281,7 +319,7 @@ footer {
         height: 100%;
         margin-left: 0;
         margin-right: 20px;
-        padding-top: 80px;
+        padding-top: 100px;
         background-color: #fff;
         border-left: 1px solid #dbdbdb;
         border-right: 1px solid #fff;
