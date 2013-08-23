@@ -14,6 +14,7 @@ var JSGallery = JSGallery || {};
                 return;
             }
             this.overlay = $('#js-gallery-overlay');
+            this.loader = $('#js-gallery-loader');
             this.images = [];
             this.bindActions();
         },
@@ -28,7 +29,7 @@ var JSGallery = JSGallery || {};
             this.root.find('a').click(function (e) {
                 e.preventDefault();
                 self.currentPhoto = $(this).data('index');
-                self.showOverlay();
+                self.showImage();
             });
         },
 
@@ -39,7 +40,7 @@ var JSGallery = JSGallery || {};
             this.overlay.css('height', $(window).height() + 'px')
                         .show()
                         .animate({opacity: 0.8}, 300, 'ease-in');
-            this.showImage();
+            return this;
         },
 
         createOverlay: function () {
@@ -61,16 +62,40 @@ var JSGallery = JSGallery || {};
             $('.js-gallery-image').hide();
         },
 
+        showLoader: function () {
+            if (this.loader.length === 0) {
+                this.loader = this.createLoader();
+            }
+            this.loader.show();
+            return this;
+        },
+
+        createLoader: function () {
+            var loader= $('<div id="js-gallery-loader" class="js-gallery-loader" />');
+            loader.html('loading...');
+            return loader.prependTo('body');
+        },
+
+        hideLoader: function () {
+            this.loader.hide();
+            return this;
+        },
+
         showImage: function () {
             var img,
                 h = $(window).height() - 80,
                 self = this,
                 w;
             if (this.images.indexOf(this.currentPhoto) === -1) {
+                this.showOverlay().showLoader();
                 this.images.push(this.currentPhoto);
                 img = new Image();
-                img.src = this.root.find('a').eq(this.currentPhoto).attr('href');
+                //img.src = this.root.find('a').eq(this.currentPhoto).attr('href');
+                setTimeout(function () {
+                    img.src = self.root.find('a').eq(self.currentPhoto).attr('href');
+                }, 1000);
                 img.onload = function () {
+                    self.hideLoader();
                     if (h > this.height) {
                         h = this.height;
                     }
@@ -88,6 +113,7 @@ var JSGallery = JSGallery || {};
                         .animate({opacity: 1}, 300, 'ease-in');
                 };
             } else {
+                this.showOverlay();
                 img = $('.js-gallery-image[data-index="' + this.currentPhoto + '"]');
                 if (h > img[0].height) {
                     h = img[0].height;

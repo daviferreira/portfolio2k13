@@ -183,6 +183,23 @@
 
 }
 
+.js-gallery-loader {
+    position: fixed;
+    z-index: 1010;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+    padding-top: 45px;
+    margin: -50px 0 0 -50px;
+    color: #000;
+    color: #999;
+    font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
+    @include box-sizing(border-box);
+}
+
 .js-gallery-overlay {
     display: none;
     position: fixed;
