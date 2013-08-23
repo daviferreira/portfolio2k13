@@ -90,10 +90,7 @@ var JSGallery = JSGallery || {};
                 this.showOverlay().showLoader();
                 this.images.push(this.currentPhoto);
                 img = new Image();
-                //img.src = this.root.find('a').eq(this.currentPhoto).attr('href');
-                setTimeout(function () {
-                    img.src = self.root.find('a').eq(self.currentPhoto).attr('href');
-                }, 1000);
+                img.src = this.root.find('a').eq(this.currentPhoto).attr('href');
                 img.onload = function () {
                     self.hideLoader();
                     if (h > this.height) {
