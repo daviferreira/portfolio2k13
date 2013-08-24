@@ -12,4 +12,5 @@
 //
 //= require 'zepto.min.js'
 //= require turbolinks
+//= require swipe
 //= require_tree .

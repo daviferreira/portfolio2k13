@@ -1,5 +1,7 @@
-<div class="cover clearfix" id="cover">
-    <%= render_page "carrossel" %>
+<div class="cover clearfix swipe" id="cover">
+    <div class="swipe-wrap">
+        <%= render_page "carrossel" %>
+    </div>
 </div>
 <div class="cover-navigation container" id="cover-navigation"></div>
 <div class="projects-container">
@@ -59,18 +61,20 @@
                     <li><a href="https://speakerdeck.com/daviferreira/workshop-compass-globocom" class="compass-deck" target="_blank"><%= image_tag "sass-deck.jpg" %></a></li>
                 </ul>
             </div>
-            <div class="latest-posts-wrapper">
-                <div id="latest-posts" class="clearfix">
-                    <% @posts.each_with_index do |post, index| %>
-                    <article class="post<% if index == 0 %> post-active<% end %>">
-                        <a href="<%= post.external_url? ? post.external_url : post_path(post, :locale => current_locale) %>">
-                            <h2><%= post.title %></h2>
-                            <p><%= post.abstract %></p>
-                        </a>
-                    </article>
-                    <% end %>
-                </div>
-            </div>
+              <div id="latest-posts" class="clearfix swipe">
+                  <div class="swipe-wrap">
+                      <% @posts.each_with_index do |post, index| %>
+                      <div class="post<% if index == 0 %> post-active<% end %>">
+                          <article>
+                              <a href="<%= post.external_url? ? post.external_url : post_path(post, :locale => current_locale) %>">
+                                  <h2><%= post.title %></h2>
+                                  <p><%= post.abstract %></p>
+                              </a>
+                          </article>
+                      </div>
+                      <% end %>
+                  </div>
+              </div>
             <div class="posts-navigation" id="latest-posts-navigation"></div>
         </section>
     </div>

@@ -7,17 +7,12 @@ $project_width: 374px;
 $project_height: 242px;
 
 .cover {
-    display: none;
-    margin: 0;
-    border-bottom: 1px solid #dbdbdb;
-    width: 30000px;
-    overflow: hidden;
-    @include transition(margin-left .5s $ease-in-sine);
-    section {
-        float: left;
-        background-color: $link_color;
-        padding: 200px 0;
-        text-align: center;
+    .swipe-wrap {
+        div {
+            background-color: $link_color;
+            padding: 200px 0;
+            text-align: center;
+        }
     }
     h1 {
         margin: 0;
@@ -494,15 +489,6 @@ a:hover {
     }
 }
 
-.latest-posts-wrapper {
-    overflow: hidden;
-}
-
-#latest-posts {
-    width: 2825px;
-    @include transition(margin-left .3s $ease-in-quad);
-}
-
 .secondary-page {
     .page {
         padding: 60px 40px 40px;
@@ -645,4 +631,19 @@ a:hover {
         @include box-shadow(inset 0 0 4px rgba(#000, .6));
         @include border-radius(50%);
     }
+}
+
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.swipe-wrap > div {
+    float:left;
+    width:100%;
+    position: relative;
 }
