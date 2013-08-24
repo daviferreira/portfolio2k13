@@ -449,6 +449,7 @@ a:hover {
         overflow: hidden;
         padding: 20px 0 0;
         height: 370px;
+        @include box-sizing(border-box);
         .limit {
             position: absolute;
             left: 0;
