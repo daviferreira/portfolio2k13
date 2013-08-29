@@ -225,12 +225,17 @@ a:hover {
         width: 564px;
         min-height: 200px;
         margin: 0 42px 0 0;
+        @include box-sizing(border-box);
+        @include respond-to(handhelds) {
+            width: 100%;
+            margin: 0;
+        }
         &:last-child {
             margin-right: 0;
         }
     }
     h1 {
-        padding: 6px;
+        padding: 5px;
         margin: 0 0 20px 0;
         border-bottom: 1px solid rgba(#ccc, .3);
         font-family: ProximaNovaBold, Helvetica, Arial, sans-serif;
@@ -238,6 +243,10 @@ a:hover {
         font-weight: normal;
         letter-spacing: -1px;
         text-transform: lowercase;
+        @include respond-to(handhelds) {
+            margin: 0;
+            padding: 5px 10px;
+        }
         em {
             font-family: HelveticaNeue, sans-serif;
             font-size: 18px;
@@ -253,6 +262,11 @@ a:hover {
     }
     article {
         padding: 20px 0;
+        @include respond-to(handhelds) {
+            text-align: center;
+            padding: 20px 10px;
+            border-bottom: 1px dotted #dbdbdb;
+        }
         h2 {
             margin: 10px 0;
             color: #333;
@@ -263,7 +277,7 @@ a:hover {
             line-height: 24px;
         }
         p {
-            line-height: 22px;
+            line-height: 18px;
             color: #82858a;
             a {
                 display: block;
@@ -275,10 +289,16 @@ a:hover {
         h2, p {
             float: right;
             width: 426px;
+            @include respond-to(handhelds) {
+                width: 100%;
+            }
         }
         a {
             margin: 10px 0 0;
             text-align: left;
+            @include respond-to(handhelds) {
+                text-align: center;
+            }
         }
         figure {
             position: relative;
@@ -288,6 +308,11 @@ a:hover {
             width: 118px;
             height: 118px;
             @include border-radius(50%);
+            @include respond-to(handhelds) {
+                display: block;
+                margin: 0 auto;
+                float: none;
+            }
             &:after {
                 content: "";
                 position: absolute;
