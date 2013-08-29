@@ -77,6 +77,12 @@ a:hover {
 
 .projects-container {
     background-color: rgba(#dbdbdb, .1);
+    @include respond-to(handhelds) {
+        display: none;
+    }
+    @include respond-to(landscape) {
+        display: none;
+    }
 }
 
 .projects {
@@ -245,7 +251,7 @@ a:hover {
         text-transform: lowercase;
         @include respond-to(handhelds) {
             margin: 0;
-            padding: 5px 10px;
+            padding: 5px 20px;
         }
         em {
             font-family: HelveticaNeue, sans-serif;
@@ -264,8 +270,7 @@ a:hover {
         padding: 20px 0;
         @include respond-to(handhelds) {
             text-align: center;
-            padding: 20px 10px;
-            border-bottom: 1px dotted #dbdbdb;
+            padding: 20px;
         }
         h2 {
             margin: 10px 0;
@@ -327,20 +332,41 @@ a:hover {
 
     }
     .writing-talks {
+        @include respond-to(handhelds) {
+            margin-top: 30px;
+        }
         article {
             float: left;
+            @include box-sizing(border-box);
+            @include respond-to(handhelds) {
+                float: none;
+            }
         }
         .book {
             width: 335px;
+            @include respond-to(handhelds) {
+                width: 100%;
+            }
             img {
                 @include transition(all .15s linear);
             }
             figure, .description {
                 float: left;
+                @include respond-to(handhelds) {
+                    float: none;
+                    display: block;
+                    margin: 0 auto;
+                }
             }
             .description {
                 width: 162px;
                 margin: 45px 0 0 20px;
+                @include box-sizing(border-box);
+                @include respond-to(handhelds) {
+                    width: 100%;
+                    margin: 20px 0 0;
+                    text-align: center;
+                }
             }
             &:hover {
                 img {
@@ -352,10 +378,19 @@ a:hover {
         .decks {
             padding-bottom: 20px;
             border-bottom: 1px solid #dbdbdb;
+            @include respond-to(handhelds) {
+                padding-bottom: 0;
+            }
             li {
                 width: 228px;
                 height: 66px;
                 overflow: hidden;
+                @include respond-to(handhelds) {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
                 &:hover {
                     @include box-shadow(0 0 6px #000);
                 }
@@ -396,11 +431,17 @@ a:hover {
 .about-me {
     section {
         width: $project_width + 1;
-        height: 270px;
+        height: 420px;
         margin: 0 21px 0 0;
         padding: 60px 0;
         float: left;
         border-right: 1px solid #dbdbdb;
+        @include box-sizing(border-box);
+        @include respond-to(handhelds) {
+            width: 100%;
+            float: none;
+            height: auto;
+        }
         &:last-child {
             margin-right: 0;
             border-right: none;
@@ -411,10 +452,18 @@ a:hover {
     }
     .social {
         padding-top: 30px;
+        @include respond-to(handhelds) {
+            padding-top: 0;
+        }
         li {
+            display: block;
             padding: 20px;
             margin: 0 30px 0 0;
             border-bottom: 1px dotted #dbdbdb;
+            @include box-sizing(border-box);
+            @include respond-to(handhelds) {
+                margin: 0;
+            }
             &:first-child {
                 margin-top: 0;
             }
@@ -679,4 +728,10 @@ a:hover {
     float:left;
     width:100%;
     position: relative;
+}
+
+@include respond-to(handhelds) {
+    #latest-posts {
+        margin-top: 30px;
+    }
 }
