@@ -308,6 +308,9 @@ footer {
         font-size: 32px;
         font-style: italic;
         line-height: 36px;
+        @include respond-to(handhelds) {
+            font-size: 24px;
+        }
         @include text-shadow(-1px -1px 3px #000);
         a {
             color: #de5643;

@@ -454,6 +454,8 @@ a:hover {
         padding-top: 30px;
         @include respond-to(handhelds) {
             padding-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         li {
             display: block;
@@ -463,6 +465,7 @@ a:hover {
             @include box-sizing(border-box);
             @include respond-to(handhelds) {
                 margin: 0;
+                background-color: #f7f7f7;
             }
             &:first-child {
                 margin-top: 0;
@@ -502,11 +505,18 @@ a:hover {
     .myself {
         padding-top: 30px;
         padding-bottom: 90px;
+        @include respond-to(handhelds) {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dbdbdb;
+        }
         article {
             font-family: ProximaNovaLight, Helvetica, Arial, sans-serif;
             font-weight: normal;
             padding-right: 31px;
             text-align: center;
+            @include respond-to(handhelds) {
+                padding: 0 20px;
+            }
         }
         h3 {
             padding: 6px 6px 19px 6px;
@@ -531,6 +541,11 @@ a:hover {
         padding: 20px 0 0;
         height: 370px;
         @include box-sizing(border-box);
+        @include respond-to(handhelds) {
+            padding: 30px 20px;
+            height: auto;
+            border-top: 1px solid #dbdbdb;
+        }
         .limit {
             position: absolute;
             left: 0;
