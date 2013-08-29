@@ -188,6 +188,9 @@ a:hover {
             border-bottom: 1px dotted $hover_color;
             color: #fff;
         }
+        @include respond-to(handhelds) {
+            display: none;
+        }
     }
     .title, nav {
         padding: 10px;
@@ -228,7 +231,11 @@ a:hover {
     @include transition(top .2s $ease-in-out-circ);
     @include box-shadow(0 0 0 4px rgba(#000, .1));
     &.visible {
-        top: 74px;
+        top: 64px;
+        @include respond-to(handhelds) {
+            top: 54px;
+            height: auto;
+        }
     }
     a {
         display: block;
@@ -238,9 +245,18 @@ a:hover {
         font-size: 32px;
         letter-spacing: -1px;
         text-align: center;
-        text-transform: capitalize;
+        text-transform: lowercase;
+        @include respond-to(handhelds) {
+            font-size: 20px;
+        }
         &:last-child {
-            border-bottom: none;
+            border-bottom: 4px solid rgba(#000, .1);
+        }
+    }
+    .menu-language {
+        display: none;
+        @include respond-to(handhelds) {
+            display: block;
         }
     }
 }

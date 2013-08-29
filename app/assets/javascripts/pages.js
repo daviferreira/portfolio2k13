@@ -4,10 +4,6 @@
 (function (window, document, $) {
     'use strict';
 
-    var carrosselNav,
-        navProjects = $('#cover-navigation'),
-        navPosts = $('#latest-posts-navigation');
-
     $('#navicon').click(function (e) {
         e.preventDefault();
         $('#menu').toggleClass('visible');
@@ -17,7 +13,18 @@
         return;
     }
 
-    window.projectsCarrossel = new Swipe(document.getElementById('cover'), {
+    FastClick.attach(document.body);
+
+    var carrosselNav,
+        navProjects = $('#cover-navigation'),
+        navPosts = $('#latest-posts-navigation'),
+        cover = document.getElementById('cover');
+
+    if (!cover) {
+        return;
+    }
+
+    window.projectsCarrossel = new Swipe(cover, {
         disableScroll: true,
         auto: 10000,
         transitionEnd: function (index, el) {

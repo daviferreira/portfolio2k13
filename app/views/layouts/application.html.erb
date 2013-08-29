@@ -23,11 +23,7 @@
                     </a>
                 </div>
                 <div class="language">
-                    <% if I18n.locale == :en %>
-                        <%= link_to raw("ver em português &#8250;"), root_path %>
-                    <% else %>
-                        <%= link_to raw("switch to english &#8250;"), localized_root_path(:locale => "en") %>
-                    <% end %>
+                  <%= render "shared/language" %>
                 </div>
                 <a href="#menu" class="border-menu" id="navicon"></a>
             </div>
@@ -46,6 +42,9 @@
               <%= link_to t('presentations'), page_path('decks', :locale => current_locale) %>
               <%= link_to t('about'), page_path('about', :locale => current_locale) %>
             <% end %>
+            <div class="menu-language">
+              <%= render "shared/language" %>
+            </div>
         </nav>
         <%= yield %>
     </div>
