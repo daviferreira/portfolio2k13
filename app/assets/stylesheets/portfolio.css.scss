@@ -1,6 +1,7 @@
 @import "variables";
 @import "compass/css3";
 @import "bourbon";
+@import "responsive";
 
 @import "icons/*.png";
 @include all-icons-sprites;
@@ -108,6 +109,12 @@ a:hover {
 
 .container {
     width: 1170px;
+    @include respond-to(handhelds) {
+        width: 320px;
+    }
+    @include respond-to(landscape) {
+        width: 480px;
+    }
     margin-left: auto;
     margin-right: auto;
 }
@@ -148,6 +155,9 @@ a:hover {
     font-size: 36px;
     width: 40px;
     height: 30px;
+    @include respond-to(handhelds) {
+        margin: 0 5px 0 0;
+    }
     &:hover {
         &:before {
             border-color: rgba(#fff, .7);
@@ -173,10 +183,18 @@ a:hover {
     left: 0;
     z-index: 20;
     width: 100%;
-    height: 60px;
-    padding: 15px 0 0;
+    padding: 10px;
     background-color: rgba(#000, .9);
     @include box-shadow(0 0 0 4px rgba(#000, .1));
+    @include box-sizing(border-box);
+    @include respond-to(handhelds) {
+        padding: 0;
+        height: auto;
+        .container {
+            padding: 5px;
+            @include box-sizing(border-box);
+        }
+    }
     .language {
         float: left;
         padding: 15px 0 14px 20px;
@@ -188,6 +206,10 @@ a:hover {
             border-bottom: 1px dotted $hover_color;
             color: #fff;
         }
+        @include respond-to(handhelds) {
+            display: none;
+        }
+
     }
     .title, nav {
         padding: 10px;
@@ -223,12 +245,16 @@ a:hover {
     right: 0;
     z-index: 15;
     background-color: #f7f7f7;
-    height: 440px;
     width: 100%;
     @include transition(top .2s $ease-in-out-circ);
     @include box-shadow(0 0 0 4px rgba(#000, .1));
+    @include box-sizing(border-box);
     &.visible {
         top: 74px;
+        @include respond-to(handhelds) {
+            top: 54px;
+            height: auto;
+        }
     }
     a {
         display: block;
@@ -239,6 +265,9 @@ a:hover {
         letter-spacing: -1px;
         text-align: center;
         text-transform: capitalize;
+        @include respond-to(handhelds) {
+            font-size: 20px;
+        }
         &:last-child {
             border-bottom: none;
         }

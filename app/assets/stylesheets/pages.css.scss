@@ -2,6 +2,7 @@
 @import "bourbon";
 @import "compass/css3";
 @import "flipping_panel";
+@import "responsive";
 
 $project_width: 374px;
 $project_height: 242px;
@@ -40,6 +41,12 @@ $project_height: 242px;
                 color: rgba(#fff, .8);
             }
         }
+    }
+    @include respond-to(handhelds) {
+        display: none;
+    }
+    @include respond-to(landscape) {
+        display: none;
     }
 }
 
