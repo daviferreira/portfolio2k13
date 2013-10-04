@@ -60,6 +60,7 @@
         </div>
     </footer>
     <% end %>
-    <script type="text/javascript">function downloadJSAtOnload(){var element=document.createElement("script");element.src='<%= javascript_path('application') %>';document.body.appendChild(element)}if(window.addEventListener)window.addEventListener("load",downloadJSAtOnload,false);else if(window.attachEvent)window.attachEvent("onload",downloadJSAtOnload);else window.onload=downloadJSAtOnload;var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-1735379-1"]);_gaq.push(["_trackPageview"]);(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-1735379-1"]);_gaq.push(["_trackPageview"]);(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script>
 </body>
 </html>
