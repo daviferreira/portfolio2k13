@@ -1,78 +1,79 @@
 @import "variables";
-@import "responsive";
 
-.panel {
-  width: 374px;
-  height: 242px;
-  position: relative;
-  -webkit-perspective: 600px;
-  -moz-perspective: 600px;
+@media screen and (min-width: 768px) {
+    .panel {
+      width: 374px;
+      height: 242px;
+      position: relative;
+      -webkit-perspective: 600px;
+      -moz-perspective: 600px;
+    }
+    /* -- make sure to declare a default for every property that you want animated -- */
+    /* -- general styles, including Y axis rotation -- */
+    .panel .front {
+      float: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: inherit;
+      height: inherit;
+      background: #6b7077;
+      text-align: center;
+
+      -webkit-transform: rotateX(0deg) rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+
+      -moz-transform: rotateX(0deg) rotateY(0deg);
+      -moz-transform-style: preserve-3d;
+      -moz-backface-visibility: hidden;
+
+      /* -- transition is the magic sauce for animation -- */
+      -o-transition: all .3s ease-in-out;
+      -ms-transition: all .3s ease-in-out;
+      -moz-transition: all .3s ease-in-out;
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+    }
+    .panel:hover .front {
+      z-index: 10;
+      background: #333;
+
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+    }
+
+    .panel .back {
+      float: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      width: inherit;
+      height: inherit;
+      background: $hover_color;
+      -webkit-transform: rotateY(-180deg);
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+
+      -moz-transform: rotateY(-180deg);
+      -moz-transform-style: preserve-3d;
+      -moz-backface-visibility: hidden;
+
+      /* -- transition is the magic sauce for animation -- */
+      -o-transition: all .3s ease-in-out;
+      -ms-transition: all .3s ease-in-out;
+      -moz-transition: all .3s ease-in-out;
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+    }
+
+    .panel:hover .back {
+      z-index: 15;
+      background: $hover_color;
+
+      -webkit-transform: rotateX(0deg) rotateY(0deg);
+      -moz-transform: rotateX(0deg) rotateY(0deg);
+    }
 }
-/* -- make sure to declare a default for every property that you want animated -- */
-/* -- general styles, including Y axis rotation -- */
-.panel .front {
-  float: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: inherit;
-  height: inherit;
-  background: #6b7077;
-  text-align: center;
-
-  -webkit-transform: rotateX(0deg) rotateY(0deg);
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-
-  -moz-transform: rotateX(0deg) rotateY(0deg);
-  -moz-transform-style: preserve-3d;
-  -moz-backface-visibility: hidden;
-
-  /* -- transition is the magic sauce for animation -- */
-  -o-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-.panel:hover .front {
-  z-index: 10;
-  background: #333;
-
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-}
-
-.panel .back {
-  float: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  width: inherit;
-  height: inherit;
-  background: $hover_color;
-  -webkit-transform: rotateY(-180deg);
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-
-  -moz-transform: rotateY(-180deg);
-  -moz-transform-style: preserve-3d;
-  -moz-backface-visibility: hidden;
-
-  /* -- transition is the magic sauce for animation -- */
-  -o-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-.panel:hover .back {
-  z-index: 15;
-  background: $hover_color;
-
-  -webkit-transform: rotateX(0deg) rotateY(0deg);
-  -moz-transform: rotateX(0deg) rotateY(0deg);
-}  

@@ -1,0 +1,158 @@
+@import "compass/css3";
+@import "variables";
+
+@media screen and (max-width: 767px) {
+    .cover {
+        h1 {
+            font-size: 40px;
+            line-height: 50px;
+        }
+        .swipe-wrap {
+            div {
+                padding: 100px 50px;
+                @include box-sizing(border-box);
+            }
+        }
+        p {
+            width: 100%;
+            padding: 0 50px;
+            @include box-sizing(border-box);
+        }
+    }
+    .projects {
+        .project {
+            float: none;
+            width: 100%;
+            margin: 0 0 40px 0;
+            background: $hover_color;
+            figure, img, figure:after {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    .panel {
+        width: 100%;
+    }
+    .secondary-info {
+        section {
+            width: 100%;
+            margin: 0;
+        }
+        h1 {
+            margin: 0;
+            padding: 5px 20px;
+        }
+        article {
+            padding: 20px;
+            text-align: center;
+        }
+        .open-source {
+            h2, p {
+                width: 100%;
+            }
+            a {
+                text-align: center;
+            }
+            figure {
+                display: block;
+                margin: 0 auto;
+                float: none;
+            }
+        }
+        .writing-talks {
+            margin-top: 30px;
+            article {
+                float: none;
+            }
+            .book {
+                width: 100%;
+                figure, .description {
+                    float: none;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .description {
+                    width: 100%;
+                    margin: 20px 0 0;
+                    text-align: center;
+                }
+            }
+            .decks {
+                padding-bottom: 0;
+                li {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .about-me {
+        section {
+            width: 100%;
+            float: none;
+            height: auto;
+        }
+        .social {
+            padding-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            li {
+                margin: 0;
+                background-color: #f7f7f7;
+            }
+        }
+        .myself {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dbdbdb;
+            article {
+                padding: 0 20px;
+            }
+        }
+        .tweets {
+            padding: 30px 20px;
+            height: auto;
+            border-top: 1px solid #dbdbdb;
+        }
+    }
+    #latest-posts {
+        margin-top: 30px;
+    }
+    .container {
+        width: 100%;
+    }
+    .border-menu {
+        margin: 0 5px 0 0;
+    }
+    .top-nav-bar {
+        padding: 0;
+        height: auto;
+        .container {
+            padding: 5px;
+            @include box-sizing(border-box);
+        }
+        .language {
+            display: none;
+        }
+    }
+    #menu {
+        &.visible {
+            top: 54px;
+            height: auto;
+        }
+        a {
+            font-size: 20px;
+        }
+        .menu-language {
+            display: block;
+        }
+    }
+    footer {
+        .m-contact {
+            font-size: 24px;
+        }
+    }
+}
