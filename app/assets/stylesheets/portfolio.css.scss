@@ -175,6 +175,7 @@ a:hover {
     width: 100%;
     padding: 10px;
     background-color: rgba(#000, .9);
+    -webkit-transform: translateZ(0);
     @include box-shadow(0 0 0 4px rgba(#000, .1));
     @include box-sizing(border-box);
     .language {
