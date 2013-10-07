@@ -225,6 +225,7 @@ a:hover {
     z-index: 15;
     background-color: #f7f7f7;
     width: 100%;
+    -webkit-transform: translateZ(0);
     @include transition(top .2s $ease-in-out-circ);
     @include box-shadow(0 0 0 4px rgba(#000, .1));
     @include box-sizing(border-box);
