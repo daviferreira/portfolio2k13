@@ -38,7 +38,7 @@ en:
     new: "New category"
     updated: "Category updated"
   meta:
-      title: "Front-end developer - Davi Ferreira's Portfolio"
+    title: "Front-end developer - Davi Ferreira's Portfolio"
     description: "Davi Ferreiras is a front-end developer based on Copenhagen, Denmark, with also strong skills on back-end languages like Python, Ruby and PHP."
   photos:
     add: "Add photo"
